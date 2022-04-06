@@ -1,0 +1,289 @@
+---
+title: "¿Quién justifica qué?"
+subtitle: "_El papel del sentido de (in)justicia y el estatus en las justificaciones de violencia en contexto de protesta_"  
+author: "Martín Venegas M"
+date: '`r Sys.Date()`'
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      ratio: '16:9'
+      countIncrementalSlides: false
+      beforeInit: "https://jciturras.github.io/ayudantia-sol3051/slides/00-intro-r/macros.js"
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>`
+    css: ["https://jciturras.github.io/ayudantia-sol3051/slides/00-intro-r/xaringan-coes.css","https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"]
+    seal: false # esto omite title slide automática
+---
+
+```{r setup, include=FALSE,eval=TRUE}
+options(htmltools.dir.version = FALSE)
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+library("xaringanExtra")
+library("fontawesome")
+xaringanExtra::use_progress_bar(color = "red", location = "bottom")
+```
+class: inverse, right, middle
+
+# ¿Quién justifica qué? _El rol del sentido de injusticia en las justificaciones de violencia en contexto de protesta_ <br>
+
+.medium[.orange[**Martín Venegas Márquez** (martin.venegas@ug.uchile.cl)]]
+
+
+
+.small[Facultad de Ciencias Sociales, Universidad de Chile] <br> 
+
+
+***
+.medium[[.orange[_Coloquio de Investigación en Desigualdad y Ciudadanía - **Primer Semestre 2022**_]](https://github.com/formacionciudadana)]<br>
+.medium[Abril, 2022]
+
+---
+class: slideInRight, middle, inverse
+
+***
+# Contenidos
+***
+
+- **Problematización**
+
+- **Pregunta y Objetivos de Investigación** 
+
+- **Conceptos e Hipótesis**
+
+- **Método**
+
+- **Resultados**
+---
+
+class: slideInRight, middle, inverse
+
+***
+# Problematización
+***
+
+### .medium[Relevancia Social]
+### .medium[Relevancia Académica]
+### .medium[Contribuciones de este estudio]
+---
+class: slideInRight, middle, inverse
+
+***
+# Problematización
+***
+
+### [**Relevancia Social**]()
+### .medium[Relevancia Académica]
+### .medium[Contribuciones de este estudio]
+---
+# Violencia
+
+- **Definición:** Ejercicio intencional del daño
+
+- **Componente principal de la experiencia humana:** guerras, crímenes, abusos.
+
+- **Convivencia humana**: lidiar de alguna forma con la violencia (e.g. contrato social (Hobbes), estado moderno (Weber)).
+
+- **Desafío de las sociedades democráticas:** disminuir los niveles de violencia
+
+## [**¿Erradicable?** Coexistencia con la violencia → Plantear limites para uso o... Justificación de la Violencia]()
+
+---
+# Justificación de la Violencia
+
+- **Definición:** Argumentación de que el acto violento trae alguna consecuencia que lo compense
+
+- **Estado Moderno:** Monopolio de la violencia Física -> Agentes representates del estado ejercen violencia justificada
+
+## [**¿Es siempre así?**]()
+
+- **Contexto de Protesta → Estallido social: Dos reflexiones**
+
+  + 1) El uso de la violencia por parte de agentes representates del Estado (carabineros) no siempre está justificada. **Su justificación ha disminuido (ELSOC)**
+  
+  + 2) El uso de la violencia por parte de agentes no estatales (manifestantes) algunas veces se justifica. **Su justificación ha aumentado (ELSOC)**
+---
+# Justificación de la Violencia en Contexto de Protesta
+
+## [**Consecuencias:**]() Quienes justifican la violencia son más tenientes a ejercerla o a condonar el acto violento de otros -> **Escalada de violencia que amenace la convivencia pacifica**
+
+# [**¿Quienes y por qué justifican la violencia?**]()
+---
+class: slideInRight, middle, inverse
+
+***
+# Problematización
+***
+
+### .medium[Relevancia Social]
+### [**Relevancia Académica**]()
+### .medium[Contribuciones de este estudio]
+---
+# Distinción del Objeto de Estudio
+
+En la literatura emírica se distingue la justificación de la violencia de acuerdo a sus **fines**
+
+### [**Justificación de la Violencia por el Cambio Social**]()
+
+Aquella que busca generar cambios en las estructurar jerárquicas de la sociedad.
+
+### [**Justificación de la Violencia por el Control Social**]()
+
+Aquella que busca mantener las estructuras jerarquicas de las sociedad.
+---
+
+# Tres literaturas
+
+1. **Enfoque criminológico de las teorías del conflicto social:** 
+
+2. **Enfoque de teorías de Autoritarismo de Derecha (RWA) y Dominancia Social (SDO):**
+
+3. **Enfoque de justicia procedimental:**
+
+---
+# Brechas/Problematizaciones
+
+1. Carencia de marco unificado y concepto común. Uso de distintos conceptos medido de distintas formas.
+
+2. Rol de la Justicia Distributiva
+
+3. Justicia en el trato
+
+---
+class: slideInRight, middle, inverse
+
+***
+# Problematización
+***
+
+### .medium[Relevancia Social]
+### .medium[Relevancia Académica]
+### [**Contribuciones de este estudio**]()
+---
+# Tres contribuciones
+
+1. **Revisión conceptual de las Justificaciones de Violencia.** Propuesta de un modelo apra comprender una situación de justificación de la violencia.
+
+2. **Integrar la dimensión de justicia distributiva**  
+
+  a) Contribuir a la construcción de una agenda de justificación de la violencia ampliando los factores explicativos  
+  
+  b) Contribuir a la agenda de justicia distributiva al elaborar evidencia sobre los consecuencias de la justicia distributiva
+  
+3. **Añadir evidencia empírica a la relación de justicia en el trato y las justificaciones de violencia**.
+
+---
+class: slideInRight, middle, inverse
+
+***
+# Pregunta y Objetivos de Investigación
+***
+---
+# Pregunta
+
+> ¿Cuál es la relación entre el sentido de injusticia, las percepciones de justicia en el trato y la pertenencia a grupos desventajados con las justificaciones de la violencia en contexto de protesta, tanto por el cambio social, como por el control social, en Chile al año 2019?
+
+---
+# Objetivos
+
+> **Determinar** la relación entre el sentido de injusticia, las percepciones de justicia en el trato y la pertenencia a grupos desventajados con las justificaciones de la violencia en contexto de protesta, tanto por el cambio social, como por el control social, en Chile al año 2019
+
+- **Explicar** la relación entre el sentido de injusticia y las justificaciones de violencia en contexto de protesta, tanto por el cambio social, como por el control social.
+
+- **Explicar** la relación entre las percepciones del trato justo y las justificaciones de violencia en contexto de protesta, tanto por el cambio social, como por el control social.
+
+- **Explorar** el rol mediador del sentido de injusticia en la relación entre grupos desventajados y las justificaciones de violencia en contexto de protesta, tanto por el cambio, como por el control social.
+---
+
+class: slideInRight, middle, inverse
+
+***
+# Conceptos e Hipótesis
+***
+
+### [**Justificación de la Violencia en Contexto de Protesta**]()
+### .medium[Sentido de Injusticia]
+### .medium[Percepciones de Trato Justo]
+### .medium[Pertenencia a Grupos Desventajados]
+---
+# Justificación de la Violencia en Contexto de Protesta
+
+- Modelo
+---
+
+class: slideInRight, middle, inverse
+
+***
+# Conceptos e Hipótesis
+***
+
+### .medium[Justificación de la Violencia en Contexto de Protesta]
+### [**Sentido de Injusticia**]()
+### .medium[Percepciones de Trato Justo]
+### .medium[Pertenencia a Grupos Desventajados]
+---
+# Sentido de Injusticia
+
+- Def
+- Caract
+- Hypo
+---
+class: slideInRight, middle, inverse
+
+***
+# Conceptos e Hipótesis
+***
+
+### .medium[Justificación de la Violencia en Contexto de Protesta]
+### .medium[Sentido de Injusticia]
+### [**Percepciones de Trato Justo**]()
+### .medium[Pertenencia a Grupos Desventajados]
+---
+# Percepciones de Trato Justo
+
+- Def
+- Caract
+- Hypo
+---
+
+class: slideInRight, middle, inverse
+
+***
+# Conceptos e Hipótesis
+***
+
+### .medium[Justificación de la Violencia en Contexto de Protesta]
+### .medium[Sentido de Injusticia]
+### .medium[Percepciones de Trato Justo]
+### [**Pertenencia a Grupos Desventajados**]()
+---
+# Pertenencia a Grupos Desventajados
+
+- Def
+- Cract
+- Hypo
+---
+
+class: slideInRight, middle, inverse
+
+***
+# Método
+***
+---
+
+class: slideInRight, middle, inverse
+
+***
+# Resultados
+***
+---
+class: slideInRight, middle, inverse, center
+
+# ¡Muchas Gracias!
+---
