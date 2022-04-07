@@ -4,7 +4,6 @@ navbar:
   title: "Thesis Presentations"
   left:
   - text: "Presentación avance 07-04-2022 para Seminario de Título II"
-    href: "seminario-titulo2/avance-05-04-22/avance-05-04-22.html""
+    href: seminario-titulo2/avance-05-04-22/avance-05-04-22.html
   html_document:
     theme: yeti # yeti  spacelab simplex sandstone cosmo cerulean paper darkly flatly lumen readable
-    css: 'styles.css'
