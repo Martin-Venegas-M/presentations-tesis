@@ -86,7 +86,7 @@ class: slideInRight, middle, inverse
 ---
 # Violencia
 
-- **Definición:** Ejercicio intencional del daño
+- **Definición:** Ejercicio intencional del daño (enfoque minimalista) (Bufacchi, 2005)
 
 - **Componente principal de la experiencia humana:** guerras, crímenes, abusos.
 
@@ -279,7 +279,7 @@ class: slideInRight, middle, inverse
 ---
 # Hipótesis 2
 
-**Antecedentes:** Enfoque criminológico de las teorías del conflicto social y otros estudios
+**Antecedentes:** Enfoque criminológico de las teorías del conflicto social (Thompson, 2004) y otros estudios (Blumenthal, 1973; Gerber et al. 2017)
 
 - *H2a*: Personas pertenecientes a grupos desventajados tenderán a justificar más la violencia por el cambio social.
 
@@ -304,12 +304,12 @@ class: slideInRight, middle, inverse
 - **Medición:** Evaluaciones de Justicia -> comparaciones entre las recompensas reales (e.g. ingresos) y las recompensas consideradas justas (e.g. ingresos justos) de parte de un individuo.
   + Reflexivas: quien recibe las recompensas y quien evalúa su justicia son las mismas (Observador = Recompensado)
   
-  + No Reflexivas: quien recibe las recomensas y quien evalúa su justicia son diferentes (Observador ≠ Recompensado)
+  + No Reflexivas: quien recibe las recompensas y quien evalúa su justicia son diferentes (Observador ≠ Recompensado)
 ---
 
 # Hipótesis 3
 
-**Antecedentes:** Enfoque criminológico de las teorías del conflicto social (Thompson, 2004), justicia distributiva (normativa y empírica)
+**Antecedentes:** Justicia distributiva (Jasso, 2016; Liebig y Sauer, 2016), literatura normativa sobre justificación de la violencia (Reitan, 2002) y relación justificación violencia-violencia (Markowitz, 2001; Kalmoe, 2014)
 
 - *H3a*: Personas que sientan mayor injusticia en la distribución de ingresos del país tenderán a justificar más la violencia por el cambio social.
 
@@ -321,9 +321,9 @@ class: slideInRight, middle, inverse
 
 **Antecedentes:** Tesis de la desventaja (Robinson, 1983) y privación relativa (Stewart, 2006; Gurr, 1970)
 
-- *H4a*: Personas pertenecientes a grupos desventajados justifican más la violencia por el cambio social porque experimentan mayores niveles de injusticia en la distribución de ingresos
+- *H4a*: Personas pertenecientes a grupos desventajados justifican más la violencia por el cambio social porque sienten mayores niveles de injusticia en la distribución de ingresos
 
-- *H4b*: Personas pertenecientes a grupos desventajados justifican menos la violencia por el control social porque experimentan mayores niveles de injusticia en la distribución de ingresos
+- *H4b*: Personas pertenecientes a grupos desventajados justifican menos la violencia por el control social porque sienten mayores niveles de injusticia en la distribución de ingresos
 ---
 #### Figura 2. Síntesis modelo de hipótesis principal
 
@@ -465,7 +465,7 @@ class: slideInRight, middle, inverse
 
 - ¿Dicotomizar variables dependientes? -> Modelos Logit Binarios
 
-- ¿Categorizar Sentido de Injusticia para modelos?
+- ¿Lectura de coeficientes de sentido de injusticia? -> ¿Se pueden leer lineales?
 ---
 class: slideInRight, middle, inverse
 
