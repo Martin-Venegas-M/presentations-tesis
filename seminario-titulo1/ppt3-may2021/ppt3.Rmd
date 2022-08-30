@@ -1,0 +1,452 @@
+---
+title: "Justificaciones de violencia y experiencias de injusticia:"
+subtitle: "El caso de Chile post-estallido"  
+author: "Martín Venegas M"
+date: '`r Sys.Date()`'
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      ratio: '16:9'
+      countIncrementalSlides: false
+      beforeInit: "https://jciturras.github.io/ayudantia-sol3051/slides/00-intro-r/macros.js"
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>`
+    css: ["https://jciturras.github.io/ayudantia-sol3051/slides/00-intro-r/xaringan-coes.css","https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"]
+    #seal: false # esto omite title slide automática  
+---
+class: center, middle
+
+# _Coloquio de investigación en desigualdad y ciudadanía - 1er Sem 2021_
+```{r setup, include=FALSE,eval=TRUE}
+options(htmltools.dir.version = FALSE)
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+style_duo(primary_color = "#1F4257", secondary_color = "#F97B64")
+
+```
+
+```{r, load_refs, include=FALSE, cache=FALSE}
+library(RefManageR)
+BibOptions(check.entries = FALSE,
+           hyperlink = FALSE,
+           dashed = FALSE)
+myBib <- ReadBib("../../input/bib/Violencesf.bib", check = FALSE)
+```
+
+```{r include=FALSE}
+# Packages
+pacman::p_load(dplyr, sjPlot, ggplot2, stargazer, kableExtra, texreg, psych, psy, nFactors, summarytools, sjlabelled, sjmisc, car, corrplot, polycor, GPArotation, nortest, tseries, lavaan)
+
+# Load data for análysis
+load(file = "../../input/data/df.RData")
+
+# Select vars for 2019
+df_fa_2019 <- df %>% select(jv_carab1_2019, jv_carab2_2019, jv_est_2019, jv_prop1_2019, jv_prop2_2019, jv_prop3_2019) # Var deps
+df_fa_2019_t <- df %>% select(jv_carab1_2019, jv_carab2_2019, jv_est_2019, jv_trabaj_2019, jv_prop1_2019, jv_prop2_2019, jv_prop3_2019)
+
+# Cor matrix
+
+cor_df_fa_2019 =cor(df_fa_2019, use = "complete.obs")
+cor_df_fa_2019_t =cor(df_fa_2019_t, use = "complete.obs")
+
+# EFA by PA
+
+#Modelo 1 factor
+fa_pa.1<- fa(r=df_fa_2019, nfactors = 1, rotate = "oblimin", fm="pa")
+colnames(fa_pa.1$loadings) <- c("JV") #Cambio etiqueta factores
+rownames(fa_pa.1$loadings) <- c("Carab. Represión", "Carab. Desalojo", "Est. Piedras.", "Dano Inmobiliario.", "Dano Transporte.", "Dano Locales") # Cambio etiqueta indicadores
+
+
+# Modelo 2 factores
+fa_pa.2<- fa(r=df_fa_2019, nfactors = 2, rotate = "oblimin", fm="pa")
+colnames(fa_pa.2$loadings) <- c("JV. Cambio.", "JV. Control")
+rownames(fa_pa.2$loadings) <- c("Carab. Represión", "Carab. Desalojo", "Est. Piedras.", "Dano Inmobiliario.", "Dano Transporte.", "Dano Locales")
+
+
+#Modelo 3 factores
+fa_pa.3<- fa(r=df_fa_2019, nfactors = 3, rotate = "oblimin", fm="pa")
+colnames(fa_pa.3$loadings) <- c("JV. Destruccion prop.", "JV Control", "JV. Protesta disruptiva")
+rownames(fa_pa.3$loadings) <- c("Carab. Represión", "Carab. Desalojo", "Est. Piedras.", "Dano Inmobiliario.", "Dano Transporte.", "Dano Locales")
+
+
+fa_pa.3t<- fa(r=df_fa_2019_t, nfactors = 3, rotate = "oblimin", fm="pa")
+colnames(fa_pa.3t$loadings) <- c("JV. Destruccion prop.", "JV. Control", "JV. Protesta disruptiva")
+rownames(fa_pa.3t$loadings) <- c("Carab. Represión", "Carab. Desalojo", "Est. Piedras.", "Trab. Barricada", "Dano Inmobiliario.", "Dano Transporte.", "Dano Locales")
+
+
+```
+---
+class: inverse, center, middle
+
+# Estructura de presentación
+
+1. Cambios-Enfasis
+2. Problematización, antecedentes y aportes
+3. Hipotésis
+4. Datos, variables y método
+5. Análisis factorial
+6. A discutir
+
+---
+class: inverse, middle, center
+
+# 1. Cambios-Énfasis
+
+---
+# ¿Qué ha cambiado desde el seminario?
+- **Cambio en la definición de violencia:** simplificación y aporte en términos empíricos y teóricos.
+- **Profundización de variable independiente:** revisión literatura sobre justicia distributiva y evaluación de justicia.
+- **Simplificación en variable dependiente:** menos distinciones conceptuales y literatura filosófica.
+- **Comienzo primeros análisis:** descriptivos y factorial
+
+---
+class: inverse, middle, center
+
+# 2. Problematización, antecedentes y aportes
+---
+# Problematización
+
+- **Punto de inicio:** La violencia es una de las paradojas de las democracias contemporáneas
+  + Por un lado, es concebida como incompatible con el proceso democrático (Magil, 2008) y con la convivencia pacífica `r Cite(myBib, c("Galtung1969"))` -> Busca erradicarse `r Cite(myBib, c("WHO2014", "WHO2010", "WHO2009"))`
+  
+  + Por otro lado, es utilizada como un medio para alcanzar la convivencia pacífica -> Se centraliza y racionaliza.
+  
+  + Por ende, más que erradicar la violencia en absoluto, se trata plantear limites morales para su uso.
+  
+  + El planteamiento de limites morales lleva a discutir cuándo un acto violento podría ser justificado o no.
+---
+# Problematización
+  
+- **Definición:** ¿Qué significa justificar la violencia?
+  + **Primero, ¿Qué es violencia?:** (1) Ejercicio del daño físico a un tercero o a uno mismo, (2) acto moral guiado por reglas sobre lo que está bien o mal en una circunstancia particular `r Cite(myBib, c("Wilkstrom2009"))`
+  
+  + **`r Citet(myBib, c("Basaure2020"))`:** "Justificar es ofertar una compensación para desvincular al acto de violencia de lo injusto, para que sea considerado como algo comprensible o con sentido. (...) [Se trata de] que los actos involucrados logren hacerle sentido a un observador y evaluador externo, es decir, que se cumplan las condiciones de éxito (Latour, 2012) para que un público imparcial y diverso pueda entenderlos como actos no meramente arbitrarios"
+  
+  + **En otras palabras:** Ofrecer una argumentación de cuándo la violencia es justa, o ha generado un bien `r Cite(myBib, c("Frazer2019"))`
+  
+---
+# Problematización
+- **Contextualización:** Justificación de la violencia como parte importante del debate público en Chile
+
+  + Desde las movilizaciones del 2011 la violencia tomó protagonismo como táctica de protesta a partir de la emergencia de grupos de manifestantes encapuchados, siendo rechazada por la prensa y parte de la ciudadanía..
+  
+  + El conflicto entre el Estado y el pueblo Mapuche ha suscitado una escalada en los niveles de violencia `r Cite(myBib, c("Gerber2016", "Carruthers2009"))` . Las encuestas han mostrado una baja justificación de la violencia como táctica de protesta del pueblo Mapuche (Encuesta de Cohesión Social en Latinoamérica, en Donoso & Bulow, 2018; Valenzuela, 2013), así como un rechazo a la brutalidad
+policial en la Araucanía.
+  
+  + Posterior al estallido social, la población justifica menos la violencia utilizada desde carabineros, y más desde manifestantes `r Cite(myBib, c("ELSOC2016"))`
+
+---
+# Problematización
+
+- **Relevancia:** ¿Por qué es importante estudiar la justificación de la violencia?
+
+  + La justificación de la violencia genera más violencia.
+  
+  + Primera pregunta: ¿Qué lleva a la gente a justificar la violencia?
+
+
+---
+# Antecedentes
+- **Una distinción importante:** ¿De qué violencia estamos hablando?
+
+  + **Clasificación de acuerdo al fin de la violencia:** violencia orientada al cambio social o violencia orientada al control social `r Cite(myBib, c("Blumenthal1972"))`.
+  
+**Una definición actual:**
+
+**Violencia para el cambio social:**  "aquellas situaciones en donde la violencia es ejercida por grupos subordinados-minoritarios por sobre grupos dominantes-mayoritarios o cuando el objetivo de la violencia es crear cambios en la estructura jerarquica o normativa de la sociedad" (Gerber et al., 2018, p.4, _traducción mía_)
+
+**Violencia para el orden social:** "aquellas situaciones en donde la violencia es ejercida por grupos dominantes-mayoritario por sobre grupos subordinados-minoritarios o cuando el objetivo de la violencia es el de reducir el potencial cambio en las estructuras normativas o jerarquicas de la sociedad" (Gerber et al., 2018, pp. 3-4, _traducción mía_)  
+
+---
+# Antecedentes
+## ¿Qué lleva a la gente a justificar la violencia?
+
+- **Pertenencia a grupos minoritarios o desventajados** -> Minorías raciales y mujeres  tienden a desaprobar la violencia policial `r Cite(myBib, c("Thompson2004"))`, en contraste personas de mayor estatus o nivel socioeconómico `r Cite(myBib, c("Arthur1994", "Puga2016"))`
+
+- **Características de la situación de violencia** -> Las justificaciones varían de acuerdo a la cantidad de fuerza ejercida por los policías. `r Cite(myBib, c("Gerber2017b"))`
+
+- **Valores autoritarios** -> Quienes presentan valores autoritarios justifican más la violencia policial excesiva `r Cite(myBib, c("Gerber2017b"))`
+
+- **Legitimad de autoridades** -> Quienes perciben que la policia es legitima justifican más su actuar `r Cite(myBib, c("Gerber2017b", "Jackson2013"))`
+
+---
+# Antecedentes
+## ¿Qué lleva a la gente a justificar la violencia?  
+  + **Énfasis:** Nociones de justicia -> Si alguien considera que un acto de violencia puede traer justicia, entonces este es justificable.
+
+**Desde la teoría política y filosofía:**
+
+`r Citet(myBib, c("Honderich2014"))`: La violencia se justifica si trae igualdad  
+
+`r Citet(myBib, c("Wells1970"))`: La violencia se justifica si se vive una situación injusta que causa sufrimiento generalizado  
+
+`r Citet(myBib, c("Reitan2002"))`: La violencia se justifica si un perpetrador nos inflinge una agresión injusta  
+
+`r Citet(myBib, c("Sorel1999"))`: La violencia se justifica cuando permite recobrar la identidad por las injusticas vividas
+
+---
+# Antecedentes
+## ¿Qué justicia?
+
+**Desde la investigación empírica:**
+
+- **Justicia retributiva**:
+
+  + Valores -> Sujetos que consideran que la pena debe ser proporcional a la ofensa justifican más la violencia de parte de la policía `r Cite(myBib, c("Blumenthal1972"))`
+  
+  + Motivaciones -> Individuos que consideran que el castigo al perpetrador es una forma de traer justicia son más propensos a justificar la violencia policial `r Cite(myBib, c("Puga2016"))`
+  
+---
+# Antecedentes
+## ¿Qué justicia?
+
+**Desde la investigación empírica:**
+
+- **Justicia procesal**:
+
+  + Creencias -> Quienes creen que los procedimientos aplicados por la policía son justos tienden a legitimarla, y una policía legitimada conlleva una mayor justificación de la violencia ejercida por agentes del orden `r Cite(myBib, c("Jackson2013"))`
+  
+  + Percepciones -> Quienes perciben una actuación policial procesalmente justa tienden a justificar más la la violencia policial, y menos justificación a la violencia desde el pueblo Mapuche `r Cite(myBib, c("Gerber2017"))` 
+  
+---
+# Antecedentes 
+## Hasta ahora la literatura...
+
+- Ha estudiado el efecto de la justicia retributiva y distributiva en la justificación de la violencia, dejando aun inexploradas otras dimensiones
+
+- Se ha focalizado en el estudio de la violencia por el control social (policial), ameritando profundizar en el estudio de la violencia por el cambio social
+
+---
+# Antecedentes
+## Propuesta
+
+- A fin de responder a las brechas anteriores, podemos partir de uno de los hallazgos basales de esta agenda: los grupos minoritarios (o de menos estatus) tienden a justificar menos la violencia policial y a favorecer más la violencia asociada a la resistencia y al cambio. 
+
+- La propuesta tiene dos partes: 
+
+  + 1) La relación grupos minoritarios -> justificación de violencia por el cambio se da porque estos grupos experimentan mayores niveles de injusticia. 
+
+  + 2) Con tal de dar el enfoque sociológico, se propone que estas experiencias de injusticia refieren a la distribución de recursos en la sociedad. Es decir, **la justificación de la violencia por el cambio social es una respuesta a la experiencia de injusticia generada por la desigualdad de recompensas en la sociedad**.
+  
+---
+# Antecedentes
+## Justificación propuesta
+
+- **Agenda de desigualdad y violencia política:** 
+  + Teoría de la deprivación relativa: Cuando los individuos viven una situación demasiado lejana a la deseada, tienden a ser más propensos a la violencia. `r Cite(myBib, c("Gurr1960"))`
+  
+  + Las personas que se perciben a sí mismas como desfavorecidas, tienden a apoyar la violencia para generar cambios `r Cite(myBib, c("Rustad2016"))`
+  
+- **Teoría de la evaluación de justicia:**
+  + `r Citet(myBib, c("Jasso1980"))` propone medir la experiencia de justicia con la formula de evaluación de justicia (FEJ). Una de las lineas de esta agenda son las consecuencias de esta evaluación, dada la fuerza moral que ejerce.
+---
+# Antecedentes
+## Justificación propuesta
+  
+- **Recordemos, el componente moral de la violencia:** 
+  + Teoría de la violencia cómo acción situacional: "En última instancia, explicar la acción moral humana como actos de violencia tiene que ver con la comprensión de la interacción entre las reglas morales comunes de conducta y las propias reglas morales de una persona para dar forma a su desarrollo moral y proporcionar bases para sus acciones" morales `r Cite(myBib, c("Wilkstrom2009"))`
+  
+  + Las causas relevantes de los actos de violencia son aquellas condiciones sociales y eventos que modifican las reglas o limites morales de las personas `r Cite(myBib, c("Wilkstrom2009"))`
+  
+---
+# Antecedentes
+## Sintesis propuesta
+
+- Basado en las relaciones que se han planteado en la agenda que relaciona la desigualdad y actos de violencia...
+
+- Y en la fuerza moral que tiene la experiencia de justicia según la teoría de evaluación de justicia...
+
+- **La propuesta teórica que da base al estudio empírico es:** Experimentar injusticia distributiva (medido por la FEJ) modifica las reglas morales de las personas, llevandolas a justificar la violencia por el cambio social.
+
+---
+# Aportes
+**Aporte a la literatura de justificación de la violencia:** 
+
+  + Indagación del efecto de una dimensión de justicia antes no explorada: justicia distributiva.
+  + Expandir el estudio de la justificación de violencia por el cambio social.
+
+**Aporte a la literatura de justicia distributiva:** Expansión del estudio de las consecuencias de la evaluación de justicia.
+
+**Sentar bases para el trabajo longitudinal con los datos de ELSOC** 
+---
+class: inverse, middle, center
+
+# 3. Hipótesis
+---
+## Relaciones directas
+- $H_{1a}$ Individuos que **experimenten más injusticia distributiva** tenderán a justificar más la **violencia por el cambio social**.
+
+- $H_{1b}$ Individuos que **experimenten más injusticia distributiva** tenderán a justificar menos la **violencia por el control social**.
+
+## Mediaciones
+
+- $H_{2a}$ La experiencia de injusticia distributiva media la relación entre estatus y justificación de la violencia por el cambio social.
+
+- $H_{2b}$ La experiencia de injusticia distributiva media la relación entre estatus y justificación de la violencia por el control social.
+
+---
+class: inverse, middle, center
+
+# 4. Datos, variables y método
+
+---
+# Datos
+Estudio Longitudinal Social de Chile (ELSOC) ola 2019.
+---
+## Ficha técnica
+
+- **Diseño:** Estudio cuantitativo por medio de un cuestionario estructurado.
+- **Periodicidad:** Anual.
+- **Diseño Longitudinal:** panel repetido (misma encuesta se aplica a dos muestras independientes).
+- **Período de Aplicación:** entre Julio y Noviembre de cada año.
+- **Instrumento:** Cuestionario compuesto por preguntas cerradas de carácter simple y múltiple junto a algunas preguntas abiertas. Combina módulos de preguntas permanentes (medidas en todas las olas) y
+otras intercaladas entre olas.
+- **Unidad de Análisis:** Individuos.
+- **Población Objetivo:** Hombres y mujeres de 18 a 75 años, residentes habituales de viviendas particulares ocupadas en zonas urbanas, localizadas en 40 ciudades (92 comunas, 13 regiones) del país.
+- **Marco Muestral:** Marco de muestreo de manzanas del pre-censo 2011.
+- **Diseño Muestral:** Probabilístico, estratificado (por tamaño de ciudades), por conglomerados y multietápico.
+
+---
+# Variables
+## Dependiente
+
+- Justificación de violencia por el orden social (F5.3 y F5.4)
+- Justificación de violencia por el cambio social (F5.7, F5.9, F5.10 y F511)
+
+---
+## Dependiente
+
+| F5. ¿En qué medida cree usted que se justifican o no se justifican las siguientes situaciones?                                                |
+|-----------------------------------------------------------------------------------------------------------------------------------------------|
+| F5.3. Que Carabineros use la fuerza para reprimir una manifestación pacifica.                                                                 |
+| F5.4. Que Carabineros desaloje a la fuerza a los estudiantes de un liceo en toma.                                                             |
+| F5.7. Que estudiantes tiren piedras a Carabineros en una marcha por la educación del país.|                                                   |
+| F5.9  Que algunas personas incendien o dañen inmobiliario público (edificios, semáforos, luminaria pública, etc.) para exigir cambios sociales|                             
+| F5.10 Que algunas personas incendien o dañen medios de transporte (metro, microbuses, paraderos) para exigir cambios sociales.                |
+| F5.11 Que algunas personas incendien o dañen negocios y locales comerciales para exigir cambios sociales|                                     |
+---
+## Dependiente
+
+| Respuestas                    |
+|-------------------------------|
+| 1. Nunca se justifica         |
+| 2. Pocas veces se justifica   |
+| 3. Algunas veces se justifica |
+| 4. Muchas veces se justifica  |
+| 5. Siempre se justifica       |
+| -888. No sabe                 |
+| -999. No responde             |
+---
+## Independientes
+### Experiencia de justicia: indicadores
+- D03 Quisiéramos saber cuánto cree usted que ganan las personas al mes, después de los descuentos de impuestos, salud, previsión y otros (ingreso líquido), en los siguientes trabajos que le voy a indicar. Aunque Muchas personas no están seguras al respecto, es muy importante que nos dé su visión. ¿Cuánto cree usted que gana al mes…
+
+  + D03_01. El gerente de una gran empresa nacional?
+  + D03_02. Un obrero no calificado de una fábrica?
+  
+- D04 Ahora, pensando en lo que usted cree que las personas en estos trabajos deberían ganar al mes, después de los descuentos de impuestos, salud, previsión y otros (ingreso líquido). ¿Cuánto dinero cree usted que debiera ganar al mes…
+
+  + Idem
+---
+## Independientes
+### Experiencia de justicia: formula
+
+$\text{Experiencia de injusticia}= ln(\frac{\text{recompensa real}}{\text{recompensa justa}})$
+
+En este caso, siguiendo el tratamiento de  `r Citet(myBib, c("Verwiebe2000"))` la formula se calcula para cada ocupación, y se construye un indicador único a partir de la diferencia de la EFJ de ambos extremos ocupacionales. Esta diferencia se conoce como la brecha de justicia (*Bj*).
+
+$Bj= EFJ_{gerente} - EFJ_{obrero}$
+---
+# Método
+
+Análisis multivariado, técnica especifica por definir.
+---
+class: inverse, middle, center
+
+# 5. Análisis factorial
+---
+# Análisis factorial
+## Condiciones para el análisis exploratorio
+
+- Correlaciones entre indicadores no menor a 0.3 ni mayor a 0.9.
+
+- KMO de 0.75
+
+- Determinante mayor a 0.00001, se cumple la condición
+
+- Normalidad multivariada, no se cumple -> Estimación por Principal Axis
+---
+# Análisis factorial
+## Procedimiento
+
+- Scree plot para sugerencia de cantidad de factores de acuerdo a los datos
+
+- Calculo de modelos con 1, 2 y 3 factores basado en nociones teóricas (Principal Axis y rotación oblicua)
+
+- Comparación de cargas factoriales y ajuste de los modelos.
+
+---
+```{r echo=FALSE, fig.align="center"}
+psych::scree(cor_df_fa_2019)
+```
+
+Recomendación según regla de Kaiser: un factor
+
+---
+## Diagramas de cargas factoriales: Modelo 1 factor
+
+```{r echo=FALSE, fig.align="center"}
+fa.diagram(fa_pa.1)
+```
+
+---
+## Diagramas de cargas factoriales: Modelo 2 factores
+
+```{r echo=FALSE, fig.align="center"}
+fa.diagram(fa_pa.2)
+```
+---
+## Diagramas de cargas factoriales: Modelo 3 factores
+
+```{r echo=FALSE, fig.align="center"}
+fa.diagram(fa_pa.3)
+```
+---
+## Diagramas de cargas factoriales: Modelo 3 factores + indicador de trabajo
+
+```{r echo=FALSE, fig.align="center"}
+fa.diagram(fa_pa.3t)
+```
+---
+## Ajuste modelos
+
+|              | Modelo 1F | Modelo 2F | Modelo 3F | Modelo 3F + Indicador Trabajadores |
+|--------------|-----------|-----------|-----------|------------------------------------|
+| Tucker-Lewis | 0.787     | 0.938     | NA        | 0.997                              |
+| RMSEA        | 0.201     | 0.108     | NA        | 0.022                              |
+| RMSR         | 0.14      | 0.02      | 0         | 0                                  |
+| BIC          | 1556.84   | 179.12    | NA        | -15.6                              |
+---
+class: inverse, middle, center
+
+# 6. A discutir
+---
+# A discutir
+
+¿3 o 2 factores? -> Implicancias conceptuales y metodológicas
+---
+
+# Referencias
+```{r echo=FALSE, warning=FALSE, results='asis'}
+PrintBibliography(myBib)
+```
+---
+class: inverse, middle, center
+
+# ¡Muchas Gracias!

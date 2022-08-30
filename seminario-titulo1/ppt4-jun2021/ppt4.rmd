@@ -1,0 +1,201 @@
+---
+title: "¿Quién justifica qué?"
+subtitle: "_El papel del sentido de (in)justicia y el estatus en las justificaciones de violencia en contexto de protesta_"  
+author: "Martín Venegas M"
+date: '`r Sys.Date()`'
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      ratio: '16:9'
+      countIncrementalSlides: false
+      beforeInit: "https://jciturras.github.io/ayudantia-sol3051/slides/00-intro-r/macros.js"
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>`
+    css: ["https://jciturras.github.io/ayudantia-sol3051/slides/00-intro-r/xaringan-coes.css","https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"]
+    #seal: false # esto omite title slide automática  
+---
+class: center, middle
+
+# _Coloquio de investigación en desigualdad y ciudadanía - 2do Sem 2020_
+```{r setup, include=FALSE,eval=TRUE}
+options(htmltools.dir.version = FALSE)
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+style_duo(primary_color = "#1F4257", secondary_color = "#F97B64")
+
+```
+
+```{r, load_refs, include=FALSE, cache=FALSE}
+library(RefManageR)
+BibOptions(check.entries = FALSE,
+           hyperlink = FALSE,
+           dashed = FALSE)
+myBib <- ReadBib("../Violencia.bib", check = FALSE)
+```
+---
+class: inverse, center, middle
+
+# En esta presentación haré:
+
+1. Un estado del arte de mi proceso de tesis
+2. Esbozar el re-enfoque que se le busca dar al proyecto
+---
+# Base
+## Justificaciones de violencia en contexto de protesta
+
+.center[<img src="jv.jpg" width="600" height="400" />]
+---
+# Estado del arte: proceso de tesis
+
+## Tres momentos
+
+**1. Seminario de grado:** focalización en objeto de estudio (justificaciones de violencia). Aprendizajes e implicancias.
+
+**2. Primera entrega de tesis:** delimitación empírica del estudio. Re-lectura de literatura.
+
+**3. Ahora:** búsqueda de re-enfoque y clarificación de la propuesta.
+---
+# Seminario de grado
+## ¿Qué hice?
+
+- Lectura de literatura intensa. Palabras clave: violencia y justificaciones de violencia.
+- Focalización en el objeto de estudio. Predictores y método en segundo plano.
+
+## Aprendizajes e implicancias
+
+- Logré manejar bien el concepto de violencia por si mismo, sin embargo, mi tesis no trata solamente de eso.
+- Pude entender un debate denso sobre la justificación de la violencia desde una perspectiva normativa. Ayudó a la reflexión, pero desfocalizó.
+- Documento final con estructura de _review_, pero fines empíricos. No compatible.
+
+---
+# Seminario de grado
+
+##Pregunta
+¿Cuáles son las determinantes para las justificaciones de violencia por el orden social y por el cambio social en contexto de protesta, por parte de la población chilena al año 2019?
+
+## Orientación de hipótesis y argumento principal
+
+- Primer esbozo del argumento central: el rol del sentido de (in)justicia distributiva.
+- Planteamiento del rol de caracteristica sociodemográficas
+---
+
+# Primer avance de tesis
+## ¿Qué hice?
+
+- Re-lectura de literatura empírica. Descifrar la construcción de la agenda de justificaciones de violencia.
+- Clarificación de la propuesta principal: sentido de (in)justicia.
+
+## Aprendizajes
+- Panorámica de los estudios, no hay agenda consolidada.
+---
+# Primer avance de tesis
+## Breve síntesis
+
+- **Conceptos diversos:** Justificación de la violencia como _concepto paragua_. Otros: actitudes hacia la violencia, aprobación del uso de la fuerza por parte de la policía etc.
+
+- **Tres teorías utilizadas:**
+  * _Teorías del conflicto (criminología):_ grupos de menor estatus aprueban menos la violencia policial.
+  * _Teorías de valores autoritarios (psicología):_ grupos con valores más autoritarios aprueban más la violencia policial.
+  * _Teoría de la justicia procesal (psicología):_ grupos que sienten más justicia en los procesos aprueban más la violencia policial
+---
+# Primer avance de tesis
+## Breve síntesis
+
+- **Gap:** Dos cosas:
+  * Mayor enfásis en violencia policial (control social) ¿qué pasa con la violencia por el cambio?
+  * Hallazgos sobre justicia procesal y justicia retributiva ¿serán relevantes otras dimensiones de la justicia?
+  
+- **Principal argumento:** Dimensión distributiva -> Un aporte desde la sociología
+- Sentir injusticia en la distribución de recursos (ingresos) lleva a justificar más la violencia por el cambio y menos por el control social.
+- Esta relación puede estar mediada por el estatus.
+---
+# Primer avance de tesis
+## Breve síntesis
+
+- **Justificación argumento:**
+
+1. _Literatura filosófica y teórica política:_ las situaciones de injusticia llevan a qué la violencia sea un medio justificable para cambiar ese estado
+2. _Literatura empírica:_ el estatus de las personas las hace justificar más o menos la violencia
+3. _Literatura justicia distributiva:_ el sentido de (in)justicia tiene una fuerza moral y comportamental
+4. _Literatura ciencia política:_ sociedades más desiguales tienden a tener más conflictos violentos.
+
+- **Pregunta de investigación:**
+¿Cuál es el papel del sentido de (in)justicia y el estatus en las justificaciones de violencia por el control social y el cambio social en contexto de protesta durante el 2019 en Chile?
+
+
+---
+# Ahora
+
+## ¿En qué estoy?
+
+- Re-enfoque y robustecer argumentación.
+
+## Pretenciones
+
+- Comenzar la narrativa desde el argumento principal. El aporte de la tesis está en sus predictores más que en el objeto de estudio.
+- Localizar argumento. Fortalecer la propuesta con la experiencia del caso chileno.
+- En fin, aporte empírico a los estudios de justificación de violencia: (i) aplicando un marco teórico no explorado empíricamente y (ii) rescatando la relevancia del caso chileno.
+---
+# Ahora
+
+## Breve síntesis
+
+- Chile, país de concentración de ingresos y riqueza. El país más desigual dentro de la región más desigual.
+
+- Percepción de brechas salariales aumentan. "Entre los años 2000 y 2016 el porcentaje de personas que declaran estar muy de acuerdo con la frase “las diferencias de ingresos son muy grandes” aumenta de un 42% a un 52%" (PNUD, 2017)
+
+- Multiples desigualdades de acceso a servicios y en el trato.
+
+- Estallido social como "olla a presión" de distintas desigualdades.
+
+---
+# Ahora
+## Breve síntesis
+
+**¿Por qué estalla?**
+- PNUD (2017):
+
+> Un elemento esencial para entender el fenómeno de la desigualdad social son los sentimientos de injusticia que produce.
+
+> Dignidad, seguridad, necesidad son orientaciones normativas que catalizan demandas por una mayor justicia social. -> Potentes catalizadores para movs. sociales.
+
+> El rechazo a la injusticia ha sido una fuerza motriz de la acción política en contra de la desigualdad a través de la historia.
+
+---
+# Ahora
+## Breve síntesis
+
+**Cita clave:**
+
+> Cuando las experiencias de injusticia decantan en procesos de cambio, sus gatillantes principales no son las condiciones objetivas de desigualdad sino el modo como se articulan las percepciones y las evaluaciones sobre la experiencia vivida. **Los juicios sobre la desigualdad socioeconómica, en este sentido, también pueden ser motores de cambio**, así como su tolerancia, un mecanismo más que ayude a reproducirla (PNUD, 2017)
+
+---
+# Ahora
+
+## Pregunta de investigación:
+
+¿Cuál es el papel del sentido de (in)justicia y el estatus en las justificaciones de violencia por el control social y el cambio social en contexto de protesta durante el 2019 en Chile?
+
+## Impacto de este re-enfoque
+
+- Nuevos predictores ¿justicia en el trato y en acceso a servicios sociales?
+
+---
+
+# Recapitulación
+## Tres momentos
+
+- Seminaio de grado: objeto de estudio
+- Primer avance de tesis: re-enfoque empírico
+- Ahora: localización del argumento
+
+---
+class: center, middle, inverse
+
+# ¡Muchas gracias!
