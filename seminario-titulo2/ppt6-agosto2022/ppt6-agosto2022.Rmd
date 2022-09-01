@@ -1,0 +1,322 @@
+---
+title: "¿Quién justifica qué?"
+subtitle: "_El papel del sentido de (in)justicia y el estatus en las justificaciones de violencia en contexto de protesta_"  
+author: "Martín Venegas M"
+date: '`r Sys.Date()`'
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      ratio: '16:9'
+      countIncrementalSlides: false
+      beforeInit: "https://jciturras.github.io/ayudantia-sol3051/slides/00-intro-r/macros.js"
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>`
+    css: ["https://jciturras.github.io/ayudantia-sol3051/slides/00-intro-r/xaringan-coes.css","https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"]
+    seal: false # esto omite title slide automática
+---
+
+```{r setup, include=FALSE,eval=TRUE}
+options(htmltools.dir.version = FALSE)
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+library("xaringanExtra")
+library("fontawesome")
+xaringanExtra::use_progress_bar(color = "red", location = "bottom")
+```
+class: inverse
+
+# ¿Quién justifica qué? _El rol del sentido de injusticia en las justificaciones de violencia en contexto de protesta_ <br>
+
+.medium[.orange[**Martín Venegas Márquez** (martin.venegas@ug.uchile.cl)]]
+
+
+
+.small[Facultad de Ciencias Sociales, Universidad de Chile] <br> 
+
+
+***
+.medium[[.orange[_Borrador Defensa de Tesis - **Segundo Semestre 2022**_]](https://github.com/formacionciudadana)]<br>
+.medium[Agosto, 2022]
+
+---
+class: slideInRight, middle, inverse
+
+***
+# Contenidos
+***
+
+- **Problematización**
+
+- **Pregunta y Objetivos de Investigación** 
+
+- **Hipótesis**
+
+- **Método**
+
+- **Resultados**
+
+- **Discusión y Conclusiones**
+
+---
+
+class: slideInRight, middle, inverse
+
+***
+# Problematización
+***
+
+### .medium[Objeto de Estudio]
+### .medium[Contexto]
+### .medium[Relevancia Social]
+### .medium[Relevancia Académica]
+### .medium[Este Estudio]
+---
+class: slideInRight, middle, inverse
+
+***
+# Problematización
+***
+
+### [**Objeto de Estudio**]()
+### .medium[Contexto]
+### .medium[Relevancia Social]
+### .medium[Relevancia Académica]
+### .medium[Este Estudio]
+---
+
+# Violencia
+
+# Justificación de la Violencia
+
+- **Definición:** Argumentación de que el acto violento trae alguna consecuencia que lo compense (Basaure, 2020; Frazer y Hutchings, 2019)
+
+
+---
+class: slideInRight, middle, inverse
+
+***
+# Problematización
+***
+
+### .medium[Objeto de Estudio]
+### [**Contexto**]()
+### .medium[Relevancia Social]
+### .medium[Relevancia Académica]
+### .medium[Este Estudio]
+
+---
+# Justificación de la Violencia
+
+- **Contexto de Protesta → Estallido social: Dos reflexiones**
+
+  + 1) El uso de la violencia por parte de agentes representates del Estado (carabineros) no siempre está justificada. **Su justificación ha disminuido (ELSOC, 2020)**
+  
+  + 2) El uso de la violencia por parte de agentes no estatales (manifestantes) algunas veces se justifica. **Su justificación ha aumentado (ELSOC, 2020)**
+---
+# Justificación de la Violencia en Contexto de Protesta
+
+### [**Consecuencias:**]() Quienes justifican la violencia son más tenientes a ejercerla (Markowitz, 2001) o a condonar el acto violento de otros (Kalmoe, 2014) -> **Escalada de violencia que amenace la convivencia pacifica**
+
+### [**¿Quienes y por qué justifican la violencia?**]()
+
+---
+class: slideInRight, middle, inverse
+
+***
+# Problematización
+***
+
+### .medium[Objeto de Estudio]
+### .medium[Contexto]
+### [**Relevancia Social**]()
+### .medium[Relevancia Académica]
+### .medium[Este Estudio]
+
+---
+class: slideInRight, middle, inverse
+
+***
+# Problematización
+***
+
+### .medium[Objeto de Estudio]
+### .medium[Contexto]
+### .medium[Relevancia Social]
+### [**Relevancia Académica**]()
+### .medium[Este Estudio]
+
+---
+# Distinción Principal
+
+En la literatura empírica se distingue la justificación de la violencia de acuerdo a sus **fines**
+
+### [**Justificación de la Violencia por el Cambio Social**]()
+
+Aquella que busca generar cambios en las estructuras jerárquicas de la sociedad (Blumenthal, 1973; Gerber et al. 2018)
+
+### [**Justificación de la Violencia por el Control Social**]() 
+
+Aquella que busca mantener las estructuras jerárquicas de las sociedad. (Blumenthal, 1973; Gerber et al. 2018)
+---
+
+# Tres explicaciones desde la literatura
+
+1. **Enfoque criminológico de las teorías del conflicto social:** Personas de más bajos estatus o pertenecientes a grupos minoritarios tienden a apoyar menos el _uso de la fuerza por parte de la policía_ (Arthur & Case, 1994; Thompson, 2004)
+
+2. **Enfoque de teorías de Autoritarismo de Derecha (RWA) y Dominancia Social (SDO):** Personas con ideologías más autoritarias (RWA) y dominantes (SDO) tienden a justificar más el _uso de la fuerza excesiva por parte de la policía_ (Gerber y Jackson, 2016)
+
+3. **Enfoque de justicia procesal:** Mayores percepciones de justicia procesal están asociadas a mayor _justificación de la violencia_ por el control social, y menos por el cambio social (Gerber, 2017).
+
+---
+class: slideInRight, middle, inverse
+
+***
+# Problematización
+***
+
+### .medium[Objeto de Estudio]
+### .medium[Contexto]
+### .medium[Relevancia Social]
+### .medium[Relevancia Académica]
+### [**Este Estudio**]()
+
+
+---
+class: slideInRight, middle, inverse
+
+***
+# Pregunta y Objetivos de Investigación
+***
+---
+# Pregunta
+
+> ¿Cuál es la relación entre el sentido de injusticia distributiva y las justificaciones de la violencia en contexto de protesta, tanto por el cambio social, como por el control social, en Chile al año 2019?
+
+---
+# Objetivos general
+
+> Determinar la relación entre el sentido de injusticia distributiva y las justificaciones de la violencia en contexto de protesta, tanto por el cambio social, como por el control social, en Chile al año 2019
+
+---
+# Objetivos especifcos
+
+- Caracterizar la justificación de la violencia en contexto de protesta, tanto por el cambio, cómo por el control social.
+
+- Determinar la relación entre el sentido de injusticia distributiva y las justificaciones de violencia en contexto de protesta, tanto por el cambio social, como por el control social.
+
+- Determinar el efecto del sentido de injusticia distributiva en la relación entre grupos desaventajados y justificaciones de violencia, tanto por el cambio social, cómo por el control social.
+---
+class: slideInRight, middle, inverse
+
+***
+# Hipótesis
+***
+---
+# Hipótesis
+
+$H_{1a}$: Individuos que evalúen la distribución de ingresos como más injusta tenderán a justificar más la violencia por el cambio social.
+
+$H_{1b}$: Individuos que evalúen la distribución de ingresos como menos injusta tenderán a justificar más la violencia por el control social.
+
+$H_{2a}$: Individuos pertenecientes a grupos desaventajados tenderán a justificar más la violencia por el cambio social cuando evalúen la distribución de ingresos como más injusta.
+
+$H_{2b}$: Individuos pertenecientes a grupos desaventajados tenderán a justificar menos la violencia por el control social cuando evalúen la distribución de ingresos como más injusta
+---
+class: slideInRight, middle, inverse
+
+***
+# Método
+***
+---
+# Datos 
+  - Encuesta Longitudinal Social de Chile - Ola 4 (2019)
+  - 716 casos válidos para el análisis (sin NA en las variables relevantes)
+
+---
+
+# Variables Dependientes
+**¿En qué medida cree usted que se justifican o no se justifican las siguientes situaciones?**
+
+- Justificación de la Violencia por el Cambio Social
+  + _Que estudiantes tiren piedras a carabineros en una marcha por la educación del país_. Likert 5 categorías: (1) Nunca se justifica a (5) Siempre se justifica.
+  
+- Justificación de la Violencia por el Control social
+  + _Que carabineros desaloje a la fuerza a los estudiantes de un liceo en toma_. Idem.
+  + _Que carabineros use la fuerza para reprimir una manifestación pacifica_. Idem.
+
+---
+# Variables Independientes
+
+**Preguntas sobre ingresos reales y justos para: el entrevistado, un obrero no calificado, un gerente de una gran empresa**
+
+- Sentido de Injusticia
+
+\begin{equation}
+   \text{J}_{i}= ln(\frac{\text{Ingresos Reales}_{i}}{\text{Ingresos Justos}_{i}})
+\end{equation}
+
+Siendo $J_{i}$ la evaluación de justicia $J$ para un individuo ${i}$.
+
+A mayor valor en el indicador, más injusticia se evalúa.
+
+$J_{entrevistado}$ (Reflexiva)  
+$J_{obrero}$ (No reflexiva)  
+$J_{gerente}$ (No reflexiva)  
+---
+# Controles
+
+**¿Con cuánta frecuencia cree usted que personas [grupo o clase del entrevistado] son tratadas con respeto?...**
+
+- Percepción de Trato Justo
+
+  + _En los servicios de salud._ Likert 5 categorías: (1) Nunca a (5) Siempre.
+  + _Por carabineros._ Idem.
+
+- Pertenencia a grupos desventajados
+  + Sexo
+  + Ingresos
+  + Nivel educacional
+
+---
+# Técnicas de análisis
+
+- Regresión lineal múltiple (para Indice de Destrucción a la Propiedad)
+- Regresiones logísticas ordinales (para items aislados)
+- Modelos de mediación
+---
+class: slideInRight, middle, inverse
+
+***
+# Resultados
+***
+
+---
+class: slideInRight, middle, inverse
+
+***
+# Discusión y Conclusiones
+***
+
+---
+class: slideInRight, middle, inverse
+
+***
+# Anexos
+***
+---
+#### Figura 4. Modelo de Situación de Justificación de la Violencia del estudio
+
+![](abstract-model-tesis.png)
+
+.small[Fuente: elaboración propía a partir de planteamientos de Imbusch (2004) y Jasso (2016)]
+
+---
+class: slideInRight, middle, inverse, center
+
+# ¡Muchas Gracias!
