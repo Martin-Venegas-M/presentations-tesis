@@ -1,9 +1,9 @@
-name: "Thesis Presentations"
+name: "Presentacion"
 output_dir: "."
 navbar:
-  title: "Thesis Presentations"
+  title: "Presentacion"
   left:
-  - text: "Presentación avance 07-04-2022 para Seminario de Título II"
-    href: seminario-titulo2/avance-05-04-22/avance-05-04-22.html
+  - text: "Presentacion"
+    href: slides.html
   html_document:
     theme: yeti # yeti  spacelab simplex sandstone cosmo cerulean paper darkly flatly lumen readable
