@@ -103,7 +103,7 @@ class: slideInRight, middle, inverse
 
 --
 
-- Plantear limites a la violencia o situaciones en donde 
+- Plantear limites a la violencia o situaciones en donde se justifique
 - Argumentación de que el acto violento trae alguna consecuencia que lo compense (Basaure, 2020; Frazer y Hutchings, 2019)
 
 
@@ -125,15 +125,72 @@ class: slideInRight, middle, inverse
 
 --
 
-- **Contexto de Protesta → Estallido social: Dos reflexiones**
+.pull-left[
+
+**Contexto de Protesta → Estallido social: Dos reflexiones**
+
+
+1) El uso de la violencia por parte de agentes representates del Estado (carabineros) no siempre está justificada. **Su justificación ha disminuido (ELSOC, 2020)**
+  
+2) El uso de la violencia por parte de agentes no estatales (manifestantes) algunas veces se justifica. **Su justificación ha aumentado (ELSOC, 2020)**
+  
+]
 
 --
 
-  + 1) El uso de la violencia por parte de agentes representates del Estado (carabineros) no siempre está justificada. **Su justificación ha disminuido (ELSOC, 2020)**
+.pull-right[.center[
+```{r justintro, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Justificación de la Violencia de Carabineros y Manifestantes por año"}
+
+pacman::p_load(tidyverse,sjPlot, sjmisc, sjlabelled, elsoc, ggplot2, ggrepel) # librerias
+knitr::opts_chunk$set(warning = FALSE,  # mensaje de warning
+                      message = FALSE,  # mensajes/avisos de librerias  
+                      cache = FALSE,    # cache de los chunks,usar analisis pesados
+                      # out.width = '50%',# largo de imagen en %
+                      fig.pos= "H",     # posicion figuras H = HERE
+                      echo = FALSE      # incluir chunk en output
+)
+
+elsoc::load_elsoc('long')
+
+elsoc_long_2016_2021 <-elsoc_long_2016_2021[!(elsoc_long_2016_2021$ola == 5),]
+
+elsoc_long_2016_2021 %>% 
+  filter(tipo_atricion == 1 & muestra == 1 & 
+           !f05_03 %in% c(-888, -999) & !f05_04 %in% c(-888, -999) & !f05_07 %in% c(-888, -999)) %>% 
+  select(f05_03, f05_04, f05_07, ola, ponderador02, segmento_disenno, estrato_disenno) %>% 
+  pivot_longer(cols = c(f05_03, f05_04, f05_07)) %>% 
+  prop(value %in% 4:5, by = c(ola, name), na.rm = TRUE) %>% 
+  mutate(name = factor(name,
+                       levels = c('f05_03', 'f05_04', 'f05_07'),
+                       labels = c('Carabineros use la fuerza para\n reprimir manifestación pacífica',
+                                  'Carabineros desaloje a la fuerza\na estudiantes de liceo en toma',
+                                  'Estudiantes tiren piedras a Carabi-\nneros en marcha por la educación'))) %>%
+  sjlabelled::as_label(ola) %>% 
+  ggplot(aes(y = prop, x = ola, color = name, group = name,
+             label = scales::percent(prop, accuracy = .1))) +
+  theme_bw() + 
+  geom_point(size = 1.75) + 
+  geom_line() +
+  scale_y_continuous(labels = scales::percent,
+                     limits = c(0, .5)) +
+  ylab(label = NULL) +
+  xlab(label = NULL) +
+  scale_color_viridis_d(begin = 0, end = .7, option = 'viridis') + 
+  ggrepel::geom_text_repel(size = 3, nudge_y = .02) +
+  theme(plot.caption = element_text(hjust = 0),
+        legend.position = 'top',
+        legend.title = element_blank()) +
   
---
-  
-  + 2) El uso de la violencia por parte de agentes no estatales (manifestantes) algunas veces se justifica. **Su justificación ha aumentado (ELSOC, 2020)**
+    scale_x_continuous(breaks = c(1,2,3,4), labels=c("2016", 
+                            "2017", 
+                            "2018", 
+                            "2019")) +
+  ggtitle(NULL,
+        subtitle = 'Porcentaje que responde que Muchas veces o Siempre se justifica' ) +
+  labs(caption = 'Fuente: COES (2022) Radiografía del Cambio Social: Análisis de Resultados Longitudinales ELSOC 2016-2021. Presentación de Resultados COES. Enero, Santiago de Chile.\nNota: Se consideran observaciones de individuos sin atrición entre olas. N=7.507 (1.513 individuos)')
+```
+]]
+
 ---
 # Justificación de la Violencia en Contexto de Protesta
 
@@ -180,15 +237,16 @@ En la literatura empírica se distingue la justificación de la violencia de acu
 
 --
 
-### [**Justificación de la Violencia por el Cambio Social**]()
+.pull-left[### [**Justificación de la Violencia por el Cambio Social**]()
 
 Aquella que busca generar cambios en las estructuras jerárquicas de la sociedad (Blumenthal, 1973; Gerber et al. 2018)
-
+]
 --
 
-### [**Justificación de la Violencia por el Control Social**]() 
+.pull-right[### [**Justificación de la Violencia por el Control Social**]() 
 
 Aquella que busca mantener las estructuras jerárquicas de las sociedad. (Blumenthal, 1973; Gerber et al. 2018)
+]
 ---
 
 # Tres explicaciones desde la literatura
@@ -249,11 +307,32 @@ Las dos dimensiones más trabajadas en la literatura:
 ### Pero... ¿por qué?
 
 ---
-# Este Estudio
-## Dos razones
+
+# Este estudio: Planteamiento Lógico
+
+--
 
 - Las ideas de justicia distributiva son una fuerza social que motivan el comportamiento humano a nivel individual y agregado
-- 
+
+--
+
+#### .center[Injusticia Distributiva → Acción]
+
+--
+
+- Quienes justifican la violencia son más tendientes a ejercerla o a condonar la violencia de otros
+
+--
+
+#### .center[Justificación → Acción]
+
+--
+
+- Entonces, _alguien que ejerce violencia en función de su sentimiento de injusticia distributiva debería previamente justificarla_
+
+--
+
+#### .center[Injusticia Distributiva → Justificación → Acción]
 
 ---
 # Literatura hasta ahora...
