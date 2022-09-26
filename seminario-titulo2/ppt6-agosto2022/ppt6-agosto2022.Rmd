@@ -157,7 +157,7 @@ elsoc_long_2016_2021 <-elsoc_long_2016_2021[!(elsoc_long_2016_2021$ola == 5),]
 elsoc_long_2016_2021 %>% 
   filter(tipo_atricion == 1 & muestra == 1 & 
            !f05_03 %in% c(-888, -999) & !f05_04 %in% c(-888, -999) & !f05_07 %in% c(-888, -999)) %>% 
-  select(f05_03, f05_04, f05_07, ola, ponderador02, segmento_disenno, estrato_disenno) %>% 
+  dplyr::select(f05_03, f05_04, f05_07, ola, ponderador02, segmento_disenno, estrato_disenno) %>% 
   pivot_longer(cols = c(f05_03, f05_04, f05_07)) %>% 
   prop(value %in% 4:5, by = c(ola, name), na.rm = TRUE) %>% 
   mutate(name = factor(name,
@@ -431,20 +431,28 @@ class: slideInRight, middle, inverse
 
 --
 
-**¿En qué medida cree usted que se justifican o no se justifican las siguientes situaciones?**
+¿En qué medida cree usted que se justifican o no se justifican las siguientes situaciones?
 
-- Justificación de la Violencia por el Cambio Social
+--
+.pull-left[**Justificación de la Violencia por el Cambio Social**
 
-  + _Que estudiantes tiren piedras a carabineros en una marcha por la educación del país_. Likert 5 categorías: (1) Nunca se justifica a (5) Siempre se justifica.
+_1. Que estudiantes tiren piedras a carabineros en una marcha por la educación del país_.   
+  
+]
   
 --
   
-- Justificación de la Violencia por el Control social
+.pull-right[**Justificación de la Violencia por el Control Social**
 
-  + _Que carabineros desaloje a la fuerza a los estudiantes de un liceo en toma_. Idem.
+ _2. Que carabineros desaloje a la fuerza a los estudiantes de un liceo en toma_.  
   
-  + _Que carabineros use la fuerza para reprimir una manifestación pacifica_. Idem.
+ _3. Que carabineros use la fuerza para reprimir una manifestación pacifica_.
+ 
+]
 
+--
+
+.center[(1) Nunca se justifica a (5) Siempre se justifica.]
 ---
 # Variables Independientes
 
@@ -454,7 +462,7 @@ class: slideInRight, middle, inverse
 
 --
 
-- Sentido de Injusticia Distributiva
+**Sentido de Injusticia Distributiva**
 
 \begin{equation}
    \text{J}_{i}= ln(\frac{\text{Ingresos Reales}_{i}}{\text{Ingresos Justos}_{i}})
@@ -462,73 +470,78 @@ class: slideInRight, middle, inverse
 
 --
 
-Siendo $J_{i}$ la evaluación de justicia $J$ para un individuo ${i}$.
-
-A mayor valor en el indicador, más injusticia se evalúa.
+Siendo $J_{i}$ la evaluación de justicia $J$ para un individuo ${i}$ → A mayor valor en el indicador, más injusticia se evalúa.
 
 --
 
-$J_{entrevistado}$ (Reflexiva)  
+- $J_{entrevistado}$ (Reflexiva)  
 
 --
 
-$J_{obrero}$ (No reflexiva)  
+- $J_{obrero}$ (No reflexiva)  
 
 --
 
-$J_{gerente}$ (No reflexiva)  
+- $J_{gerente}$ (No reflexiva)  
 ---
 # Controles
 
 --
 
-**¿Con cuánta frecuencia cree usted que personas [grupo o clase del entrevistado] son tratadas con respeto?...**
+.pull-left[**Pertenencia a grupos desaventajados**  
+Sexo (Mujer)  
+Ingresos (Bajos Ingresos)  
+Nivel educacional (Bajo Nivel)
+Pertenencia a Pueblo Originario (Mapuche)  
+]
 
-- Percepción de Trato Justo
+.pull-right[
+**Ideología**  
 
-  + _En los servicios de salud._ Likert 5 categorías: (1) Nunca a (5) Siempre.
-  + _Por carabineros._ Idem.
+Indice RWA (Autoritarismo)  
+Indice SDO (Dominancia Social)  
 
+]
+
+.pull-right[**Percepción de Trato Justo**
+
+¿Con cuánta frecuencia cree usted que personas [grupo o clase del entrevistado] son tratadas con respeto?...
+
+_En los servicios de salud._   
+_Por carabineros._   
+
+]
 --
-
-- Pertenencia a grupos desaventajados
-  + Sexo:  Mujer
-  + Ingresos: Bajos Ingresos
-  + Nivel educacional: Bajo Nivel Educacional
-  + Pertenencia a Pueblo Originario: Mapuche
-
----
-# Técnicas de análisis
-
-## Descriptivos 
-
---
-
-- Análisis de frecuencias, distribución y medidas tendencia central
-
---
-
-- Correlaciones de Pearson
 
 
 ---
 # Técnicas de análisis
+     
+.pull-left[
+**Descriptivos**  
 
-## Multivariados
+Análisis de frecuencias, distribución y medidas tendencia central  
 
---
+Correlaciones de Pearson  
 
-- Análisis de Regresión Logística Ordinal
+]
 
---
+.pull-right[**Multivariados**
 
-- Inclusión de efectos de interacción
+Análisis de Regresión Logística Ordinal  
+
+Inclusión de efectos de interacción
+
+] 
 ---
 class: slideInRight, middle, inverse
 
 ***
 # Resultados
 ***
+---
+# Resultados: Efectos Directos (H1a y H1b)
+
 
 ---
 class: slideInRight, middle, inverse
@@ -834,6 +847,7 @@ ggplot(df, aes(x,y,group =Recompensado, name = Recompensado, color = Recompensad
 ```
 
 ---
+# Multivariados
 
 ---
 
