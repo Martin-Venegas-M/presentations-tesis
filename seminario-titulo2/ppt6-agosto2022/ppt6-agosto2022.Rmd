@@ -141,7 +141,7 @@ class: slideInRight, middle, inverse
 .pull-right[.center[
 ```{r justintro, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Justificación de la Violencia de Carabineros y Manifestantes por año"}
 
-pacman::p_load(tidyverse,sjPlot, sjmisc, sjlabelled, elsoc, ggplot2, ggrepel) # librerias
+pacman::p_load(tidyverse,sjPlot, sjmisc, sjlabelled, elsoc, ggplot2, ggrepel, ordinal) # librerias
 knitr::opts_chunk$set(warning = FALSE,  # mensaje de warning
                       message = FALSE,  # mensajes/avisos de librerias  
                       cache = FALSE,    # cache de los chunks,usar analisis pesados
@@ -513,6 +513,10 @@ _Por carabineros._
 ]
 --
 
+---
+# Síntesis: Hipótesis y Variables
+
+.center[![](../../seminario-titulo2/ppt6-agosto2022/ind4.png)]
 
 ---
 # Técnicas de análisis
@@ -540,9 +544,161 @@ class: slideInRight, middle, inverse
 # Resultados
 ***
 ---
+# Probabilidades J Gerente → JV Piedras
+
+.pull-left[
+```{r predjvest4}
+
+load(url("https://github.com/thesis-justification-of-violence/thesis-analysis/raw/main/input/data/procjv_analysis_nona.RData"))
+
+jv_est_2019.modelmulpub4<- clm(jv_est_2019_factor ~ 
+                                 sj_ceo_rec + 
+                                 sj_obrero_rec + 
+                                 sj_entrevistado + 
+                                 ingreso + 
+                                 sexo_factor + 
+                                 ingreso_satisfact_factor + 
+                                 educ_rec_factor + 
+                                 indigena_rec_factor + 
+                                 sdo_indice + 
+                                 rwa_indice + 
+                                 trato_salud_factor + 
+                                 trato_carab_factor, 
+                               data = procjv_analysis_nona)
+
+plot_pred_jvest_4 <- plot_model(jv_est_2019.modelmulpub4, type = "pred", terms = c("sj_ceo_rec[all]"), title = "")  + geom_line() + theme(legend.position="bottom") + ylab("Probabilidad Predicha")
+
+plot_pred_jvest_4$data$response.level[plot_pred_jvest_4$data$response.level == 1] <- "1. Nunca"
+plot_pred_jvest_4$data$response.level[plot_pred_jvest_4$data$response.level == 2] <- "2. Pocas veces"
+plot_pred_jvest_4$data$response.level[plot_pred_jvest_4$data$response.level == 3] <- "3. Algunas veces"
+plot_pred_jvest_4$data$response.level[plot_pred_jvest_4$data$response.level == 4] <- "4. Muchas veces"
+plot_pred_jvest_4$data$response.level[plot_pred_jvest_4$data$response.level == 5] <- "5. Siempre"
+
+plot_pred_jvest_4 + theme_classic()
+
+
+```
+
+]
+
+.pull-right[
+
+**A medida que aumenta la evaluación de que los gerentes están injustamente sobrerecompensados...**  
+
+...disminuye la probabilidad de responder que nunca se justifica que estudiantes tiren piedras a carabineros (controlando por variables relevantes)  
+
+...aumenta la probabilidad de responder que muchas veces se justifica que estudiantes tiren piedras a carabineros (controlando por variables relevantes)
+
+]
+
+---
+
+# Probabilidades J Obrero → JV Represión
+
+
+.pull-left[
+```{r predcarab1_2}
+
+load(url("https://github.com/thesis-justification-of-violence/thesis-analysis/raw/main/input/data/procjv_analysis_nona.RData"))
+
+
+ jv_carab1_2019.modelmulpub2<- clm(jv_carab1_2019_factor ~ 
+                                     sj_ceo_rec + 
+                                     sj_obrero_rec + 
+                                     sj_entrevistado + 
+                                     ingreso + 
+                                     sexo_factor + 
+                                     ingreso_satisfact_factor + 
+                                     educ_rec_factor + 
+                                     indigena_rec_factor, 
+                                   data = procjv_analysis_nona)
+
+plot_pred_carab1_2 <- plot_model(jv_carab1_2019.modelmulpub2, type = "pred", terms = c("sj_obrero_rec[all]"), title = "")  + geom_line() + theme(legend.position="bottom") + ylab("Probabilidad Predicha")
+
+plot_pred_carab1_2$data$response.level[plot_pred_carab1_2$data$response.level == 1] <- "1. Nunca"
+plot_pred_carab1_2$data$response.level[plot_pred_carab1_2$data$response.level == 2] <- "2. Pocas veces"
+plot_pred_carab1_2$data$response.level[plot_pred_carab1_2$data$response.level == 3] <- "3. Algunas veces"
+plot_pred_carab1_2$data$response.level[plot_pred_carab1_2$data$response.level == 4] <- "4. Muchas veces"
+plot_pred_carab1_2$data$response.level[plot_pred_carab1_2$data$response.level == 5] <- "5. Siempre"
+
+plot_pred_carab1_2 + theme_classic()
+
+
+```
+]
+
+.pull-left[
+
+**A medida que aumenta la evaluación de que los obreros están injustamente subrerecompensados...**  
+
+...aumenta la probabilidad de responder que nunca se justifica que carabineros reprima marchas pacificas (controlando por variables relevantes)  
+
+...disminuye la probabilidad de responder que muchas veces se justifica que carabineros reprima marchas pacificas (controlando por variables relevantes)
+
+]
+
+---
+
+# Probabilidades J Obrero → JV Desalojo
+
+
+.pull-left[
+```{r predcarab2_4}
+
+load(url("https://github.com/thesis-justification-of-violence/thesis-analysis/raw/main/input/data/procjv_analysis_nona.RData"))
+
+
+jv_carab2_2019.modelmulpub4<- clm(jv_carab2_2019_factor ~ 
+                                    sj_ceo_rec + 
+                                    sj_obrero_rec +
+                                    sj_entrevistado_rec + 
+                                    ingreso +
+                                    sexo_factor + 
+                                    ingreso_satisfact_factor + 
+                                    educ_rec_factor +
+                                    indigena_rec_factor +
+                                    sdo_indice + 
+                                    rwa_indice + 
+                                    trato_salud_factor +
+                                    trato_carab_factor, 
+                                  data = procjv_analysis_nona)
+
+plot_pred_carab2_4 <- plot_model(jv_carab2_2019.modelmulpub4, type = "pred", terms = c("sj_obrero_rec[all]"), title = "")  + geom_line() + theme(legend.position="bottom") + ylab("Probabilidad Predicha")
+
+plot_pred_carab2_4$data$response.level[plot_pred_carab2_4$data$response.level == 1] <- "1. Nunca"
+plot_pred_carab2_4$data$response.level[plot_pred_carab2_4$data$response.level == 2] <- "2. Pocas veces"
+plot_pred_carab2_4$data$response.level[plot_pred_carab2_4$data$response.level == 3] <- "3. Algunas veces"
+plot_pred_carab2_4$data$response.level[plot_pred_carab2_4$data$response.level == 4] <- "4. Muchas veces"
+plot_pred_carab2_4$data$response.level[plot_pred_carab2_4$data$response.level == 5] <- "5. Siempre"
+
+plot_pred_carab2_4 + theme_classic()
+```
+]
+
+.plot-right[
+**A medida que aumenta la evaluación de que los obreros están injustamente subrerecompensados... ** 
+
+...aumenta la probabilidad de responder que nunca se justifica que carabineros desaloje tomas estudiantiles (controlando por variables relevantes  
+
+...disminuye la probabilidad de responder que muchas veces se justifica que carabineros desaloje tomas estudiantiles (controlando por variables relevantes)
+
+]
+---
 # Resultados: Efectos Directos (H1a y H1b)
 
+.center[![](../../seminario-titulo2/ppt6-agosto2022/ind5.png)]
+---
+# Resultados: Efectos Directos (H1a y H1b)
 
+.center[![](../../seminario-titulo2/ppt6-agosto2022/ind6.png)]
+---
+# Resultados: Efectos Directos (H1a y H1b)
+
+.center[![](../../seminario-titulo2/ppt6-agosto2022/ind7.png)]
+---
+# Resultados: Efectos Directos (H1a y H1b)
+
+.center[![](../../seminario-titulo2/ppt6-agosto2022/ind8.png)]
 ---
 class: slideInRight, middle, inverse
 
