@@ -619,10 +619,10 @@ jv_est_2019.modelmulpub5<- clm(jv_est_2019_factor ~
 plot_model(jv_est_2019.modelmulpub5, title = "Coeficientes de Regresión para Estudiantes Tiren Piedras", vline.color = "gray", show.values = TRUE, value.offset = .3, terms = c("sj_ceo_rec", "sj_obrero_rec", "sj_entrevistado_rec", "ingreso_satisfact_factorTotalmente insatisfecho", "rwa_indice", "trato_carab_factorSiempre", "sj_ceo_rec:ingreso_satisfact_factorTotalmente insatisfecho")
            
 ,axis.labels =
-c("J Gerente x Satisfacción Ingresos: Tot. Insatis",
+c("J Gerente x Sat. Ing.: Tot. Insatis",
   "Trato Justo: Siempre",
   "RWA",
-  "Satisfacción Ingresos: Tot. Insatis.",
+  "Sat. Ing.: Tot. Insatis.",
   "J Entrevistado",
   "J Obrero",
   "J Gerente")
