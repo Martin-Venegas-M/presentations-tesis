@@ -316,15 +316,15 @@ Las dos dimensiones más trabajadas en la literatura:
 ---
 # Literatura hasta ahora...
 
-.center[![](../../seminario-titulo2/ppt6-agosto2022/model1.png)]
+.center[![](../../seminario-titulo2/ppt6-sept2022/model1.png)]
 ---
 # Literatura hasta ahora...
 
-.center[![](../../seminario-titulo2/ppt6-agosto2022/model2.png)]
+.center[![](../../seminario-titulo2/ppt6-sept2022/model2.png)]
 ---
 # Literatura hasta ahora...
 
-.center[![](../../seminario-titulo2/ppt6-agosto2022/model3.png)]
+.center[![](../../seminario-titulo2/ppt6-sept2022/model3.png)]
 ---
 class: slideInRight, middle, inverse
 
@@ -355,7 +355,7 @@ $H_{1b}$: Individuos que evalúen la distribución de ingresos como menos injust
 
 --
 
-.center[![](../../seminario-titulo2/ppt6-agosto2022/H1.png)]
+.center[![](../../seminario-titulo2/ppt6-sept2022/H1.png)]
 
 ---
 # Hipótesis
@@ -370,7 +370,7 @@ $H_{2b}$: Individuos pertenecientes a grupos desaventajados tenderán a justific
 
 --
 
-.center[![](../../seminario-titulo2/ppt6-agosto2022/H2.png)]
+.center[![](../../seminario-titulo2/ppt6-sept2022/H2.png)]
 ---
 class: slideInRight, middle, inverse
 
@@ -485,7 +485,7 @@ _Por carabineros._
 ---
 # Síntesis: Hipótesis y Variables
 
-.center[![](../../seminario-titulo2/ppt6-agosto2022/ind4.png)]
+.center[![](../../seminario-titulo2/ppt6-sept2022/ind4.png)]
 
 ---
 class: slideInRight, middle, inverse
@@ -771,28 +771,28 @@ El efecto se mantiene al controlar por las variables relevantes por literatura
 ---
 # Resultados: Efectos Directos (H1a y H1b)
 
-.center[![](../../seminario-titulo2/ppt6-agosto2022/ind5.png)]
+.center[![](../../seminario-titulo2/ppt6-sept2022/ind5.png)]
 ---
 # Resultados: Efectos Directos (H1a y H1b)
 
-.center[![](../../seminario-titulo2/ppt6-agosto2022/ind6.png)]
+.center[![](../../seminario-titulo2/ppt6-sept2022/ind6.png)]
 ---
 # Resultados: Efectos Directos (H1a y H1b)
 
-.center[![](../../seminario-titulo2/ppt6-agosto2022/ind8.png)]
+.center[![](../../seminario-titulo2/ppt6-sept2022/ind8.png)]
 
 ---
 # Resultados: Efecto Moderador (H2a y H2b)
 
-.center[![](../../seminario-titulo2/ppt6-agosto2022/ind9.png)]
+.center[![](../../seminario-titulo2/ppt6-sept2022/ind9.png)]
 ---
 # Resultados: Efecto Moderador (H2a y H2b)
 
-.center[![](../../seminario-titulo2/ppt6-agosto2022/ind10.png)]
+.center[![](../../seminario-titulo2/ppt6-sept2022/ind10.png)]
 ---
 # Resultados: Efecto Moderador (H2a y H2b)
 
-.center[![](../../seminario-titulo2/ppt6-agosto2022/ind11.png)]
+.center[![](../../seminario-titulo2/ppt6-sept2022/ind11.png)]
 ---
 class: slideInRight, middle, inverse
 
