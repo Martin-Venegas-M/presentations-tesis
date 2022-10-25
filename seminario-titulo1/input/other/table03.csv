@@ -1,0 +1,6 @@
+﻿concept;items_spa;cats;
+Ideología política;"Usando una escala de 0 a 10 donde 0 es ser de ""izquierda"", 5 es ser de ""centro""  y 10 es ser de ""derecha"", ¿Dónde se ubicaría usted en esta escala?";Valores discretos, min = 1 y max=10;
+Nivel socioeconómico;"En el mes pasado, ¿cuál fue el ingreso total de su hogar? (Considere los ingresos líquidos de
+los miembros del hogar, es decir, después de descuentos de impuestos, salud, previsión u otros)";Valores continuos;
+Sexo;Indicar sexo del entrevistado.;;(1) Hombre
+Sexo;Indicar sexo del entrevistado.;;(2) Mujer

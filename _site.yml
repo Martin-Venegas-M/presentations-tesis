@@ -15,5 +15,7 @@ navbar:
     href: seminario-titulo2/ppt5-abril2022/ppt5-abril2022.html
   - text: "Seminario OLES (Sept. 2022)"
     href: seminario-titulo2/ppt6-sept2022/ppt6-sept2022.html
+  - text: "Examen Titulo (Nov. 2022)"
+    href: examen-titulo/ppt7-nov2022/ppt7-nov2022.html
   html_document:
     theme: yeti # yeti  spacelab simplex sandstone cosmo cerulean paper darkly flatly lumen readable
