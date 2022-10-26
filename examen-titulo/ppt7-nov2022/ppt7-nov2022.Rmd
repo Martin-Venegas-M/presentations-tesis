@@ -33,7 +33,7 @@ class: inverse
 
 # ¿Quién justifica qué? _El rol del sentido de injusticia en las justificaciones de violencia en contexto de protesta_ <br>
 
-.medium[.orange[**Martín Venegas Márquez** (martin.venegas@ug.uchile.cl)]]
+.medium[.orange[**Martín Venegas Márquez** (martin.venegas@ug.uchile.cl)]]  
 
 
 
@@ -41,7 +41,8 @@ class: inverse
 
 
 ***
-.medium[[.orange[_Exámen de Título - **Segundo Semestre 2022**_]](https://github.com/formacionciudadana)]<br>
+.medium[[.orange[_Exámen para optar al título de Sociólogo  - **Segundo Semestre 2022**_]](https://github.com/formacionciudadana)]<br>
+.medium[Comisión: Dr. Juan Carlos Castillo, Dr. Rodrigo Asún y Dra. Emanuelle Barozet]  
 .medium[Noviembre, 2022]
 
 ---
@@ -55,11 +56,11 @@ class: slideInRight, middle, inverse
 
 - **Pregunta e Hipótesis** 
 
-- **Método**
-
-- **Resultados**
+- **Método y Resultados**
 
 - **Discusión y Conclusiones**
+
+- **Respuesta a Comentarios**
 ---
 
 class: slideInRight, middle, inverse
@@ -89,7 +90,7 @@ class: slideInRight, middle, inverse
 
 --
 
-[**Contexto Local (estalido social):**]() Aumenta la justificación de tácticas de protesta violenta y disminuye la justificación de tácticas represivas de parte de carabineros (ELSOC, 2019)
+[**Contexto Local (estalido social):**]() Aumenta la justificación de tácticas de protesta violenta y disminuye la justificación de tácticas represivas de parte de carabineros (ELSOC, 2020)
 
 --
 
@@ -244,30 +245,21 @@ class: slideInRight, middle, inverse
 ---
 # Hipótesis
 
---
 
 $H_{1a}$: Individuos que evalúen la distribución de ingresos como más injusta tenderán a justificar más la violencia por el cambio social.
 
---
 
 $H_{1b}$: Individuos que evalúen la distribución de ingresos como menos injusta tenderán a justificar más la violencia por el control social.
-
---
 
 .center[![](../../seminario-titulo2/ppt6-sept2022/H1.png)]
 
 ---
 # Hipótesis
 
---
-
 $H_{2a}$: Individuos pertenecientes a grupos desaventajados tenderán a justificar más la violencia por el cambio social cuando evalúen la distribución de ingresos como más injusta.
 
---
 
 $H_{2b}$: Individuos pertenecientes a grupos desaventajados tenderán a justificar menos la violencia por el control social cuando evalúen la distribución de ingresos como más injusta
-
---
 
 .center[![](../../seminario-titulo2/ppt6-sept2022/H2.png)]
 ---
@@ -279,16 +271,12 @@ class: slideInRight, middle, inverse
 ---
 # Datos 
 
---
-
   - Encuesta Longitudinal Social de Chile - Ola 4 (2019)
   - 716 casos válidos para el análisis (sin NA en las variables relevantes)
 
---
 
 # Técnicas de análisis
 
---
 
 - **Descriptivos:** Análisis frecuenicas, medias y correlaciones
 - **Multivariados:** Regresiones logisticas ordinales con efectos de interacción
@@ -326,7 +314,7 @@ _1. Que estudiantes tiren piedras a carabineros en una marcha por la educación 
 
 --
 
-**Preguntas sobre ingresos reales y justos para: el entrevistado, un obrero no calificado, un gerente de una gran empresa**
+Preguntas sobre ingresos reales y justos para: el entrevistado, un obrero no calificado, un gerente de una gran empresa
 
 --
 
@@ -344,11 +332,9 @@ Siendo $J_{i}$ la evaluación de justicia $J$ para un individuo ${i}$ → A mayo
 
 - $J_{entrevistado}$  
 
---
 
 - $J_{obrero}$
 
---
 
 - $J_{gerente}$  
 ---
@@ -464,6 +450,26 @@ class: slideInRight, middle, inverse
 
 - Cuando la situación es represión en marchas pacificas, el efecto se controla por ideología: efecto de la proporcionalidad de la violencia, consistente con Gerber & Jackson (2016)
 ---
+# Aportes Específicos
+
+### Pertenencia a Grupos Desaventajados, Sentido de Injusticia y Justificación de la Violencia
+
+--
+
+- El sentir injusticia en la distribución de ingresos tiene un efecto atenuante en que individuos desaventajados justiquen más la violencia por el cambio y menos por el control **(contrario a lo hipotetizado)**
+
+--
+
+- ¿Elección de indicadores o efecto "real? 
+
+--
+  - _Satisfacción con los ingresos_ → Variable subjetiva que puede no representar el concepto
+  
+  - _Sexo_ → Según literatura, mujeres justifican menos la violencia independiente del fin
+  
+  - _Ingresos_ → Complejidades que quedan fuera de la hipotesis general (p.ej relación actores-contexto)
+
+---
 # Conclusiones
 
 - Existe un efecto directo que varía de acuerdo cuál es la situación de injusticia que se evalúa y la situación de violencia que se observa
@@ -474,6 +480,24 @@ class: slideInRight, middle, inverse
 
 - Profundizar el estudio de estas relaciones con datos longitudinales y otras formas de medición y metodologías.
 
+---
+class: slideInRight, middle, inverse
+
+***
+# Respuesta a Comentarios
+***
+---
+# Técnica y Resultados
+
+**Distribución asimétrica de respuesta y poca parsimonia de los modelos**
+
+- Es una limitante que debe ser reconocida, la cual está muy ligada al constructo que se busca medir (respuestas normativamente potentes
+
+- Gerber et al. (2016) propone una escala donde la categoría mayor no es "Siempre", sino que "Casi siempre", lo cual podría amortiguar la asimetría de los datos en futuros estudios
+
+- En el caso de este estudio, los resultados se mantienen similares en términos de magnitud y sentido al emplear otras técnicas de análisis
+
+  - Ejemplo: Logit Binario donde 0 = "Nunca" y 1 = "Siempre", "Muchas veces", "Algunas veces", "Pocas veces")
 ---
 class: slideInRight, middle, inverse, center
 
