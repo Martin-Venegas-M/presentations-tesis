@@ -54,8 +54,6 @@ class: slideInRight, middle, inverse
 
 - **Problematización**
 
-- **Pregunta e Hipótesis** 
-
 - **Método y Resultados**
 
 - **Discusión y Conclusiones**
@@ -94,21 +92,11 @@ class: slideInRight, middle, inverse
 
 --
 
-[**Consecuencias:**]() Quienes justifican la violencia son más tendientes a ejercerla (Nunes et al., 2021) o a condonar el acto violento de otros (Kalmoe, 2014) → _Escalada de violencia que amenace la convivencia pacifica_
+[**Consecuencias:**]() Quienes justifican la violencia son más tendientes a ejercerla (Nunes et al., 2021) → _Escalada de violencia que amenace la convivencia pacifica_
 
 --
 
 ### **¿Quienes y por qué justifican la violencia?**
-
----
-class: slideInRight, middle, inverse
-
-***
-# Problematización
-***
-
-### .medium[Contexto y Antecedentes]
-### .medium[Este estudio]
 
 ---
 # Distinción Principal
@@ -133,17 +121,12 @@ Aquella que busca mantener las estructuras jerárquicas de las sociedad. (Blumen
 
 # Tres explicaciones desde la literatura
 
---
 
-1. **Enfoque criminológico de las teorías del conflicto social:** Personas de más bajos estatus o pertenecientes a grupos minoritarios tienden a apoyar menos el _uso de la fuerza por parte de la policía_ (Arthur & Case, 1994; Thompson, 2004)
+1. **Pertenencia a grupos desaventajados** relacionado a un menor apoyo al _uso de la fuerza por parte de la policía_ (Arthur & Case, 1994; Thompson, 2004)
 
---
+2. **Ideologías (RWA y SDO)** relacionadas positivamente a una mayor justificación del _uso de la fuerza excesiva por parte de la policía_ (Gerber & Jackson, 2016)
 
-2. **Enfoque de teorías de Autoritarismo de Derecha (RWA) y Dominancia Social (SDO):** Personas con ideologías más autoritarias (RWA) y dominantes (SDO) tienden a justificar más el _uso de la fuerza excesiva por parte de la policía_ (Gerber & Jackson, 2016)
-
---
-
-3. **Enfoque de justicia procesal:** Mayores percepciones de justicia procesal están asociadas a mayor _justificación de la violencia_ por el control social, y menos por el cambio social (Gerber et al., 2017).
+3. **Percepción de justicia en el trato** asociadas positivamente a mayor _justificación de la violencia_ por el control social, y menos por el cambio social (Gerber et al., 2017).
 
 ---
 class: slideInRight, middle, inverse
@@ -157,91 +140,32 @@ class: slideInRight, middle, inverse
 ---
 # Este estudio
 
---
+[**Premisa:**]() La justicia no es un concepto unidimensional, sino uno multidimensional (Törnblom & Vermunt, 2007)
 
-## Premisa 
-
---
-
-.large[### La justicia no es un concepto unidimensional, sino uno multidimensional (Törnblom & Vermunt, 2007) ] 
-
---
-
-Las dos dimensiones más trabajadas en la literatura:  
-
-  + **Distributiva:** Justicia en la distribución de recompensas (generalmente ingresos) (Jasso, 2015)
+  + *Distributiva:* Justicia en la distribución de recompensas (generalmente ingresos) (Jasso, 2015)
   
-  + **Procesal:** Justicia en el trato a personas (generalmente de parte de autoridades) (Tyler & Blader, 2003)
+  + *Procesal:* Justicia en el trato a personas (generalmente de parte de autoridades) (Tyler & Blader, 2003)
   
----
-# Este estudio
-## Propuesta 
-
---
-
-### Integrar la justicia distributiva como una dimensión explicativa de las justificaciones de la violencia
-
---
-
-### Pero... ¿por qué?
-
----
-
-# Este estudio: Planteamiento Lógico
-
---
-
-- Las ideas de justicia distributiva son una fuerza social que motivan el comportamiento humano a nivel individual y agregado (Liebig & Sauer, 2016; Runciman 1966; Barrington Moore, 1988; Tausch et al., 2011)
-
---
-
-#### .center[Injusticia Distributiva → Acción]
-
---
-
-- Quienes justifican la violencia son más tendientes a ejercerla o a condonar la violencia de otros (Nunes et al., 2021)
-
---
-
-#### .center[Justificación → Acción]
-
---
-
-- Entonces, _alguien que ejerce violencia en función de su sentimiento de injusticia distributiva debería previamente justificarla_
-
---
-
-#### .center[Injusticia Distributiva → Justificación → Acción]
+[**Propuesta:**]() Integrar la justicia distributiva como una dimensión explicativa de las justificaciones de la violencia
+  
 
 ---
 # Literatura hasta ahora...
 
-.center[![](../../seminario-titulo2/ppt6-sept2022/model1.png)]
+.center[![](../../examen-titulo/ppt7-nov2022/model1.png)]
 ---
 # Literatura hasta ahora...
 
-.center[![](../../seminario-titulo2/ppt6-sept2022/model2.png)]
+.center[![](../../examen-titulo/ppt7-nov2022/model2.png)]
 ---
 # Literatura hasta ahora...
 
-.center[![](../../seminario-titulo2/ppt6-sept2022/model3.png)]
----
-class: slideInRight, middle, inverse
-
-***
-# Pregunta e Hipótesis
-***
+.center[![](../../examen-titulo/ppt7-nov2022/model3.png)]
 ---
 # Pregunta
 
 > ¿Cuál es la relación entre el sentido de injusticia distributiva y las justificaciones de la violencia en contexto de protesta, tanto por el cambio social, como por el control social, en Chile al año 2019?
 
----
-class: slideInRight, middle, inverse
-
-***
-# Hipótesis
-***
 ---
 # Hipótesis
 
@@ -251,7 +175,7 @@ $H_{1a}$: Individuos que evalúen la distribución de ingresos como más injusta
 
 $H_{1b}$: Individuos que evalúen la distribución de ingresos como menos injusta tenderán a justificar más la violencia por el control social.
 
-.center[![](../../seminario-titulo2/ppt6-sept2022/H1.png)]
+.center[![](../../examen-titulo/ppt7-nov2022/H1.png)]
 
 ---
 # Hipótesis
@@ -261,12 +185,12 @@ $H_{2a}$: Individuos pertenecientes a grupos desaventajados tenderán a justific
 
 $H_{2b}$: Individuos pertenecientes a grupos desaventajados tenderán a justificar menos la violencia por el control social cuando evalúen la distribución de ingresos como más injusta
 
-.center[![](../../seminario-titulo2/ppt6-sept2022/H2.png)]
+.center[![](../../examen-titulo/ppt7-nov2022/H2.png)]
 ---
 class: slideInRight, middle, inverse
 
 ***
-# Método
+# Método y Resultados
 ***
 ---
 # Datos 
@@ -290,6 +214,7 @@ class: slideInRight, middle, inverse
 ¿En qué medida cree usted que se justifican o no se justifican las siguientes situaciones?
 
 --
+
 .pull-left[**Justificación de la Violencia por el Cambio Social**
 
 _1. Que estudiantes tiren piedras a carabineros en una marcha por la educación del país_.   
@@ -297,7 +222,7 @@ _1. Que estudiantes tiren piedras a carabineros en una marcha por la educación 
 ]
   
 --
-  
+
 .pull-right[**Justificación de la Violencia por el Control Social**
 
  _2. Que carabineros desaloje a la fuerza a los estudiantes de un liceo en toma_.  
@@ -312,11 +237,9 @@ _1. Que estudiantes tiren piedras a carabineros en una marcha por la educación 
 ---
 # Variables Independientes
 
---
 
 Preguntas sobre ingresos reales y justos para: el entrevistado, un obrero no calificado, un gerente de una gran empresa
 
---
 
 **Sentido de Injusticia Distributiva**
 
@@ -324,7 +247,6 @@ Preguntas sobre ingresos reales y justos para: el entrevistado, un obrero no cal
    \text{J}_{i}= ln(\frac{\text{Ingresos Reales}_{i}}{\text{Ingresos Justos}_{i}})
 \end{equation}
 
---
 
 Siendo $J_{i}$ la evaluación de justicia $J$ para un individuo ${i}$ → A mayor valor en el indicador, más injusticia se evalúa.
 
@@ -339,8 +261,6 @@ Siendo $J_{i}$ la evaluación de justicia $J$ para un individuo ${i}$ → A mayo
 - $J_{gerente}$  
 ---
 # Controles
-
---
 
 .pull-left[**Pertenencia a grupos desaventajados**  
 Sexo (Mujer)  
@@ -366,43 +286,40 @@ _Por carabineros._
 
 ]
 --
-
----
-# Síntesis: Hipótesis y Variables
-
-.center[![](../../seminario-titulo2/ppt6-sept2022/ind4.png)]
-
----
-class: slideInRight, middle, inverse
-
-***
-# Resultados
-***
 ---
 # Resultados: Efectos Directos (H1a y H1b)
 
-.center[![](../../seminario-titulo2/ppt6-sept2022/ind5.png)]
+.center[![](../../examen-titulo/ppt7-nov2022/ind5.png)]
+
+**H1a:**  
+**H1b:**
 ---
 # Resultados: Efectos Directos (H1a y H1b)
 
-.center[![](../../seminario-titulo2/ppt6-sept2022/ind6.png)]
+.center[![](../../examen-titulo/ppt7-nov2022/ind6.png)]
+
+
+**H1a:** ✓  
+**H1b:**
 ---
 # Resultados: Efectos Directos (H1a y H1b)
 
-.center[![](../../seminario-titulo2/ppt6-sept2022/ind8.png)]
+.center[![](../../examen-titulo/ppt7-nov2022/ind8.png)]
 
+**H1a:** ✓  
+**H1b:** ✓
 ---
 # Resultados: Efecto Moderador (H2a y H2b)
 
-.center[![](../../seminario-titulo2/ppt6-sept2022/ind9.png)]
+.center[![](../../examen-titulo/ppt7-nov2022/ind9.png)]
 ---
 # Resultados: Efecto Moderador (H2a y H2b)
 
-.center[![](../../seminario-titulo2/ppt6-sept2022/ind10.png)]
+.center[![](../../examen-titulo/ppt7-nov2022/ind10.png)]
 ---
 # Resultados: Efecto Moderador (H2a y H2b)
 
-.center[![](../../seminario-titulo2/ppt6-sept2022/ind11.png)]
+.center[![](../../examen-titulo/ppt7-nov2022/ind11.png)]
 ---
 class: slideInRight, middle, inverse
 
@@ -432,11 +349,11 @@ class: slideInRight, middle, inverse
 
 --
 
-- Cuando la injusticia distributiva es una razón por la que se justifique la violencia por el cambio, **las personas miran hacia arriba y no hacia abajo**.
+- **¿Dónde _miran_ las personas?** → arriba, no abajo
 
 --
 
-- Imagen del clima del momento: descontento generalizado con _los poderosos_
+- **Imagen del clima del momento** → descontento generalizado con _los poderosos_
 ---
 # Aportes Específicos
 
@@ -444,11 +361,11 @@ class: slideInRight, middle, inverse
 
 --
 
--  Quienes justifican la violencia de carabineros basados en sus evaluaciones de justicia distributiva siguen una lógica racional → **Si es que no hay nada malo (en la situación de los más desfavorecidos), entonces no hay nada que cambiar**
+- **Lógica racional** → Si es que no hay nada malo (en la situación de los más desfavorecidos), entonces no hay nada que cambiar
 
 --
 
-- Cuando la situación es represión en marchas pacificas, el efecto se controla por ideología: efecto de la proporcionalidad de la violencia, consistente con Gerber & Jackson (2016)
+- **Proporcionalidad de la violencia** → Efecto controlado por ideología en situación de represión marchas pacificas. Consistente con Gerber & Jackson (2016).
 ---
 # Aportes Específicos
 
@@ -456,7 +373,7 @@ class: slideInRight, middle, inverse
 
 --
 
-- El sentir injusticia en la distribución de ingresos tiene un efecto atenuante en que individuos desaventajados justiquen más la violencia por el cambio y menos por el control **(contrario a lo hipotetizado)**
+- **Efecto atenuante en vez de potenciador:** moderación en sentido contrario a la hipótesis
 
 --
 
@@ -467,7 +384,6 @@ class: slideInRight, middle, inverse
   
   - _Sexo_ → Según literatura, mujeres justifican menos la violencia independiente del fin
   
-  - _Ingresos_ → Complejidades que quedan fuera de la hipotesis general (p.ej relación actores-contexto)
 
 ---
 # Conclusiones
@@ -489,15 +405,23 @@ class: slideInRight, middle, inverse
 ---
 # Técnica y Resultados
 
-**Distribución asimétrica de respuesta y poca parsimonia de los modelos**
+### Distribución asimétrica de respuesta
 
-- Es una limitante que debe ser reconocida, la cual está muy ligada al constructo que se busca medir (respuestas normativamente potentes
+- **Limitante que debe reconocerse** → ligada al constructo que se busca medir
 
-- Gerber et al. (2016) propone una escala donde la categoría mayor no es "Siempre", sino que "Casi siempre", lo cual podría amortiguar la asimetría de los datos en futuros estudios
+- **Mejores propuestas de escalas** →  "Casi siempre" en vez de "Siempre" (Gerber et al., 2016) 
 
-- En el caso de este estudio, los resultados se mantienen similares en términos de magnitud y sentido al emplear otras técnicas de análisis
+- **Resultados se mantienen** → Replicaicón análisis con otras técnicas
 
   - Ejemplo: Logit Binario donde 0 = "Nunca" y 1 = "Siempre", "Muchas veces", "Algunas veces", "Pocas veces")
+  
+---
+# Técnica y Resultados
+### Parsimonia de los modelos 
+
+---
+# Técnica y Resultados
+### Ingresos con β = 0 y SE = 0
 ---
 class: slideInRight, middle, inverse, center
 
@@ -515,17 +439,14 @@ class: slideInRight, middle, inverse
 
 - Arthur, J. A., & Case, C. E. (1994). Race, class and support for police use of force. Crime, Law and Social Change, 21, 167–182. https://doi.org/10.1007/BF01307910
 - Barrington Moore, Jr. (1978). Injustice: The Social Bases of Obedience and Revolt. The Macmillan Press Ltd.
-- Basaure, M. (2020). Justificación de la violencia política: Propuesta de un modelo teórico social. Revista de Sociología, 35(1), 20–30. https://doi.org/10.5354/0719-529x.2020.58104
 - Blumenthal, M. D. (1972). Predicting attitudes toward violence. Science, 176(4041), 1296–1303. https://doi.org/10.1126/science.176.4041.1296
 - Bufacchi, V. (2005). Two Concepts of Violence. Political Studies Review, 3(2), 193–204. https://doi.org/10.1111/j.1478-9299.2005.00023.x
-- Frazer, E., & Hutchings, K. (2019). Can Political Violence Ever Be Justified? Polity Press.
 ---
 # Referencias
 
 - Gerber, M., González, R., Carvacho, H., Jiménez-Moya, G., & Jackson, J. (2017). On the justification of intergroup violence: The roles of procedural justice, police legitimacy and group identity in attitudes towards violence among indigenous people. Psychology of Violence, 8(3), 379–389. https://doi.org/10.1037/vio0000177
 - Gerber, M., & Jackson, J. (2016). Justifying violence: legitimacy, ideology and public support for police use of force. Psychology, Crime and Law, 23(1), 79–95. https://doi.org/10.1080/1068316X.2016.1220556
 - Jasso, G. (2015). Thinking, Saying, Doing in the World of Distributive Justice. Social Justice Research, 28(4), 435–478. https://doi.org/10.1007/s11211-015-0257-3
-- Kalmoe, N. P. (2014). Fueling the Fire : Violent Metaphors , Trait Aggression , and Support for Political Violence. Political Communication, 31(4), 545–563. https://doi.org/10.1080/10584609.2013.852642
 - Liebig, S., & Sauer, C. (2016). Sociology of justice. In Handbook of social justice theory and research (pp. 37-59). Springer, New York, NY.
 
 ---
