@@ -358,6 +358,8 @@ options(knitr.kable.NA = '') # NA en kable = ''
 
 .center[![](../../examen-titulo/ppt7-nov2022/ind5.png)]
 
+.center[<font size="2">Modelo 4 (incluye controles, sin interacciones). 0.05 = \*; 0.01 = \*\*; 0.001 = \*\*\*</font>]
+
 **H1a:**  
 **H1b:**
 ---
@@ -383,6 +385,8 @@ options(knitr.kable.NA = '') # NA en kable = ''
 
 .center[![](../../examen-titulo/ppt7-nov2022/ind9.png)]
 
+.center[<font size="2">Modelo 5 (incluye controles e interacciones). 0.05 = \*; 0.01 = \*\*; 0.001 = \*\*\*</font>]
+
 **H2a:**  
 **H2b:**
 ---
@@ -399,7 +403,7 @@ options(knitr.kable.NA = '') # NA en kable = ''
 
 .center[![](../../examen-titulo/ppt7-nov2022/ind11.png)]
 
-.center[<font size="2">Modelo 5 (incluye controles, e interacciones). 0.05 = \*; 0.01 = \*\*; 0.001 = \*\*\*</font>]
+.center[<font size="2">Modelo 5 (incluye controles e interacciones). 0.05 = \*; 0.01 = \*\*; 0.001 = \*\*\*</font>]
 
 **H2a:** ✓  
 **H2b:** ✓
@@ -460,12 +464,14 @@ class: slideInRight, middle, inverse
 
 --
 
-- ¿Elección de indicadores o efecto "real? 
+- ¿Elección de indicadores o efecto real? 
 
 --
   - _Satisfacción con los ingresos_ → Variable subjetiva que puede no representar el concepto
   
   - _Sexo_ → Según literatura, mujeres justifican menos la violencia independiente del fin
+  
+  - _Ingresos_ → Complejidades que escapan a la hipótesis (e.g. relación actores-contexto)
   
 
 ---
@@ -492,54 +498,27 @@ class: slideInRight, middle, inverse
 
 - **Limitante que debe reconocerse** → ligada al constructo que se busca medir
 
-- **Mejores propuestas de escalas** →  "Casi siempre" en vez de "Siempre" (Gerber et al., 2016) 
+- **Mejores propuestas de escalas** →  *Casi siempre* en vez de *Siempre* (Gerber et al., 2016) 
 
 - **Resultados se mantienen** → Replicación análisis con otras técnicas
 
   - Ejemplo: Logit Binario donde 0 = "Nunca" y 1 = "Siempre", "Muchas veces", "Algunas veces", "Pocas veces")
 
 ---
-# Técnica y Resultados
 
-### Distribución asimétrica de respuesta
-
----
-# Técnica y Resultados
-### Ingresos con β = 0 y SE = 0
-
-- **Unidad de medida pequeña** → por cada peso... 
-  
-- **Re-escalamiento de la variable** →  salarios mínimos al 2019 (300.000 pesos)
-
-- **Coeficientes más informativos** → Ej. Modelo Básico: **β = 0,08; p < 0,05**
----
 
 .pull-left[
 ```{r}  
 
 # Cargar paquetes necesarios
 pacman::p_load(ordinal,
-               sjPlot)
+               sjPlot,
+               ggplot2)
 
 # Cargar datos necesarios
 load(url("https://github.com/thesis-justification-of-violence/thesis-analysis/raw/main/input/data/procjv_analysis_nona.RData"))
 
 # Estudiantes tiren piedras
-
-jv_est_2019.modelmulpub4<- clm(jv_est_2019_factor ~ 
-                                 sj_ceo_rec + 
-                                 sj_obrero_rec + 
-                                 sj_entrevistado_rec + 
-                                 ingreso + 
-                                 sexo_factor + 
-                                 ingreso_satisfact_factor + 
-                                 educ_rec_factor + 
-                                 indigena_rec_factor + 
-                                 sdo_indice + 
-                                 rwa_indice + 
-                                 trato_salud_factor + 
-                                 trato_carab_factor, 
-                               data = procjv_analysis_nona)
 
 jv_est_2019.modelmulpub5<- clm(jv_est_2019_factor ~ 
                                  sj_ceo_rec + 
@@ -558,13 +537,26 @@ jv_est_2019.modelmulpub5<- clm(jv_est_2019_factor ~
                                  ingreso_satisfact_factor*sj_ceo_rec, 
                                data = procjv_analysis_nona)
 
-plot_model(jv_est_2019.modelmulpub5, title = "Ordinal: Justificación Estudiantes Tiren Piedras", vline.color = "gray", show.values = TRUE, value.offset = .3, terms = c("sj_ceo_rec", "sj_obrero_rec", "sj_entrevistado_rec", "ingreso_satisfact_factorTotalmente insatisfecho", "rwa_indice", "trato_carab_factorSiempre", "sj_ceo_rec:ingreso_satisfact_factorTotalmente insatisfecho")
+plot_model(jv_est_2019.modelmulpub5, 
+           transform = NULL,
+           title = "Ordinal: Justificación Estudiantes Tiren Piedras", 
+           vline.color = "gray", 
+           show.values = TRUE, 
+           value.offset = .3, 
+           terms = c(
+             "sj_ceo_rec", 
+             "sj_obrero_rec", 
+             "sj_entrevistado_rec",
+             "sexo_factorMujer",
+             "ingreso_satisfact_factorTotalmente insatisfecho", 
+             "sj_ceo_rec:sexo_factorMujer",
+             "sj_ceo_rec:ingreso_satisfact_factorTotalmente insatisfecho")
            
 ,axis.labels =
 c("J Gerente x Sat. Ing.: Tot. Insatis",
-  "Trato Justo: Siempre",
-  "RWA",
+  "J Gerente x Sexo: Mujer",
   "Sat. Ing.: Tot. Insatis.",
+  "Sexo: Mujer",
   "J Entrevistado",
   "J Obrero",
   "J Gerente")
@@ -579,7 +571,8 @@ c("J Gerente x Sat. Ing.: Tot. Insatis",
 
 # Cargar paquetes necesarios
 pacman::p_load(ordinal,
-               sjPlot)
+               sjPlot,
+               ggplot2)
 
 # Cargar datos necesarios
 load(url("https://github.com/thesis-justification-of-violence/thesis-analysis/raw/main/input/data/procjv_analysis_nona.RData"))
@@ -592,22 +585,6 @@ procjv_analysis_nona$jv_est_2019_bin[procjv_analysis_nona$jv_est_2019_factor == 
 procjv_analysis_nona$jv_est_2019_bin[procjv_analysis_nona$jv_est_2019_factor == "Siempre se justifica"] <- 1
 
 # Estudiantes tiren piedras
-
-jv_est_2019.modelmulpub4<- glm(jv_est_2019_bin ~ 
-                                 sj_ceo_rec + 
-                                 sj_obrero_rec + 
-                                 sj_entrevistado_rec + 
-                                 ingreso + 
-                                 sexo_factor + 
-                                 ingreso_satisfact_factor + 
-                                 educ_rec_factor + 
-                                 indigena_rec_factor + 
-                                 sdo_indice + 
-                                 rwa_indice + 
-                                 trato_salud_factor + 
-                                 trato_carab_factor, 
-                               family = "binomial",
-                               data = procjv_analysis_nona)
 
 jv_est_2019.modelmulpub5<- glm(jv_est_2019_bin ~ 
                                  sj_ceo_rec + 
@@ -627,13 +604,26 @@ jv_est_2019.modelmulpub5<- glm(jv_est_2019_bin ~
                                family = "binomial",
                                data = procjv_analysis_nona)
 
-plot_model(jv_est_2019.modelmulpub5, title = "Binario: Justificación Estudiantes Tiren Piedras", vline.color = "gray", show.values = TRUE, value.offset = .3, terms = c("sj_ceo_rec", "sj_obrero_rec", "sj_entrevistado_rec", "ingreso_satisfact_factorTotalmente insatisfecho", "rwa_indice", "trato_carab_factorSiempre", "sj_ceo_rec:ingreso_satisfact_factorTotalmente insatisfecho")
+plot_model(jv_est_2019.modelmulpub5, 
+           transform = NULL,
+           title = "Binario: Justificación Estudiantes Tiren Piedras", 
+           vline.color = "gray", 
+           show.values = TRUE, 
+           value.offset = .3, 
+           terms = c(
+             "sj_ceo_rec", 
+             "sj_obrero_rec", 
+             "sj_entrevistado_rec",
+             "sexo_factorMujer",
+             "ingreso_satisfact_factorTotalmente insatisfecho", 
+             "sj_ceo_rec:sexo_factorMujer",
+             "sj_ceo_rec:ingreso_satisfact_factorTotalmente insatisfecho")
            
 ,axis.labels =
 c("J Gerente x Sat. Ing.: Tot. Insatis",
-  "Trato Justo: Siempre",
-  "RWA",
+  "J Gerente x Sexo: Mujer",
   "Sat. Ing.: Tot. Insatis.",
+  "Sexo: Mujer",
   "J Entrevistado",
   "J Obrero",
   "J Gerente")
@@ -641,6 +631,176 @@ c("J Gerente x Sat. Ing.: Tot. Insatis",
             
 ```
 ]
+
+.center[<font size="2"> Modelo 5 (incluye controles e interacciones). 0.05 = \*; 0.01 = \*\*; 0.001 = \*\*\*</font>]
+
+---
+
+.pull-left[
+```{r}  
+
+# Cargar paquetes necesarios
+pacman::p_load(ordinal,
+               sjPlot,
+               ggplot2)
+
+# Cargar datos necesarios
+load(url("https://github.com/thesis-justification-of-violence/thesis-analysis/raw/main/input/data/procjv_analysis_nona.RData"))
+
+# Estudiantes tiren piedras
+
+
+jv_carab2_2019.modelmulpub5<- clm(jv_carab2_2019_factor ~ 
+                                    sj_ceo_rec + 
+                                    sj_obrero_rec + 
+                                    sj_entrevistado_rec + 
+                                    ingreso +
+                                    sexo_factor + 
+                                    ingreso_satisfact_factor +
+                                    educ_rec_factor + 
+                                    indigena_rec_factor + 
+                                    sdo_indice + 
+                                    rwa_indice +
+                                    trato_salud_factor + 
+                                    trato_carab_factor + 
+                                    ingreso*sj_obrero_rec + 
+                                    ingreso_satisfact_factor*sj_obrero_rec,
+                                  data = procjv_analysis_nona)
+
+plot_model(jv_carab2_2019.modelmulpub5, 
+           transform = NULL,
+           title = "Ordinal: Justificación Carabineros Desalojen Tomas", 
+           vline.color = "gray", 
+           show.values = TRUE, 
+           value.offset = .3, 
+           terms = c(
+             "sj_ceo_rec", 
+             "sj_obrero_rec", 
+             "sj_entrevistado_rec",
+             "ingreso",
+             "sj_obrero_rec:ingreso"
+             )
+           
+,axis.labels =
+c(
+  "J Obrero x Ingresos",
+  "Ingresos",
+  "J Entrevistado",
+  "J Obrero",
+  "J Gerente"
+  )
+) + theme_bw()
+            
+```
+]
+
+
+.pull-right[
+```{r}  
+
+# Cargar paquetes necesarios
+pacman::p_load(ordinal,
+               sjPlot,
+               ggplot2)
+
+# Cargar datos necesarios
+load(url("https://github.com/thesis-justification-of-violence/thesis-analysis/raw/main/input/data/procjv_analysis_nona.RData"))
+
+# Recode
+procjv_analysis_nona$jv_carab2_2019_bin[procjv_analysis_nona$jv_carab2_2019_factor == "Nunca se justifica"] <- 0
+procjv_analysis_nona$jv_carab2_2019_bin[procjv_analysis_nona$jv_carab2_2019_factor == "Pocas veces se justifica"] <- 1
+procjv_analysis_nona$jv_carab2_2019_bin[procjv_analysis_nona$jv_carab2_2019_factor == "Algunas veces se justifica"] <- 1
+procjv_analysis_nona$jv_carab2_2019_bin[procjv_analysis_nona$jv_carab2_2019_factor == "Muchas veces se justifica"] <- 1
+procjv_analysis_nona$jv_carab2_2019_bin[procjv_analysis_nona$jv_carab2_2019_factor == "Siempre se justifica"] <- 1
+
+# Estudiantes tiren piedras
+
+jv_carab2_2019.modelmulpub5<- glm(jv_carab2_2019_bin ~ 
+                                    sj_ceo_rec + 
+                                    sj_obrero_rec + 
+                                    sj_entrevistado_rec + 
+                                    ingreso +
+                                    sexo_factor + 
+                                    ingreso_satisfact_factor +
+                                    educ_rec_factor + 
+                                    indigena_rec_factor + 
+                                    sdo_indice + 
+                                    rwa_indice +
+                                    trato_salud_factor + 
+                                    trato_carab_factor + 
+                                    ingreso*sj_obrero_rec + 
+                                    ingreso_satisfact_factor*sj_obrero_rec,
+                                  family = "binomial",
+                                  data = procjv_analysis_nona)
+
+plot_model(jv_carab2_2019.modelmulpub5, 
+           transform = NULL,
+           title = "Binario: Justificación Carabineros Desalojen Tomas", 
+           vline.color = "gray", 
+           show.values = TRUE, 
+           value.offset = .3, 
+           terms = c(
+             "sj_ceo_rec", 
+             "sj_obrero_rec", 
+             "sj_entrevistado_rec",
+             "ingreso",
+             "sj_obrero_rec:ingreso"
+             )
+           
+,axis.labels =
+c(
+  "J Obrero x Ingresos",
+  "Ingresos",
+  "J Entrevistado",
+  "J Obrero",
+  "J Gerente"
+  )
+) + theme_bw()
+            
+```
+]
+
+.center[<font size="2"> Modelo 5 (incluye controles e interacciones). 0.05 = \*; 0.01 = \*\*; 0.001 = \*\*\*</font>]
+
+---
+# Técnica y Resultados
+### Ingresos con β = 0 y SE = 0
+
+- **Unidad de medida pequeña** → por cada peso... 
+  
+- **Re-escalamiento de la variable** →  salarios mínimos al 2019 (300.000 pesos)
+
+- **Coeficientes más informativos** → Ej. JV Desalojo (Modelo 1): *β = 0,08; p < 0,05*
+
+---
+# Técnica y Resultados
+### Parsimonia análisis
+
+- **¿Con o sin interacciones?** → parsimonia o complejidad  
+
+- **Test de Verosimilitud** → M4 (sin interacciones) v/s M5 (con interacciones) (ordinao y binario)
+
+  - JV Piedras: M5 ofrece mejor ajuste que M4 (*p < 0.05*)
+  
+  - JV Desalojo: M5 no ofrece mejor ajuste que M4 (*p > 0.05*)  
+  
+---
+# Conclusiones en torno a comentarios
+
+- Datos complejos, difícil relación teoría-empiria
+
+- Evidencia para sostener efectos directos (replicación con logit binario)
+
+- Menos evidencia para sostener efectos de moderación  
+
+  - *JV Piedras:* Modelo con interacciónes ajusta mejor que sin (ordinal y binario)
+  
+  - *JV Piedras:* J Gerente*Insatisfact. Ing. pierde significancia en replicación
+  
+  - *JV Piedras:* Solo J Gerente*Mujer mantiene efecto en replicación
+  
+  - *JV: Desalojo:* Modelo con interacciones no presenta mejor ajuste que sin (ordinal y binario)
+
 ---
 class: slideInRight, middle, inverse, center
 
@@ -682,10 +842,24 @@ class: slideInRight, middle, inverse
 
 ***
 # Anexos
+
+### .medium[Planteamiento]
+### .medium[Gráficos y Análisis]
+
 ***
 
 ---
-# Justificación de la Violencia
+class: slideInRight, middle, inverse
+
+***
+# Anexos
+
+### [**Planteamiento**]()
+### .medium[Gráficos y Análisis]
+
+***
+---
+# Evolución Justificación de la Violencia
 
 .center[
 ```{r justintro, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Justificación de la Violencia de Carabineros y Manifestantes por año"}
@@ -738,7 +912,7 @@ elsoc_long_2016_2021 %>%
 
 ---
 
-# Este estudio: Planteamiento Lógico
+# ¿Por qué la justicia distributiva?
 
 --
 
@@ -777,6 +951,16 @@ elsoc_long_2016_2021 %>%
 # Literatura hasta ahora...
 
 .center[![](../../examen-titulo/ppt7-nov2022/model3.png)]
+
+---
+class: slideInRight, middle, inverse
+
+***
+# Anexos
+***
+
+### .medium[Planteamiento]
+### [**Gráficos y Análisis**]()
 
 ---
 
@@ -1007,21 +1191,6 @@ load(url("https://github.com/thesis-justification-of-violence/thesis-analysis/ra
 
 # Estudiantes tiren piedras
 
-jv_est_2019.modelmulpub4<- clm(jv_est_2019_factor ~ 
-                                 sj_ceo_rec + 
-                                 sj_obrero_rec + 
-                                 sj_entrevistado_rec + 
-                                 ingreso + 
-                                 sexo_factor + 
-                                 ingreso_satisfact_factor + 
-                                 educ_rec_factor + 
-                                 indigena_rec_factor + 
-                                 sdo_indice + 
-                                 rwa_indice + 
-                                 trato_salud_factor + 
-                                 trato_carab_factor, 
-                               data = procjv_analysis_nona)
-
 jv_est_2019.modelmulpub5<- clm(jv_est_2019_factor ~ 
                                  sj_ceo_rec + 
                                  sj_obrero_rec + 
@@ -1039,28 +1208,39 @@ jv_est_2019.modelmulpub5<- clm(jv_est_2019_factor ~
                                  ingreso_satisfact_factor*sj_ceo_rec, 
                                data = procjv_analysis_nona)
 
-plot_model(jv_est_2019.modelmulpub5, title = "Coeficientes de Regresión para Estudiantes Tiren Piedras", vline.color = "gray", show.values = TRUE, value.offset = .3, terms = c("sj_ceo_rec", "sj_obrero_rec", "sj_entrevistado_rec", "ingreso_satisfact_factorTotalmente insatisfecho", "rwa_indice", "trato_carab_factorSiempre", "sj_ceo_rec:ingreso_satisfact_factorTotalmente insatisfecho")
+plot_model(jv_est_2019.modelmulpub5, 
+           transform = NULL,
+           title = "Coeficientes de Regresión para Estudiantes Tiren Piedras (+ Interacciones)", 
+           vline.color = "gray", show.values = TRUE, 
+           value.offset = .3, 
+           terms = c(
+             "sj_ceo_rec", 
+             "sj_obrero_rec", 
+             "sj_entrevistado_rec", 
+             "sexo_factorMujer", 
+             "rwa_indice", 
+             "trato_carab_factorSiempre", 
+             "sj_ceo_rec:sexo_factorMujer"
+             )
            
 ,axis.labels =
-c("J Gerente x Sat. Ing.: Tot. Insatis",
+c(
+  "J Gerente x Sexo: Mujer",
   "Trato Justo: Siempre",
   "RWA",
-  "Sat. Ing.: Tot. Insatis.",
+  "Sexo: Mujer",
   "J Entrevistado",
   "J Obrero",
-  "J Gerente")
-)
+  "J Gerente"
+  )
+) + theme_bw()
             
 ```
 ]
 
 .pulll-right[
 
-Solo la evaluación de injusticia de los gerentes (J Gerente) tiene un efecto significativo  
-
 A medida que aumenta la evaluación de que la distribución de los ingresos de los gerentes es injusta, las chances de que se justifique que estudiantes tiren piedras a carabineros aumentan (H1a ✓)
-
-El efecto se mantiene controlando por los predictores relevantes por literatura y las interacciones  
 
 Las interacciones van en el sentido contrario a la hipótesis (H2a ✗)
 ]
@@ -1104,16 +1284,39 @@ jv_carab1_2019.modelmulpub3<- clm(jv_carab1_2019_factor ~
                                   data = procjv_analysis_nona)
 
 gridExtra::grid.arrange(
-plot_model(jv_carab1_2019.modelmulpub2, title = "Coeficientes de Regresión para Carabineros Reprimen Marchas (Solo J)", vline.color = "gray", show.values = TRUE, value.offset = .3, terms = c("sj_ceo_rec", "sj_obrero_rec", "sj_entrevistado_rec")
+plot_model(jv_carab1_2019.modelmulpub2, 
+           transform = NULL,
+           title = "Coeficientes de Regresión para Carabineros Reprimen Marchas (Solo J)", 
+           vline.color = "gray", 
+           show.values = TRUE, 
+           value.offset = .3, 
+           terms = c(
+             "sj_ceo_rec", 
+             "sj_obrero_rec", 
+             "sj_entrevistado_rec"
+             )
            
 ,axis.labels =
 c(
   "J Entrevistado",
   "J Obrero",
-  "J Gerente")
-)
+  "J Gerente"
+  )
+) + theme_bw()
 ,
-plot_model(jv_carab1_2019.modelmulpub3, title = "Coeficientes de Regresión para Carabineros Carabineros Reprimen Marchas (J + Ideología)", vline.color = "gray", show.values = TRUE, value.offset = .3, terms = c("sj_ceo_rec", "sj_obrero_rec", "sj_entrevistado_rec", "rwa_indice", "sdo_indice")
+plot_model(jv_carab1_2019.modelmulpub3, 
+           transform = NULL,
+           title = "Coeficientes de Regresión para Carabineros Carabineros Reprimen Marchas (J + Ideología)", 
+           vline.color = "gray", 
+           show.values = TRUE, 
+           value.offset = .3, 
+           terms = c(
+             "sj_ceo_rec", 
+             "sj_obrero_rec", 
+             "sj_entrevistado_rec", 
+             "rwa_indice", 
+             "sdo_indice"
+             )
            
 ,axis.labels =
 c(
@@ -1121,22 +1324,22 @@ c(
   "RWA",
   "J Entrevistado",
   "J Obrero",
-  "J Gerente")
-)
+  "J Gerente"
+  )
+) + theme_bw()
 
-)      
+)    
 
 ```
 ]
 
 .pull-right[
 
-Solo la evaluación de injusticia de los obreros (J Obreros) tiene un efecto significativo  
+A medida que aumenta la evaluación de que la distribución de los ingresos de los obreros es injusta, las chances de que se justifique que carabineros reprima una marcha pacifica disminuye (H1b ✓)  
 
-A medida que aumenta la evaluación de que la distribución de los ingresos de los obreros es injusta, las chances de que se justifique que carabineros reprima una marcha pacifica disminuye (H1b ✓)
+El efecto se controla por la ideología autoritaria (RWA) y dominante (SDO)  
 
-El efecto se controla por la ideología autoritaria (RWA) y dominante (SDO)
-
+No se encuentra evidencia para efecto de moderación (H2b ✗)  
 ]
 ---
 
@@ -1168,28 +1371,91 @@ jv_carab2_2019.modelmulpub4<- clm(jv_carab2_2019_factor ~
                                     trato_carab_factor, 
                                   data = procjv_analysis_nona)
 
+jv_carab2_2019.modelmulpub5<- clm(jv_carab2_2019_factor ~ 
+                                    sj_ceo_rec + 
+                                    sj_obrero_rec + 
+                                    sj_entrevistado_rec + 
+                                    ingreso +
+                                    sexo_factor + 
+                                    ingreso_satisfact_factor +
+                                    educ_rec_factor + 
+                                    indigena_rec_factor + 
+                                    sdo_indice + 
+                                    rwa_indice +
+                                    trato_salud_factor + 
+                                    trato_carab_factor + 
+                                    ingreso*sj_obrero_rec + 
+                                    ingreso_satisfact_factor*sj_obrero_rec,
+                                  data = procjv_analysis_nona)
 
-plot_model(jv_carab2_2019.modelmulpub4, title = "Coeficientes de Regresión para Carabineros Desalojen Tomas", vline.color = "gray", show.values = TRUE, value.offset = .3, terms = c("sj_ceo_rec", "sj_obrero_rec", "sj_entrevistado_rec", "rwa_indice", "sdo_indice")
+
+gridExtra::grid.arrange(
+  
+plot_model(jv_carab2_2019.modelmulpub4, 
+           transform = NULL,
+           title = "Coeficientes de Regresión para Carabineros Desalojen Tomas (Controles)", 
+           vline.color = "gray", 
+           show.values = TRUE, 
+           value.offset = .3, 
+           terms = c(
+             "sj_ceo_rec", 
+             "sj_obrero_rec", 
+             "sj_entrevistado_rec", 
+             "ingreso",
+             "rwa_indice", 
+             "sdo_indice"
+             )
            
 ,axis.labels =
 c(
   "SDO",
   "RWA",
+  "Ingresos",
   "J Entrevistado",
   "J Obrero",
-  "J Gerente")
-)
+  "J Gerente"
+  )
+) + theme_bw()
 
+,
+
+plot_model(jv_carab2_2019.modelmulpub5, 
+           transform = NULL,
+           title = "Coeficientes de Regresión para Carabineros Desalojen Tomas (Controles + Interacciones)", 
+           vline.color = "gray", 
+           show.values = TRUE, 
+           value.offset = .3, 
+           terms = c(
+             "sj_ceo_rec", 
+             "sj_obrero_rec", 
+             "sj_entrevistado_rec", 
+             "ingreso",
+             "rwa_indice", 
+             "sdo_indice",
+             "sj_obrero_rec:ingreso"
+             )
+           
+,axis.labels =
+c(
+  "J Obrero x Ingresos",
+  "SDO",
+  "RWA",
+  "Ingresos",
+  "J Entrevistado",
+  "J Obrero",
+  "J Gerente"
+  )
+) + theme_bw()
+
+)
 ```
 ]
 
 .pull-left[
 
-Solo la evaluación de injusticia de los obreros (J Obreros) tiene un efecto significativo  
+A medida que aumenta la evaluación de que la distribución de los ingresos de los obreros es injusta, las chances de que se justifique que carabineros desaloje liceos en toma disminuye (H1b ✓)  
 
-A medida que aumenta la evaluación de que la distribución de los ingresos de los obreros es injusta, las chances de que se justifique que carabineros desaloje liceos en toma disminuye (H1b ✓)
-
-El efecto se mantiene al controlar por las variables relevantes por literatura  
+Las interacciones van en el sentido contrario a la hipótesis (H2a ✗)  
 ]
 ---
 
@@ -1333,4 +1599,429 @@ plot_pred_carab2_4 + theme_classic()
 ...disminuye la probabilidad de responder que _muchas veces se justifica_ esta situación
 
 ]
+---
 
+# Interpretaciones Detalladas (H1)
+
+--
+
+- **JV: Piedras:** Por cada unidad que de incremento en la evaluación de injusticia de los gerentes, las chances de que se justifique más que estudiantes tiren piedras a carabineros (en comparación a que se justifique menos) son de:  
+
+  - 1.25 (25% más) (Modelo 4)
+  - 6.42 (542% más) (Modelo 5) 
+  
+--
+  
+- **JV: Represión:** Por cada unidad que de incremento en la evaluación de injusticia de los obreros, las chances de que se justifique menos que carabineros reprima marchas pacificas (en comparación a que se justifique más) son de 0.48 (52% menos) (Modelo 2), controlando por pertenencia a grupos desaventajados  
+
+--
+
+- **JV: Desalojo:** Por cada unidad que de incremento en la evaluación de injusticia de los obreros, las chances de que se justifique menos que carabineros desaloje tomas (en comparación a que se justifique más) son de 0.46 (54% menos) (Modelo 4)
+
+---
+# Interpretaciones Detalladas (H2)
+
+.pull-left[
+
+```{r intsatisfact, fig.cap="Interacción entre Justificación de Violencia por el Cambio Social, Satisfacción con los Ingresos y Sentido de Injusticia", fig.width=8}
+
+load(url("https://github.com/thesis-justification-of-violence/thesis-analysis/raw/main/input/data/procjv_analysis_nona.RData"))
+
+
+jv_est_2019.modelmulpub5<- clm(jv_est_2019_factor ~ 
+                                 sj_ceo_rec + 
+                                 sj_obrero_rec + 
+                                 sj_entrevistado + 
+                                 ingreso + 
+                                 sexo_factor + 
+                                 ingreso_satisfact_factor + 
+                                 educ_rec_factor + 
+                                 indigena_rec_factor + 
+                                 sdo_indice + 
+                                 rwa_indice + 
+                                 trato_salud_factor + 
+                                 trato_carab_factor + 
+                                 sexo_factor*sj_ceo_rec + 
+                                 ingreso_satisfact_factor*sj_ceo_rec, 
+                               data = procjv_analysis_nona)
+
+plot_it2<- plot_model(jv_est_2019.modelmulpub5, type = "pred", ci.lvl = NA, terms = c("ingreso_satisfact_factor", "sj_ceo_rec"), mdrt.values = "meansd", title = "")  + geom_line() + theme(legend.position="bottom") + ylab("Probabilidad Predicha") +  scale_x_continuous(breaks = c(1,2,3,4,5), labels=c("TS", 
+                            "", 
+                            "", 
+                            "",
+                            "TI")) 
+
+levels(plot_it2$data$response.level)[levels(plot_it2$data$response.level) == "fit.Nunca.se.justifica"] <- "1. Nunca"
+levels(plot_it2$data$response.level)[levels(plot_it2$data$response.level) == "fit.Pocas.veces.se.justifica"] <- "2. Pocas veces"
+levels(plot_it2$data$response.level)[levels(plot_it2$data$response.level) == "fit.Algunas.veces.se.justifica"] <- "3. Algunas veces"
+levels(plot_it2$data$response.level)[levels(plot_it2$data$response.level) == "fit.Muchas.veces.se.justifica"] <- "4. Muchas veces"
+levels(plot_it2$data$response.level)[levels(plot_it2$data$response.level) == "fit.Siempre.se.justifica"] <- "5. Siempre"
+
+
+# plot_it2$data$response.level[plot_it2$data$response.level == 1] <- "1. Nunca"
+# plot_it2$data$response.level[plot_it2$data$response.level == 2] <- "2. Pocas veces"
+# plot_it2$data$response.level[plot_it2$data$response.level == 3] <- "3. Algunas veces"
+# plot_it2$data$response.level[plot_it2$data$response.level == 4] <- "4. Muchas veces"
+# plot_it2$data$response.level[plot_it2$data$response.level == 5] <- "5. Siempre"
+
+plot_it2$data$group <- factor(plot_it2$data$group, levels = c(0.13, 1.13, 2.13), labels = c("Media-DE","Media","Media+DE"))
+plot_it2$data$group_col <- factor(plot_it2$data$group_col, levels = c(0.13, 1.13, 2.13), labels = c("Media-DE","Media","Media+DE"))
+
+plot_it2$data <- plot_it2$data %>% filter(x == 1 | x == 5)
+
+plot_it2 + theme_classic() +
+    labs(caption =
+           paste0("Nota: 'TS' refiere a 'Totalmente Satisfecho' y 'TI' refiere a 'Totalmente Insatisfecho'")
+         )
+```
+]
+
+.pull-right[
+Aquellos totalmente insatisfechos con sus ingresos tienen una probabilidad de <span style="color:red">**8% más**</span> de responder que *Muchas veces* se justifica el lanzamiento de piedras que aquellos totalmente satisfechos, cuando están por debajo de la media de evaluación de injusticia <span style="color:red">*(Media-DE)*</span>.   
+
+Aquellos totalmente insatisfechos con sus ingresos tienen una probabilidad de <span style="color:green">**9% menos**</span> de responder que *Muchas veces* se justifica la misma situación que aquellos totalmente satisfechos con sus ingresos, cuando están por arriba de la media de evaluación de injusticia <span style="color:green">*(Media+DE)*</span>.
+]
+---
+# Interpretaciones Detalladas (H2)
+
+.pull-left[
+```{r intsex, fig.cap="Interacción entre Justificación de Violencia por el Cambio Social, Sexo y Sentido de Injusticia", fig.width=8}
+
+load(url("https://github.com/thesis-justification-of-violence/thesis-analysis/raw/main/input/data/procjv_analysis_nona.RData"))
+
+
+jv_est_2019.modelmulpub5<- clm(jv_est_2019_factor ~ 
+                                 sj_ceo_rec + 
+                                 sj_obrero_rec + 
+                                 sj_entrevistado + 
+                                 ingreso + 
+                                 sexo_factor + 
+                                 ingreso_satisfact_factor + 
+                                 educ_rec_factor + 
+                                 indigena_rec_factor + 
+                                 sdo_indice + 
+                                 rwa_indice + 
+                                 trato_salud_factor + 
+                                 trato_carab_factor + 
+                                 sexo_factor*sj_ceo_rec + 
+                                 ingreso_satisfact_factor*sj_ceo_rec, 
+                               data = procjv_analysis_nona)
+
+plot_it1<- plot_model(jv_est_2019.modelmulpub5, type = "pred", ci.lvl = NA, terms = c("sexo_factor", "sj_ceo_rec"), mdrt.values = "meansd", title = "")  + geom_line() + theme(legend.position="bottom") + ylab("Probabilidad Predicha")
+
+
+levels(plot_it1$data$response.level)[levels(plot_it1$data$response.level) == "fit.Nunca.se.justifica"] <- "1. Nunca"
+levels(plot_it1$data$response.level)[levels(plot_it1$data$response.level) == "fit.Pocas.veces.se.justifica"] <- "2. Pocas veces"
+levels(plot_it1$data$response.level)[levels(plot_it1$data$response.level) == "fit.Algunas.veces.se.justifica"] <- "3. Algunas veces"
+levels(plot_it1$data$response.level)[levels(plot_it1$data$response.level) == "fit.Muchas.veces.se.justifica"] <- "4. Muchas veces"
+levels(plot_it1$data$response.level)[levels(plot_it1$data$response.level) == "fit.Siempre.se.justifica"] <- "5. Siempre"
+
+# plot_it1$data$response.level[plot_it1$data$response.level == 1] <- "1. Nunca"
+# plot_it1$data$response.level[plot_it1$data$response.level == 2] <- "2. Pocas veces"
+# plot_it1$data$response.level[plot_it1$data$response.level == 3] <- "3. Algunas veces"
+# plot_it1$data$response.level[plot_it1$data$response.level == 4] <- "4. Muchas veces"
+# plot_it1$data$response.level[plot_it1$data$response.level == 5] <- "5. Siempre"
+
+plot_it1$data$group <- factor(plot_it1$data$group, levels = c(0.13, 1.13, 2.13), labels = c("Media-DE","Media","Media+DE"))
+plot_it1$data$group_col <- factor(plot_it1$data$group_col, levels = c(0.13, 1.13, 2.13), labels = c("Media-DE","Media","Media+DE"))
+
+plot_it1 + theme_classic()
+
+```
+]
+
+.pull-right[
+
+Cuando las evaluaciones de injusticia están por debajo de la media <span style="color:red">*(Media-DE)*</span>, las mujeres tienen <span style="color:red">**0.4% menos**</span> de probabilidades de responder que *Muchas veces* se justifica el lanzamiento de piedras en comparación a los hombres.  
+
+Cuando las evaluaciones de injusticia están por sobre la media <span style="color:green">*(Media+DE)*</span>, las mujeres tienen una probabilidad de <span style="color:green">**9% menos**</span> de responder que *Muchas veces* se justifica esta situación que los hombres.
+
+]
+---
+# Interpretaciones Detalladas (H2)
+
+.pull-left[
+
+```{r intingreso, fig.cap="Interacción entre Justificación de Violencia por el Control Social, Ingresos y Sentido de Injusticia", fig.width=8}
+
+load(url("https://github.com/thesis-justification-of-violence/thesis-analysis/raw/main/input/data/procjv_analysis_nona.RData"))
+
+jv_carab2_2019.modelmulpub5<- clm(jv_carab2_2019_factor ~ 
+                                    sj_ceo_rec + 
+                                    sj_obrero_rec + 
+                                    sj_entrevistado_rec + 
+                                    ingreso +
+                                    sexo_factor + 
+                                    ingreso_satisfact_factor +
+                                    educ_rec_factor + 
+                                    indigena_rec_factor + 
+                                    sdo_indice + 
+                                    rwa_indice +
+                                    trato_salud_factor + 
+                                    trato_carab_factor + 
+                                    ingreso*sj_obrero_rec + 
+                                    ingreso_satisfact_factor*sj_obrero_rec,
+                                  data = procjv_analysis_nona)
+
+plot_it3<- plot_model(jv_carab2_2019.modelmulpub5, type = "pred", terms = c("ingreso[all]", "sj_obrero_rec"), mdrt.values = "meansd", title = "")  + geom_line() + theme(legend.position="bottom") + ylab("Probabilidad Predicha")
+
+
+plot_it3$data$response.level[plot_it3$data$response.level == 1] <- "1. Nunca"
+plot_it3$data$response.level[plot_it3$data$response.level == 2] <- "2. Pocas veces"
+plot_it3$data$response.level[plot_it3$data$response.level == 3] <- "3. Algunas veces"
+plot_it3$data$response.level[plot_it3$data$response.level == 4] <- "4. Muchas veces"
+plot_it3$data$response.level[plot_it3$data$response.level == 5] <- "5. Siempre"
+
+plot_it3$data$group <- factor(plot_it3$data$group, levels = c(0.22, 0.64, 1.06), labels = c("Media-DE","Media","Media+DE"))
+plot_it3$data$group_col <- factor(plot_it3$data$group_col, levels = c(0.22, 0.64, 1.06), labels = c("Media-DE","Media","Media+DE"))
+
+plot_it3 + theme_classic() +
+    labs(caption =
+           paste0("Nota: El eje X fue invertido para que la interpretación sea de mayores a menores ingresos.")) + scale_x_reverse()
+
+```
+]
+
+.pull-right[
+
+Individuos que evalúan alta injusticia distributiva tienen menos probabilidades de responder que *Nunca se justifica* que carabineros use la fuerza para desalojar liceos en toma. A modo de ilustración, las probabilidades de que un individuo con el salario mínimo al año 2019 (i.e. aproximadamente 300.000 pesos) nunca justifique esta situación es de: 
+
+- <span style="color:red">**87%** cuando evalúan injusticia bajo la media</span>
+- <span style="color:blue">**74%** cuando evalúan injusticia media</span> 
+- <span style="color:green">**53%** cuando evalúan injusticia sobre la media</span>
+
+]
+
+---
+
+.pull-left[
+```{r}
+# Cargar paquetes necesarios
+pacman::p_load(ordinal,
+               sjPlot,
+               tidyverse)
+
+# Cargar datos necesarios
+load(url("https://github.com/thesis-justification-of-violence/thesis-analysis/raw/main/input/data/procjv_analysis_nona.RData"))
+
+# Estudiantes tiren piedras
+
+jv_est_2019.modelmulpub4<- clm(jv_est_2019_factor ~ 
+                                 sj_ceo_rec + 
+                                 sj_obrero_rec + 
+                                 sj_entrevistado_rec + 
+                                 ingreso + 
+                                 sexo_factor + 
+                                 ingreso_satisfact_factor + 
+                                 educ_rec_factor + 
+                                 indigena_rec_factor + 
+                                 sdo_indice + 
+                                 rwa_indice + 
+                                 trato_salud_factor + 
+                                 trato_carab_factor, 
+                               data = procjv_analysis_nona)
+
+jv_est_2019.modelmulpub5<- clm(jv_est_2019_factor ~ 
+                                 sj_ceo_rec + 
+                                 sj_obrero_rec + 
+                                 sj_entrevistado_rec + 
+                                 ingreso + 
+                                 sexo_factor + 
+                                 ingreso_satisfact_factor + 
+                                 educ_rec_factor + 
+                                 indigena_rec_factor + 
+                                 sdo_indice + 
+                                 rwa_indice + 
+                                 trato_salud_factor + 
+                                 trato_carab_factor + 
+                                 sexo_factor*sj_ceo_rec + 
+                                 ingreso_satisfact_factor*sj_ceo_rec, 
+                               data = procjv_analysis_nona)
+
+# Carabineros desalojen tomas
+jv_carab2_2019.modelmulpub4<- clm(jv_carab2_2019_factor ~ 
+                                    sj_ceo_rec + 
+                                    sj_obrero_rec +
+                                    sj_entrevistado_rec + 
+                                    ingreso +
+                                    sexo_factor + 
+                                    ingreso_satisfact_factor + 
+                                    educ_rec_factor +
+                                    indigena_rec_factor +
+                                    sdo_indice + 
+                                    rwa_indice + 
+                                    trato_salud_factor +
+                                    trato_carab_factor, 
+                                  data = procjv_analysis_nona)
+
+jv_carab2_2019.modelmulpub5<- clm(jv_carab2_2019_factor ~ 
+                                    sj_ceo_rec + 
+                                    sj_obrero_rec + 
+                                    sj_entrevistado_rec + 
+                                    ingreso +
+                                    sexo_factor + 
+                                    ingreso_satisfact_factor +
+                                    educ_rec_factor + 
+                                    indigena_rec_factor + 
+                                    sdo_indice + 
+                                    rwa_indice +
+                                    trato_salud_factor + 
+                                    trato_carab_factor + 
+                                    ingreso*sj_obrero_rec + 
+                                    ingreso_satisfact_factor*sj_obrero_rec,
+                                  data = procjv_analysis_nona)
+
+# JV: Piedras - Comp M4 y M5
+test_est <- ordinal:::anova.clm(jv_est_2019.modelmulpub4,
+               jv_est_2019.modelmulpub5)
+
+# JV: Desalojo - Comp M4 y M5
+test_carab2 <- ordinal:::anova.clm(jv_carab2_2019.modelmulpub4,
+               jv_carab2_2019.modelmulpub5)
+
+# Tabla 
+tests <- rbind(
+               test_est,
+               test_carab2
+               ) %>% unique()
+
+# Cambiar nombres
+row.names(tests) <- c(
+                      "JV: Piedras (M4)",
+                      "JV: Piedras (M5)",
+                      "JV: Desalojo (M4)",
+                      "JV: Desalojo (M5)"
+                      )
+# Mod tablas
+tests <- tests %>% dplyr::select(-no.par,
+                           -LR.stat)
+
+# Mostrar tabla
+knitr::kable(tests,digits = 3, caption = "Ordinal: Test de devianza entre modelos con y sin interacciones") %>% 
+    kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = F) #%>% # Añadir estilo en
+```
+]
+
+.pull-right[
+```{r}
+# Cargar paquetes necesarios
+pacman::p_load(ordinal,
+               sjPlot,
+               tidyverse)
+
+# Cargar datos necesarios
+load(url("https://github.com/thesis-justification-of-violence/thesis-analysis/raw/main/input/data/procjv_analysis_nona.RData"))
+
+# Recodificar
+
+procjv_analysis_nona$jv_est_2019_bin[procjv_analysis_nona$jv_est_2019_factor == "Nunca se justifica"] <- 0
+procjv_analysis_nona$jv_est_2019_bin[procjv_analysis_nona$jv_est_2019_factor == "Pocas veces se justifica"] <- 1
+procjv_analysis_nona$jv_est_2019_bin[procjv_analysis_nona$jv_est_2019_factor == "Algunas veces se justifica"] <- 1
+procjv_analysis_nona$jv_est_2019_bin[procjv_analysis_nona$jv_est_2019_factor == "Muchas veces se justifica"] <- 1
+procjv_analysis_nona$jv_est_2019_bin[procjv_analysis_nona$jv_est_2019_factor == "Siempre se justifica"] <- 1
+
+procjv_analysis_nona$jv_carab2_2019_bin[procjv_analysis_nona$jv_carab2_2019_factor == "Nunca se justifica"] <- 0
+procjv_analysis_nona$jv_carab2_2019_bin[procjv_analysis_nona$jv_carab2_2019_factor == "Pocas veces se justifica"] <- 1
+procjv_analysis_nona$jv_carab2_2019_bin[procjv_analysis_nona$jv_carab2_2019_factor == "Algunas veces se justifica"] <- 1
+procjv_analysis_nona$jv_carab2_2019_bin[procjv_analysis_nona$jv_carab2_2019_factor == "Muchas veces se justifica"] <- 1
+procjv_analysis_nona$jv_carab2_2019_bin[procjv_analysis_nona$jv_carab2_2019_factor == "Siempre se justifica"] <- 1
+
+# Estudiantes tiren piedras
+
+jv_est_2019.modelmulpub4<- glm(jv_est_2019_bin ~ 
+                                 sj_ceo_rec + 
+                                 sj_obrero_rec + 
+                                 sj_entrevistado_rec + 
+                                 ingreso + 
+                                 sexo_factor + 
+                                 ingreso_satisfact_factor + 
+                                 educ_rec_factor + 
+                                 indigena_rec_factor + 
+                                 sdo_indice + 
+                                 rwa_indice + 
+                                 trato_salud_factor + 
+                                 trato_carab_factor, 
+                               family = "binomial",
+                               data = procjv_analysis_nona)
+
+jv_est_2019.modelmulpub5<- glm(jv_est_2019_bin ~ 
+                                 sj_ceo_rec + 
+                                 sj_obrero_rec + 
+                                 sj_entrevistado_rec + 
+                                 ingreso + 
+                                 sexo_factor + 
+                                 ingreso_satisfact_factor + 
+                                 educ_rec_factor + 
+                                 indigena_rec_factor + 
+                                 sdo_indice + 
+                                 rwa_indice + 
+                                 trato_salud_factor + 
+                                 trato_carab_factor + 
+                                 sexo_factor*sj_ceo_rec + 
+                                 ingreso_satisfact_factor*sj_ceo_rec, 
+                               family = "binomial",
+                               data = procjv_analysis_nona)
+
+# Carabineros desalojen tomas
+jv_carab2_2019.modelmulpub4<- glm(jv_carab2_2019_bin ~ 
+                                    sj_ceo_rec + 
+                                    sj_obrero_rec +
+                                    sj_entrevistado_rec + 
+                                    ingreso +
+                                    sexo_factor + 
+                                    ingreso_satisfact_factor + 
+                                    educ_rec_factor +
+                                    indigena_rec_factor +
+                                    sdo_indice + 
+                                    rwa_indice + 
+                                    trato_salud_factor +
+                                    trato_carab_factor, 
+                                  family = "binomial",
+                                  data = procjv_analysis_nona)
+
+jv_carab2_2019.modelmulpub5<- glm(jv_carab2_2019_bin ~ 
+                                    sj_ceo_rec + 
+                                    sj_obrero_rec + 
+                                    sj_entrevistado_rec + 
+                                    ingreso +
+                                    sexo_factor + 
+                                    ingreso_satisfact_factor +
+                                    educ_rec_factor + 
+                                    indigena_rec_factor + 
+                                    sdo_indice + 
+                                    rwa_indice +
+                                    trato_salud_factor + 
+                                    trato_carab_factor + 
+                                    ingreso*sj_obrero_rec + 
+                                    ingreso_satisfact_factor*sj_obrero_rec,
+                                  family = "binomial",
+                                  data = procjv_analysis_nona)
+
+# JV: Piedras - Comp M4 y M5
+test_est <- anova(jv_est_2019.modelmulpub4,
+               jv_est_2019.modelmulpub5,
+               test = "Chisq")
+
+# JV: Desalojo - Comp M4 y M5
+test_carab2 <- anova(jv_carab2_2019.modelmulpub4,
+               jv_carab2_2019.modelmulpub5,
+               test = "Chisq")
+# Tabla 
+tests <- rbind(
+               test_est,
+               test_carab2
+               ) %>% unique()
+
+# Cambiar nombres
+row.names(tests) <- c(
+                      "JV: Piedras (M4)",
+                      "JV: Piedras (M5)",
+                      "JV: Desalojo (M4)",
+                      "JV: Desalojo (M5)"
+                      )
+
+# Mostrar tabla
+knitr::kable(tests,digits = 3, caption = "Binario: Test de devianza entre modelos con y sin interacciones") %>% 
+    kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = F) #%>% # Añadir estilo en
+```
+]

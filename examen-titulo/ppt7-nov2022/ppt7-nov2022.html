@@ -4,9 +4,11 @@
     <title>¿Quién justifica qué?</title>
     <meta charset="utf-8" />
     <meta name="author" content="Martín Venegas M" />
-    <meta name="date" content="2022-10-30" />
+    <meta name="date" content="2022-10-31" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <script src="libs/xaringanExtra-progressBar/progress-bar.js"></script>
+    <script src="libs/kePrint/kePrint.js"></script>
+    <link href="libs/lightable/lightable.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://jciturras.github.io/ayudantia-sol3051/slides/00-intro-r/xaringan-coes.css" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" type="text/css" />
   </head>
@@ -276,6 +278,8 @@ _Por carabineros._
 
 .center[![](../../examen-titulo/ppt7-nov2022/ind5.png)]
 
+.center[&lt;font size="2"&gt;Modelo 4 (incluye controles, sin interacciones). 0.05 = \*; 0.01 = \*\*; 0.001 = \*\*\*&lt;/font&gt;]
+
 **H1a:**  
 **H1b:**
 ---
@@ -301,6 +305,8 @@ _Por carabineros._
 
 .center[![](../../examen-titulo/ppt7-nov2022/ind9.png)]
 
+.center[&lt;font size="2"&gt;Modelo 5 (incluye controles e interacciones). 0.05 = \*; 0.01 = \*\*; 0.001 = \*\*\*&lt;/font&gt;]
+
 **H2a:**  
 **H2b:**
 ---
@@ -317,7 +323,7 @@ _Por carabineros._
 
 .center[![](../../examen-titulo/ppt7-nov2022/ind11.png)]
 
-.center[&lt;font size="2"&gt;Modelo 5 (incluye controles, e interacciones). 0.05 = \*; 0.01 = \*\*; 0.001 = \*\*\*&lt;/font&gt;]
+.center[&lt;font size="2"&gt;Modelo 5 (incluye controles e interacciones). 0.05 = \*; 0.01 = \*\*; 0.001 = \*\*\*&lt;/font&gt;]
 
 **H2a:** ✓  
 **H2b:** ✓
@@ -378,12 +384,14 @@ class: slideInRight, middle, inverse
 
 --
 
-- ¿Elección de indicadores o efecto "real? 
+- ¿Elección de indicadores o efecto real? 
 
 --
   - _Satisfacción con los ingresos_ → Variable subjetiva que puede no representar el concepto
   
   - _Sexo_ → Según literatura, mujeres justifican menos la violencia independiente del fin
+  
+  - _Ingresos_ → Complejidades que escapan a la hipótesis (e.g. relación actores-contexto)
   
 
 ---
@@ -410,27 +418,14 @@ class: slideInRight, middle, inverse
 
 - **Limitante que debe reconocerse** → ligada al constructo que se busca medir
 
-- **Mejores propuestas de escalas** →  "Casi siempre" en vez de "Siempre" (Gerber et al., 2016) 
+- **Mejores propuestas de escalas** →  *Casi siempre* en vez de *Siempre* (Gerber et al., 2016) 
 
 - **Resultados se mantienen** → Replicación análisis con otras técnicas
 
   - Ejemplo: Logit Binario donde 0 = "Nunca" y 1 = "Siempre", "Muchas veces", "Algunas veces", "Pocas veces")
 
 ---
-# Técnica y Resultados
 
-### Distribución asimétrica de respuesta
-
----
-# Técnica y Resultados
-### Ingresos con β = 0 y SE = 0
-
-- **Unidad de medida pequeña** → por cada peso... 
-  
-- **Re-escalamiento de la variable** →  salarios mínimos al 2019 (300.000 pesos)
-
-- **Coeficientes más informativos** → Ej. Modelo Básico: **β = 0,08; p &lt; 0,05**
----
 
 .pull-left[
 ![](ppt7-nov2022_files/figure-html/unnamed-chunk-1-1.png)&lt;!-- --&gt;
@@ -440,6 +435,61 @@ class: slideInRight, middle, inverse
 .pull-right[
 ![](ppt7-nov2022_files/figure-html/unnamed-chunk-2-1.png)&lt;!-- --&gt;
 ]
+
+.center[&lt;font size="2"&gt; Modelo 5 (incluye controles e interacciones). 0.05 = \*; 0.01 = \*\*; 0.001 = \*\*\*&lt;/font&gt;]
+
+---
+
+.pull-left[
+![](ppt7-nov2022_files/figure-html/unnamed-chunk-3-1.png)&lt;!-- --&gt;
+]
+
+
+.pull-right[
+![](ppt7-nov2022_files/figure-html/unnamed-chunk-4-1.png)&lt;!-- --&gt;
+]
+
+.center[&lt;font size="2"&gt; Modelo 5 (incluye controles e interacciones). 0.05 = \*; 0.01 = \*\*; 0.001 = \*\*\*&lt;/font&gt;]
+
+---
+# Técnica y Resultados
+### Ingresos con β = 0 y SE = 0
+
+- **Unidad de medida pequeña** → por cada peso... 
+  
+- **Re-escalamiento de la variable** →  salarios mínimos al 2019 (300.000 pesos)
+
+- **Coeficientes más informativos** → Ej. JV Desalojo (Modelo 1): *β = 0,08; p &lt; 0,05*
+
+---
+# Técnica y Resultados
+### Parsimonia análisis
+
+- **¿Con o sin interacciones?** → parsimonia o complejidad  
+
+- **Test de Verosimilitud** → M4 (sin interacciones) v/s M5 (con interacciones) (ordinao y binario)
+
+  - JV Piedras: M5 ofrece mejor ajuste que M4 (*p &lt; 0.05*)
+  
+  - JV Desalojo: M5 no ofrece mejor ajuste que M4 (*p &gt; 0.05*)  
+  
+---
+# Conclusiones en torno a comentarios
+
+- Datos complejos, difícil relación teoría-empiria
+
+- Evidencia para sostener efectos directos (replicación con logit binario)
+
+- Menos evidencia para sostener efectos de moderación  
+
+  - *JV Piedras:* Modelo con interacciónes ajusta mejor que sin (ordinal y binario)
+  
+  - *JV Piedras:* J Gerente*Insatisfact. Ing. pierde significancia en replicación
+  
+  - *JV Piedras:* Solo J Gerente*Mujer mantiene efecto en replicación
+  
+  - *JV: Desalojo:* Modelo con interacciones no presenta mejor ajuste que sin (ordinal y binario)
+
 ---
 class: slideInRight, middle, inverse, center
 
@@ -481,10 +531,24 @@ class: slideInRight, middle, inverse
 
 ***
 # Anexos
+
+### .medium[Planteamiento]
+### .medium[Gráficos y Análisis]
+
 ***
 
 ---
-# Justificación de la Violencia
+class: slideInRight, middle, inverse
+
+***
+# Anexos
+
+### [**Planteamiento**]()
+### .medium[Gráficos y Análisis]
+
+***
+---
+# Evolución Justificación de la Violencia
 
 .center[
 ![Justificación de la Violencia de Carabineros y Manifestantes por año](ppt7-nov2022_files/figure-html/justintro-1.png)
@@ -492,7 +556,7 @@ class: slideInRight, middle, inverse
 
 ---
 
-# Este estudio: Planteamiento Lógico
+# ¿Por qué la justicia distributiva?
 
 --
 
@@ -533,6 +597,16 @@ class: slideInRight, middle, inverse
 .center[![](../../examen-titulo/ppt7-nov2022/model3.png)]
 
 ---
+class: slideInRight, middle, inverse
+
+***
+# Anexos
+***
+
+### .medium[Planteamiento]
+### [**Gráficos y Análisis**]()
+
+---
 
 # Descriptivos: Sentido Injusticia
 
@@ -560,16 +634,12 @@ class: slideInRight, middle, inverse
 # Multivariados: JV Cambio Social
 
 .pull-left[
-![](ppt7-nov2022_files/figure-html/unnamed-chunk-3-1.png)&lt;!-- --&gt;
+![](ppt7-nov2022_files/figure-html/unnamed-chunk-5-1.png)&lt;!-- --&gt;
 ]
 
 .pulll-right[
 
-Solo la evaluación de injusticia de los gerentes (J Gerente) tiene un efecto significativo  
-
 A medida que aumenta la evaluación de que la distribución de los ingresos de los gerentes es injusta, las chances de que se justifique que estudiantes tiren piedras a carabineros aumentan (H1a ✓)
-
-El efecto se mantiene controlando por los predictores relevantes por literatura y las interacciones  
 
 Las interacciones van en el sentido contrario a la hipótesis (H2a ✗)
 ]
@@ -579,33 +649,30 @@ Las interacciones van en el sentido contrario a la hipótesis (H2a ✗)
 
 
 .pull-left[
-![](ppt7-nov2022_files/figure-html/unnamed-chunk-4-1.png)&lt;!-- --&gt;
+![](ppt7-nov2022_files/figure-html/unnamed-chunk-6-1.png)&lt;!-- --&gt;
 ]
 
 .pull-right[
 
-Solo la evaluación de injusticia de los obreros (J Obreros) tiene un efecto significativo  
+A medida que aumenta la evaluación de que la distribución de los ingresos de los obreros es injusta, las chances de que se justifique que carabineros reprima una marcha pacifica disminuye (H1b ✓)  
 
-A medida que aumenta la evaluación de que la distribución de los ingresos de los obreros es injusta, las chances de que se justifique que carabineros reprima una marcha pacifica disminuye (H1b ✓)
+El efecto se controla por la ideología autoritaria (RWA) y dominante (SDO)  
 
-El efecto se controla por la ideología autoritaria (RWA) y dominante (SDO)
-
+No se encuentra evidencia para efecto de moderación (H2b ✗)  
 ]
 ---
 
 # Multivariados: JV Control Social
 
 .pull-left[
-![](ppt7-nov2022_files/figure-html/unnamed-chunk-5-1.png)&lt;!-- --&gt;
+![](ppt7-nov2022_files/figure-html/unnamed-chunk-7-1.png)&lt;!-- --&gt;
 ]
 
 .pull-left[
 
-Solo la evaluación de injusticia de los obreros (J Obreros) tiene un efecto significativo  
+A medida que aumenta la evaluación de que la distribución de los ingresos de los obreros es injusta, las chances de que se justifique que carabineros desaloje liceos en toma disminuye (H1b ✓)  
 
-A medida que aumenta la evaluación de que la distribución de los ingresos de los obreros es injusta, las chances de que se justifique que carabineros desaloje liceos en toma disminuye (H1b ✓)
-
-El efecto se mantiene al controlar por las variables relevantes por literatura  
+Las interacciones van en el sentido contrario a la hipótesis (H2a ✗)  
 ]
 ---
 
@@ -663,7 +730,166 @@ El efecto se mantiene al controlar por las variables relevantes por literatura
 ...disminuye la probabilidad de responder que _muchas veces se justifica_ esta situación
 
 ]
+---
 
+# Interpretaciones Detalladas (H1)
+
+--
+
+- **JV: Piedras:** Por cada unidad que de incremento en la evaluación de injusticia de los gerentes, las chances de que se justifique más que estudiantes tiren piedras a carabineros (en comparación a que se justifique menos) son de:  
+
+  - 1.25 (25% más) (Modelo 4)
+  - 6.42 (542% más) (Modelo 5) 
+  
+--
+  
+- **JV: Represión:** Por cada unidad que de incremento en la evaluación de injusticia de los obreros, las chances de que se justifique menos que carabineros reprima marchas pacificas (en comparación a que se justifique más) son de 0.48 (52% menos) (Modelo 2), controlando por pertenencia a grupos desaventajados  
+
+--
+
+- **JV: Desalojo:** Por cada unidad que de incremento en la evaluación de injusticia de los obreros, las chances de que se justifique menos que carabineros desaloje tomas (en comparación a que se justifique más) son de 0.46 (54% menos) (Modelo 4)
+
+---
+# Interpretaciones Detalladas (H2)
+
+.pull-left[
+
+![Interacción entre Justificación de Violencia por el Cambio Social, Satisfacción con los Ingresos y Sentido de Injusticia](ppt7-nov2022_files/figure-html/intsatisfact-1.png)
+]
+
+.pull-right[
+Aquellos totalmente insatisfechos con sus ingresos tienen una probabilidad de &lt;span style="color:red"&gt;**8% más**&lt;/span&gt; de responder que *Muchas veces* se justifica el lanzamiento de piedras que aquellos totalmente satisfechos, cuando están por debajo de la media de evaluación de injusticia &lt;span style="color:red"&gt;*(Media-DE)*&lt;/span&gt;.   
+
+Aquellos totalmente insatisfechos con sus ingresos tienen una probabilidad de &lt;span style="color:green"&gt;**9% menos**&lt;/span&gt; de responder que *Muchas veces* se justifica la misma situación que aquellos totalmente satisfechos con sus ingresos, cuando están por arriba de la media de evaluación de injusticia &lt;span style="color:green"&gt;*(Media+DE)*&lt;/span&gt;.
+]
+---
+# Interpretaciones Detalladas (H2)
+
+.pull-left[
+![Interacción entre Justificación de Violencia por el Cambio Social, Sexo y Sentido de Injusticia](ppt7-nov2022_files/figure-html/intsex-1.png)
+]
+
+.pull-right[
+
+Cuando las evaluaciones de injusticia están por debajo de la media &lt;span style="color:red"&gt;*(Media-DE)*&lt;/span&gt;, las mujeres tienen &lt;span style="color:red"&gt;**0.4% menos**&lt;/span&gt; de probabilidades de responder que *Muchas veces* se justifica el lanzamiento de piedras en comparación a los hombres.  
+
+Cuando las evaluaciones de injusticia están por sobre la media &lt;span style="color:green"&gt;*(Media+DE)*&lt;/span&gt;, las mujeres tienen una probabilidad de &lt;span style="color:green"&gt;**9% menos**&lt;/span&gt; de responder que *Muchas veces* se justifica esta situación que los hombres.
+
+]
+---
+# Interpretaciones Detalladas (H2)
+
+.pull-left[
+
+![Interacción entre Justificación de Violencia por el Control Social, Ingresos y Sentido de Injusticia](ppt7-nov2022_files/figure-html/intingreso-1.png)
+]
+
+.pull-right[
+
+Individuos que evalúan alta injusticia distributiva tienen menos probabilidades de responder que *Nunca se justifica* que carabineros use la fuerza para desalojar liceos en toma. A modo de ilustración, las probabilidades de que un individuo con el salario mínimo al año 2019 (i.e. aproximadamente 300.000 pesos) nunca justifique esta situación es de: 
+
+- &lt;span style="color:red"&gt;**87%** cuando evalúan injusticia bajo la media&lt;/span&gt;
+- &lt;span style="color:blue"&gt;**74%** cuando evalúan injusticia media&lt;/span&gt; 
+- &lt;span style="color:green"&gt;**53%** cuando evalúan injusticia sobre la media&lt;/span&gt;
+
+]
+
+---
+
+.pull-left[
+&lt;table class="table table-striped table-hover table-condensed table-responsive" style="width: auto !important; margin-left: auto; margin-right: auto;"&gt;
+&lt;caption&gt;Ordinal: Test de devianza entre modelos con y sin interacciones&lt;/caption&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt;   &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; AIC &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; logLik &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; df &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Pr(&amp;gt;Chisq) &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; JV: Piedras (M4) &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1299.924 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -620.962 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; JV: Piedras (M5) &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1296.159 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -614.079 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.017 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; JV: Desalojo (M4) &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1445.801 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -693.901 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; JV: Desalojo (M5) &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1445.987 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -688.993 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.081 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+]
+
+.pull-right[
+&lt;table class="table table-striped table-hover table-condensed table-responsive" style="width: auto !important; margin-left: auto; margin-right: auto;"&gt;
+&lt;caption&gt;Binario: Test de devianza entre modelos con y sin interacciones&lt;/caption&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt;   &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Resid. Df &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Resid. Dev &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Df &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Deviance &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Pr(&amp;gt;Chi) &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; JV: Piedras (M4) &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 685 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 767.745 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; JV: Piedras (M5) &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 680 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 755.740 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 12.006 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.035 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; JV: Desalojo (M4) &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 685 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 806.993 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; JV: Desalojo (M5) &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 680 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 801.000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5.993 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.307 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+]
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
