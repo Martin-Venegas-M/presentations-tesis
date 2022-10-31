@@ -842,22 +842,21 @@ class: slideInRight, middle, inverse
 
 ***
 # Anexos
+***
 
 ### .medium[Planteamiento]
 ### .medium[Gráficos y Análisis]
-
-***
 
 ---
 class: slideInRight, middle, inverse
 
 ***
 # Anexos
+***
 
 ### [**Planteamiento**]()
 ### .medium[Gráficos y Análisis]
 
-***
 ---
 # Evolución Justificación de la Violencia
 
