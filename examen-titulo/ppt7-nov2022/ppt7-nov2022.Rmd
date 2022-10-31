@@ -146,6 +146,8 @@ class: slideInRight, middle, inverse
   
   + *Procesal:* Justicia en el trato a personas (generalmente de parte de autoridades) (Tyler & Blader, 2003)
   
+--
+  
 [**Propuesta:**]() Integrar la justicia distributiva como una dimensión explicativa de las justificaciones de la violencia
   
 ---
@@ -177,7 +179,7 @@ $H_{2b}$: Individuos pertenecientes a grupos desaventajados tenderán a justific
 class: slideInRight, middle, inverse
 
 ***
-# Método y Resultados
+# Método
 ***
 ---
 # Datos 
@@ -275,6 +277,12 @@ _Por carabineros._
 --
 
 ---
+class: slideInRight, middle, inverse
+
+***
+# Resultados
+***
+---
 # Descriptivos
 
 .center[
@@ -358,7 +366,9 @@ options(knitr.kable.NA = '') # NA en kable = ''
 
 .center[![](../../examen-titulo/ppt7-nov2022/ind5.png)]
 
-.center[<font size="2">Modelo 4 (incluye controles, sin interacciones). 0.05 = \*; 0.01 = \*\*; 0.001 = \*\*\*</font>]
+.center[<font size="2">**JV Piedras:** Modelo 4 (incluye controles, sin interacciones). 0.05 = \*; 0.01 = \*\*; 0.001 = \*\*\*</font>]
+.center[<font size="2">&nbsp;</font>]
+.center[<font size="2">&nbsp;</font>]
 
 **H1a:**  
 **H1b:**
@@ -367,7 +377,9 @@ options(knitr.kable.NA = '') # NA en kable = ''
 
 .center[![](../../examen-titulo/ppt7-nov2022/ind6.png)]
 
-.center[<font size="2">Modelo 4 (incluye controles, sin interacciones). 0.05 = \*; 0.01 = \*\*; 0.001 = \*\*\*</font>]
+.center[<font size="2"> **JV Piedras:** Modelo 4 (incluye controles, sin interacciones). 0.05 = \*; 0.01 = \*\*; 0.001 = \*\*\*</font>] 
+.center[<font size="2">&nbsp;</font>]
+.center[<font size="2">&nbsp;</font>]
 
 **H1a:** ✓  
 **H1b:**
@@ -376,7 +388,9 @@ options(knitr.kable.NA = '') # NA en kable = ''
 
 .center[![](../../examen-titulo/ppt7-nov2022/ind8.png)]
 
-.center[<font size="2">Modelo 4 (incluye controles, sin interacciones). 0.05 = \*; 0.01 = \*\*; 0.001 = \*\*\*</font>]
+.center[<font size="2"> **JV Piedras:** Modelo 4 (incluye controles, sin interacciones). 0.05 = \*; 0.01 = \*\*; 0.001 = \*\*\*</font>] 
+.center[<font size="2"> **JV Represión:** Modelo 2: (controla por pert. grupo. des.). 0.05 = \*; 0.01 = \*\*; 0.001 = \*\*\*</font>]
+.center[<font size="2"> **JV Desalojo:** Modelo 4: (incluye controles, sin interacciones). 0.05 = \*; 0.01 = \*\*; 0.001 = \*\*\*</font>]
 
 **H1a:** ✓  
 **H1b:** ✓
@@ -396,7 +410,7 @@ options(knitr.kable.NA = '') # NA en kable = ''
 
 .center[<font size="2">Modelo 5 (incluye controles e interacciones). 0.05 = \*; 0.01 = \*\*; 0.001 = \*\*\*</font>]
 
-**H2a:** ✓  
+**H2a:** ✗  
 **H2b:**
 ---
 # Resultados: Efecto Moderador
@@ -405,8 +419,8 @@ options(knitr.kable.NA = '') # NA en kable = ''
 
 .center[<font size="2">Modelo 5 (incluye controles e interacciones). 0.05 = \*; 0.01 = \*\*; 0.001 = \*\*\*</font>]
 
-**H2a:** ✓  
-**H2b:** ✓
+**H2a:** ✗  
+**H2b:** ✗
 ---
 class: slideInRight, middle, inverse
 
@@ -428,7 +442,7 @@ class: slideInRight, middle, inverse
 ---
 # Aportes Específicos
 
-### Sentido Injusticia Gerente y Justificación de la Violencia por el Cambio Social
+### Sentido Injusticia Gerente y Justificación de la Violencia por el Cambio Social (H1a)
 
 --
 
@@ -444,7 +458,7 @@ class: slideInRight, middle, inverse
 ---
 # Aportes Específicos
 
-### Sentido Injusticia Obrero y Justificación de la Violencia por el Control Social
+### Sentido Injusticia Obrero y Justificación de la Violencia por el Control Social (H1b)
 
 --
 
@@ -456,7 +470,7 @@ class: slideInRight, middle, inverse
 ---
 # Aportes Específicos
 
-### Pertenencia a Grupos Desaventajados, Sentido de Injusticia y Justificación de la Violencia
+### Pertenencia a Grupos Desaventajados, Sentido de Injusticia y Justificación de la Violencia (H2)
 
 --
 
@@ -778,7 +792,7 @@ c(
 
 - **¿Con o sin interacciones?** → parsimonia o complejidad  
 
-- **Test de Verosimilitud** → M4 (sin interacciones) v/s M5 (con interacciones) (ordinao y binario)
+- **Test de Verosimilitud** → M4 (sin interacciones) v/s M5 (con interacciones) (ordinal y binario)
 
   - JV Piedras: M5 ofrece mejor ajuste que M4 (*p < 0.05*)
   
