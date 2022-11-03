@@ -15,7 +15,7 @@ output:
           <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
           </div>
         </div>
-    css: ["https://jciturras.github.io/ayudantia-sol3051/slides/00-intro-r/xaringan-coes.css","https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"]
+    css: ["../../xaringan-coes.css","https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"]
     seal: false # esto omite title slide automática
 ---
 
@@ -103,7 +103,7 @@ class: slideInRight, middle, inverse
 
 --
 
-En la literatura empírica se distingue la justificación de la violencia de acuerdo a sus **fines**
+.large[En la literatura empírica se distingue la justificación de la violencia de acuerdo a sus **fines**]
 
 --
 
@@ -122,11 +122,11 @@ Aquella que busca mantener las estructuras jerárquicas de las sociedad. (Blumen
 # Tres explicaciones desde la literatura
 
 
-1. **Pertenencia a grupos desaventajados** relacionado a un menor apoyo al _uso de la fuerza por parte de la policía_ (Arthur & Case, 1994; Thompson, 2004)
+.large[**Pertenencia a grupos desaventajados** relacionado a un menor apoyo al _uso de la fuerza por parte de la policía_ (Arthur & Case, 1994; Thompson, 2004)]
 
-2. **Ideologías (RWA y SDO)** relacionadas positivamente a una mayor justificación del _uso de la fuerza excesiva por parte de la policía_ (Gerber & Jackson, 2016)
+.large[**Ideologías (RWA y SDO)** relacionadas positivamente a una mayor justificación del _uso de la fuerza excesiva por parte de la policía_ (Gerber & Jackson, 2016)]
 
-3. **Percepción de justicia en el trato** asociadas positivamente a mayor _justificación de la violencia_ por el control social, y menos por el cambio social (Gerber et al., 2017).
+.large[**Percepción de justicia en el trato** asociadas positivamente a mayor _justificación de la violencia_ por el control social, y menos por el cambio social (Gerber et al., 2017).]
 
 ---
 class: slideInRight, middle, inverse
@@ -140,7 +140,7 @@ class: slideInRight, middle, inverse
 ---
 # Este estudio
 
-[**Premisa:**]() La justicia no es un concepto unidimensional, sino uno multidimensional (Törnblom & Vermunt, 2007)
+.large[[**Premisa:**]() La justicia no es un concepto unidimensional, sino uno multidimensional (Törnblom & Vermunt, 2007)]
 
   + *Distributiva:* Justicia en la distribución de recompensas (generalmente ingresos) (Jasso, 2015)
   
@@ -148,12 +148,12 @@ class: slideInRight, middle, inverse
   
 --
   
-[**Propuesta:**]() Integrar la justicia distributiva como una dimensión explicativa de las justificaciones de la violencia
+.xlarge[[**Propuesta:**]() Integrar la justicia distributiva como una dimensión explicativa de las justificaciones de la violencia]
   
 ---
-# Pregunta
-
-> ¿Cuál es la relación entre el sentido de injusticia distributiva y las justificaciones de la violencia en contexto de protesta, tanto por el cambio social, como por el control social, en Chile al año 2019?
+class: roja, middle
+ 
+.xlarge[**¿Cuál es la <span style="color:black">relación</span> entre el <span style="color:black">sentido de injusticia distributiva</span> y las <span style="color:black">justificaciones de la violencia</span> en contexto de protesta , tanto por el cambio social, como por el control social, en Chile al año 2019?**]
 
 ---
 # Hipótesis
@@ -184,15 +184,18 @@ class: slideInRight, middle, inverse
 ---
 # Datos 
 
-  - Encuesta Longitudinal Social de Chile - Ola 4 (2019)
-  - 716 casos válidos para el análisis (sin NA en las variables relevantes)
-
+.large[- Encuesta Longitudinal Social de Chile - Ola 4 (2019)
+]
+.large[- 716 casos válidos para el análisis (sin NA en las variables relevantes)
+]
 
 # Técnicas de análisis
 
 
-- **Descriptivos:** Análisis frecuenicas, medias y correlaciones
-- **Multivariados:** Regresiones logisticas ordinales con efectos de interacción
+.large[- **Descriptivos:** Análisis frecuenicas, medias y correlaciones
+]
+.large[- **Multivariados:** Regresiones logisticas ordinales con efectos de interacción
+]
 
 ---
 
@@ -283,7 +286,7 @@ class: slideInRight, middle, inverse
 # Resultados
 ***
 ---
-# Descriptivos
+# Frecuencias Justificación de la Violencia
 
 .center[
 
@@ -428,19 +431,7 @@ class: slideInRight, middle, inverse
 # Discusión y Conclusiones
 ***
 ---
-
-# Aportes Generales
-
---
-
-**1. Aporte a la literatura de justificación de la violencia:**  Establecer a la justicia distributiva como una dimensión explicativa en los estudios de justificación de la violencia → _mirar la otra cara de la moneda (nueva línea de investigación)_
-
---
-
-**2. Aporte a la literatura de justicia distributiva:** Incorporar a la justificación de la violencia dentro de las posibles consecuencias de evaluar injusticia en la distribución de ingresos
-
----
-# Aportes Específicos
+# Discusión
 
 ### Sentido Injusticia Gerente y Justificación de la Violencia por el Cambio Social (H1a)
 
@@ -456,7 +447,7 @@ class: slideInRight, middle, inverse
 
 - **Imagen del clima del momento** → descontento generalizado con _los poderosos_
 ---
-# Aportes Específicos
+# Discusión
 
 ### Sentido Injusticia Obrero y Justificación de la Violencia por el Control Social (H1b)
 
@@ -468,7 +459,7 @@ class: slideInRight, middle, inverse
 
 - **Proporcionalidad de la violencia** → Efecto controlado por ideología en situación de represión marchas pacificas. Consistente con Gerber & Jackson (2016).
 ---
-# Aportes Específicos
+# Discusión
 
 ### Pertenencia a Grupos Desaventajados, Sentido de Injusticia y Justificación de la Violencia (H2)
 
@@ -489,15 +480,22 @@ class: slideInRight, middle, inverse
   
 
 ---
-# Conclusiones
+class: roja, middle
 
-- Existe un efecto directo que varía de acuerdo cuál es la situación de injusticia que se evalúa y la situación de violencia que se observa
+# <span style="color:white"> Conclusiones</span>
 
-- Hallazgos de efecto directos van en linea con el clima de los tiempos del estallido social
+--
 
-- Existe un efecto moderador que va en contra de la hipótesis propuesta → posible error de selección de variables, profundizar en en futuros estudios
+**<font size="6"><span style="color:black">1. Literatura de justificación de la violencia:</span>** un punto de partida  </font>
 
-- Profundizar el estudio de estas relaciones con datos longitudinales y otras formas de medición y metodologías.
+
+--
+
+**<font size="6"><span style="color:black">2. Literatura de justicia distributiva:</span>** evidencia de una nueva relación  </font>
+
+--
+
+**<font size="6"><span style="color:black">3. Proyecciones:</span>** datos longitudinales, otras mediciones y metodologías  </font>
 
 ---
 class: slideInRight, middle, inverse
@@ -506,9 +504,11 @@ class: slideInRight, middle, inverse
 # Respuesta a Comentarios
 ***
 ---
-# Técnica y Resultados
+# [Comentario]()
 
 ### Distribución asimétrica de respuesta
+
+# [Respuesta]()
 
 - **Limitante que debe reconocerse** → ligada al constructo que se busca medir
 
@@ -777,18 +777,22 @@ c(
 .center[<font size="2"> Modelo 5 (incluye controles e interacciones). 0.05 = \*; 0.01 = \*\*; 0.001 = \*\*\*</font>]
 
 ---
-# Técnica y Resultados
+# [Comentario]()
 ### Ingresos con β = 0 y SE = 0
+
+# [Respuesta]()
 
 - **Unidad de medida pequeña** → por cada peso... 
   
 - **Re-escalamiento de la variable** →  salarios mínimos al 2019 (300.000 pesos)
 
-- **Coeficientes más informativos** → Ej. JV Desalojo (Modelo 1): *β = 0,08; p < 0,05*
+- **Coeficientes más informativos** → Ej. JV Desalojo (Modelo 2): *β = 0,08; p < 0,05*
 
 ---
-# Técnica y Resultados
-### Parsimonia análisis
+# [Comentario]()
+### Parsimonia de los análisis
+
+# [Respuesta]()
 
 - **¿Con o sin interacciones?** → parsimonia o complejidad  
 
@@ -799,21 +803,21 @@ c(
   - JV Desalojo: M5 no ofrece mejor ajuste que M4 (*p > 0.05*)  
   
 ---
-# Conclusiones en torno a comentarios
+class: roja, middle
 
-- Datos complejos, difícil relación teoría-empiria
+# <span style="color:white"> Conclusiones post-comentarios </span>
 
-- Evidencia para sostener efectos directos (replicación con logit binario)
+--
 
-- Menos evidencia para sostener efectos de moderación  
+**<font size="6"><span style="color:black"> 1. Datos complejos, difícil relación teoría-empiria </span></font>**
 
-  - *JV Piedras:* Modelo con interacciónes ajusta mejor que sin (ordinal y binario)
-  
-  - *JV Piedras:* J Gerente*Insatisfact. Ing. pierde significancia en replicación
-  
-  - *JV Piedras:* Solo J Gerente*Mujer mantiene efecto en replicación
-  
-  - *JV: Desalojo:* Modelo con interacciones no presenta mejor ajuste que sin (ordinal y binario)
+--
+
+**<font size="6"><span style="color:black"> 2. Evidencia para sostener efectos directos (replicación con logit binario) </span></font>**
+
+--
+
+**<font size="6"><span style="color:black"> 3. Menos evidencia para sostener efectos de moderación </span></font>**
 
 ---
 class: slideInRight, middle, inverse, center
