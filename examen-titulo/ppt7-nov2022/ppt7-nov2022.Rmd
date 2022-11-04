@@ -42,7 +42,7 @@ class: inverse
 
 ***
 .medium[[.orange[_Exámen para optar al título de Sociólogo  - **Segundo Semestre 2022**_]](https://github.com/formacionciudadana)]<br>
-.medium[Comisión: Dr. Juan Carlos Castillo, Dr. Rodrigo Asún y Dra. Emanuelle Barozet]  
+.medium[Comisión: Dr. Juan Carlos Castillo, Dr. Rodrigo Asún y Dra. Emmanuelle Barozet]  
 .medium[Noviembre, 2022]
 
 ---
@@ -495,7 +495,7 @@ class: roja, middle
 
 --
 
-**<font size="6"><span style="color:black">3. Proyecciones:</span>** datos longitudinales, otras mediciones y metodologías  </font>
+**<font size="6"><span style="color:black">3. Proyecciones:</span>** datos longitudinales, otras mediciones/metodologías y OLES  </font>
 
 ---
 class: slideInRight, middle, inverse
@@ -844,6 +844,7 @@ class: slideInRight, middle, inverse
 - Gerber, M., González, R., Carvacho, H., Jiménez-Moya, G., & Jackson, J. (2017). On the justification of intergroup violence: The roles of procedural justice, police legitimacy and group identity in attitudes towards violence among indigenous people. Psychology of Violence, 8(3), 379–389. https://doi.org/10.1037/vio0000177
 - Gerber, M., & Jackson, J. (2016). Justifying violence: legitimacy, ideology and public support for police use of force. Psychology, Crime and Law, 23(1), 79–95. https://doi.org/10.1080/1068316X.2016.1220556
 - Jasso, G. (2015). Thinking, Saying, Doing in the World of Distributive Justice. Social Justice Research, 28(4), 435–478. https://doi.org/10.1007/s11211-015-0257-3
+- Ladin, K. (2014). Absolute Deprivation. The Wiley Blackwell Encyclopedia of Health, Illness, Behavior, and Society, 4–6. https://doi.org/10.1002/9781118410868.wbehibs505
 - Liebig, S., & Sauer, C. (2016). Sociology of justice. In Handbook of social justice theory and research (pp. 37-59). Springer, New York, NY.
 
 ---
@@ -955,6 +956,32 @@ elsoc_long_2016_2021 %>%
 
 #### .center[Injusticia Distributiva → Justificación → Acción]
 
+---
+# ¿Por qué la moderación?
+
+--
+
+-  Grupos desaventajados tienden a justificar más la violencia policial (Arthur & Case, 1994).
+
+--
+
+#### .center[Pert. Grupo Desaventajado → Justificación]
+
+--
+
+- Individuos que pertenecen a grupos desaventajados tienden sentir más injusticia  (e.g. privación absoluta (Ladin, 2014)).
+
+--
+
+#### .center[Pert. Grupo Desaventajado → Injusticia Distributiva]
+
+--
+
+- Entonces, _considerando que individuos que pertenecen a grupos desaventajados tienden a sentir más injusticia, se esperaría que la injusticia juegue un rol particularmente importante en que estos individuos justifiquen la violencia_
+
+--
+
+#### .center[Pert. Grupo Desaventajado → Injusticia Distributiva → Justificación]
 ---
 
 # Literatura hasta ahora...
@@ -2041,4 +2068,223 @@ row.names(tests) <- c(
 knitr::kable(tests,digits = 3, caption = "Binario: Test de devianza entre modelos con y sin interacciones") %>% 
     kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = F) #%>% # Añadir estilo en
 ```
+]
+
+---
+
+.pull-left[
+```{r}  
+
+# Cargar paquetes necesarios
+pacman::p_load(ordinal,
+               sjPlot,
+               ggplot2)
+
+# Cargar datos necesarios
+load(url("https://github.com/thesis-justification-of-violence/thesis-analysis/raw/main/input/data/procjv_analysis_nona.RData"))
+
+# Carabineros desalojen tomas
+
+jv_carab2_2019.modelmulpub4<- clm(jv_carab2_2019_factor ~ 
+                                    sj_ceo_rec + 
+                                    sj_obrero_rec + 
+                                    sj_entrevistado_rec + 
+                                    ingreso +
+                                    sexo_factor + 
+                                    ingreso_satisfact_factor +
+                                    educ_rec_factor + 
+                                    indigena_rec_factor + 
+                                    sdo_indice + 
+                                    rwa_indice +
+                                    trato_salud_factor + 
+                                    trato_carab_factor,
+                                  data = procjv_analysis_nona)
+
+jv_carab2_2019.modelmulpub5<- clm(jv_carab2_2019_factor ~ 
+                                    sj_ceo_rec + 
+                                    sj_obrero_rec + 
+                                    sj_entrevistado_rec + 
+                                    ingreso +
+                                    sexo_factor + 
+                                    ingreso_satisfact_factor +
+                                    educ_rec_factor + 
+                                    indigena_rec_factor + 
+                                    sdo_indice + 
+                                    rwa_indice +
+                                    trato_salud_factor + 
+                                    trato_carab_factor + 
+                                    ingreso*sj_obrero_rec + 
+                                    ingreso_satisfact_factor*sj_obrero_rec,
+                                  data = procjv_analysis_nona)
+
+gridExtra::grid.arrange(
+plot_model(jv_carab2_2019.modelmulpub4, 
+           transform = NULL,
+           title = "Ordinal: Justificación Carabineros Desalojen Tomas (M4)", 
+           vline.color = "gray", 
+           show.values = TRUE, 
+           value.offset = .3, 
+           terms = c(
+             "sj_ceo_rec", 
+             "sj_obrero_rec", 
+             "sj_entrevistado_rec"
+             )
+           
+,axis.labels =
+c(
+  "J Entrevistado",
+  "J Obrero",
+  "J Gerente"
+  )
+) + theme_bw()
+
+,
+
+plot_model(jv_carab2_2019.modelmulpub5, 
+           transform = NULL,
+           title = "Ordinal: Justificación Carabineros Desalojen Tomas (M5)", 
+           vline.color = "gray", 
+           show.values = TRUE, 
+           value.offset = .3, 
+           terms = c(
+             "sj_ceo_rec", 
+             "sj_obrero_rec", 
+             "sj_entrevistado_rec",
+             "ingreso",
+             "sj_obrero_rec:ingreso"
+             )
+           
+,axis.labels =
+c(
+  "J Obrero x Ingresos",
+  "Ingresos",
+  "J Entrevistado",
+  "J Obrero",
+  "J Gerente"
+  )
+) + theme_bw()
+)
+```
+]
+
+
+.pull-right[
+```{r}  
+
+# Cargar paquetes necesarios
+pacman::p_load(ordinal,
+               sjPlot,
+               ggplot2)
+
+# Cargar datos necesarios
+load(url("https://github.com/thesis-justification-of-violence/thesis-analysis/raw/main/input/data/procjv_analysis_nona.RData"))
+
+# Recode
+procjv_analysis_nona$jv_carab2_2019_bin[procjv_analysis_nona$jv_carab2_2019_factor == "Nunca se justifica"] <- 0
+procjv_analysis_nona$jv_carab2_2019_bin[procjv_analysis_nona$jv_carab2_2019_factor == "Pocas veces se justifica"] <- 1
+procjv_analysis_nona$jv_carab2_2019_bin[procjv_analysis_nona$jv_carab2_2019_factor == "Algunas veces se justifica"] <- 1
+procjv_analysis_nona$jv_carab2_2019_bin[procjv_analysis_nona$jv_carab2_2019_factor == "Muchas veces se justifica"] <- 1
+procjv_analysis_nona$jv_carab2_2019_bin[procjv_analysis_nona$jv_carab2_2019_factor == "Siempre se justifica"] <- 1
+
+# Crabineros desalojen tomas
+
+jv_carab2_2019.modelmulpub4<- glm(jv_carab2_2019_bin ~ 
+                                    sj_ceo_rec + 
+                                    sj_obrero_rec + 
+                                    sj_entrevistado_rec + 
+                                    ingreso +
+                                    sexo_factor + 
+                                    ingreso_satisfact_factor +
+                                    educ_rec_factor + 
+                                    indigena_rec_factor + 
+                                    sdo_indice + 
+                                    rwa_indice +
+                                    trato_salud_factor + 
+                                    trato_carab_factor,
+                                  family = "binomial",
+                                  data = procjv_analysis_nona)
+
+jv_carab2_2019.modelmulpub5<- glm(jv_carab2_2019_bin ~ 
+                                    sj_ceo_rec + 
+                                    sj_obrero_rec + 
+                                    sj_entrevistado_rec + 
+                                    ingreso +
+                                    sexo_factor + 
+                                    ingreso_satisfact_factor +
+                                    educ_rec_factor + 
+                                    indigena_rec_factor + 
+                                    sdo_indice + 
+                                    rwa_indice +
+                                    trato_salud_factor + 
+                                    trato_carab_factor + 
+                                    ingreso*sj_obrero_rec + 
+                                    ingreso_satisfact_factor*sj_obrero_rec,
+                                  family = "binomial",
+                                  data = procjv_analysis_nona)
+
+gridExtra::grid.arrange(
+plot_model(jv_carab2_2019.modelmulpub4, 
+           transform = NULL,
+           title = "Binario: Justificación Carabineros Desalojen Tomas (M4)", 
+           vline.color = "gray", 
+           show.values = TRUE, 
+           value.offset = .3, 
+           terms = c(
+             "sj_ceo_rec", 
+             "sj_obrero_rec", 
+             "sj_entrevistado_rec"
+             )
+           
+,axis.labels =
+c(
+  "J Entrevistado",
+  "J Obrero",
+  "J Gerente"
+  )
+) + theme_bw()
+, 
+plot_model(jv_carab2_2019.modelmulpub5, 
+           transform = NULL,
+           title = "Binario: Justificación Carabineros Desalojen Tomas (M5)", 
+           vline.color = "gray", 
+           show.values = TRUE, 
+           value.offset = .3, 
+           terms = c(
+             "sj_ceo_rec", 
+             "sj_obrero_rec", 
+             "sj_entrevistado_rec",
+             "ingreso",
+             "sj_obrero_rec:ingreso"
+             )
+           
+,axis.labels =
+c(
+  "J Obrero x Ingresos",
+  "Ingresos",
+  "J Entrevistado",
+  "J Obrero",
+  "J Gerente"
+  )
+) + theme_bw()
+)
+```
+]
+
+---
+# Links
+
+.large[
+[**- Reporte en Bookdown**](https://thesis-justification-of-violence.github.io/thesis-report/)
+]
+
+.large[
+[**- Anexo Multivariados: Tablas Extensas**](https://thesis-justification-of-violence.github.io/thesis-report/)
+]
+
+.large[
+[**- Anexo Multivariados: Tablas Repliación Logit Binario (2345 vs 1)**](https://htmlpreview.github.io/?https://github.com/thesis-justification-of-violence/thesis-analysis/blob/main/output/docs/Analisis-Mult-Binary/analysis_mult_binary_2345vs1.html)
+]
+
+.large[
+[**- Anexo Multivariados: Tablas Re-escalamiento Ingresos**](https://htmlpreview.github.io/?https://github.com/thesis-justification-of-violence/thesis-analysis/blob/main/output/docs/Analisis-Multivariado-Rescale-Ingreso/analysis_mult_rescale_ingresos_elsocjv.html)
 ]
