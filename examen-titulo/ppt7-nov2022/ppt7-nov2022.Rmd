@@ -192,9 +192,9 @@ class: slideInRight, middle, inverse
 # Técnicas de análisis
 
 
-.large[- **Descriptivos:** Análisis frecuenicas, medias y correlaciones
+.large[- **Descriptivos:** Análisis frecuencias, medias y correlaciones
 ]
-.large[- **Multivariados:** Regresiones logisticas ordinales con efectos de interacción
+.large[- **Multivariados:** Regresiones logísticas ordinales con efectos de interacción
 ]
 
 ---
@@ -838,19 +838,20 @@ class: slideInRight, middle, inverse
 - Barrington Moore, Jr. (1978). Injustice: The Social Bases of Obedience and Revolt. The Macmillan Press Ltd.
 - Blumenthal, M. D. (1972). Predicting attitudes toward violence. Science, 176(4041), 1296–1303. https://doi.org/10.1126/science.176.4041.1296
 - Bufacchi, V. (2005). Two Concepts of Violence. Political Studies Review, 3(2), 193–204. https://doi.org/10.1111/j.1478-9299.2005.00023.x
+- Gerber, M., González, R., Carvacho, H., Jiménez-Moya, G., & Jackson, J. (2017). On the justification of intergroup violence: The roles of procedural justice, police legitimacy and group identity in attitudes towards violence among indigenous people. Psychology of Violence, 8(3), 379–389. https://doi.org/10.1037/vio0000177
 ---
 # Referencias
 
-- Gerber, M., González, R., Carvacho, H., Jiménez-Moya, G., & Jackson, J. (2017). On the justification of intergroup violence: The roles of procedural justice, police legitimacy and group identity in attitudes towards violence among indigenous people. Psychology of Violence, 8(3), 379–389. https://doi.org/10.1037/vio0000177
 - Gerber, M., & Jackson, J. (2016). Justifying violence: legitimacy, ideology and public support for police use of force. Psychology, Crime and Law, 23(1), 79–95. https://doi.org/10.1080/1068316X.2016.1220556
 - Jasso, G. (2015). Thinking, Saying, Doing in the World of Distributive Justice. Social Justice Research, 28(4), 435–478. https://doi.org/10.1007/s11211-015-0257-3
 - Ladin, K. (2014). Absolute Deprivation. The Wiley Blackwell Encyclopedia of Health, Illness, Behavior, and Society, 4–6. https://doi.org/10.1002/9781118410868.wbehibs505
 - Liebig, S., & Sauer, C. (2016). Sociology of justice. In Handbook of social justice theory and research (pp. 37-59). Springer, New York, NY.
+- Nunes, K. L., Pedneault, C. I., & Hermann, C. A. (2021). Do Attitudes Toward Violence Affect Violent Behavior? Journal of Aggression, Maltreatment and Trauma, 00(00), 1–16. https://doi.org/10.1080/10926771.2021.2019158
 
 ---
 # Referencias
 
-- Nunes, K. L., Pedneault, C. I., & Hermann, C. A. (2021). Do Attitudes Toward Violence Affect Violent Behavior? Journal of Aggression, Maltreatment and Trauma, 00(00), 1–16. https://doi.org/10.1080/10926771.2021.2019158
+- PNUD. (2017). Desiguales. Orígenes, cambios y desafíos de la brecha social en Chile (Vol. 11, pp. 287–301).
 - Runciman, W. (1966). Relative Deprivation and Social Justice. A Study of Attitudes to Social Inequality in Twentieth Century England. Routledge & Kegan Paul.
 - Tausch, N., Becker, J. C., Spears, R., Christ, O., Saab, R., Singh, P., & Siddiqui, R. N. (2011). Explaining Radical Group Behavior: Developing Emotion and Efficacy Routes to Normative and Nonnormative Collective Action. Journal of Personality and Social Psychology, 101(1), 129–148. https://doi.org/10.1037/a0022728
 - Thompson, B. L., Alabama, S., Lee, J. D., & Alabama, S. (2004). Who Cares If Police Become Violent? Explaining of Police Use of Force Using a National Sample. Sociological Inquiry, 74(3), 381–410.
@@ -865,6 +866,7 @@ class: slideInRight, middle, inverse
 
 ### .medium[Planteamiento]
 ### .medium[Gráficos y Análisis]
+### .medium[Otros Comentarios]
 
 ---
 class: slideInRight, middle, inverse
@@ -875,6 +877,7 @@ class: slideInRight, middle, inverse
 
 ### [**Planteamiento**]()
 ### .medium[Gráficos y Análisis]
+### .medium[Otros Comentarios]
 
 ---
 # Evolución Justificación de la Violencia
@@ -1005,6 +1008,7 @@ class: slideInRight, middle, inverse
 
 ### .medium[Planteamiento]
 ### [**Gráficos y Análisis**]()
+### .medium[Otros Comentarios]
 
 ---
 
@@ -2268,6 +2272,55 @@ c(
 ) + theme_bw()
 )
 ```
+]
+
+---
+class: slideInRight, middle, inverse
+
+***
+# Anexos
+***
+
+### .medium[Planteamiento]
+### .medium[Gráficos y Análisis]
+### [**Otros Comentarios**]()
+
+
+---
+# Otros Comentarios
+
+> ..se define la violencia para el control social en función de mantener las jerarquías de poder en la sociedad o mantener la dominancia de un grupo sobre otro, **pero me queda la duda de si eso incluye otra forma de violencia para el control social que no tiene por finalidad directa mantener el orden social (de hecho, a veces lo modifica), sino que tiene por función controlar o generar monopolio sobre el ejercicio de la violencia**. Eso podría verse como ejercicio de dominancia de un grupo sobre otro, pero no para mantener esa dominancia, sino para establecerla o aumentarla ¿Sería esa violencia para el cambio social o para el orden social? 
+
+
+.large[**R:** Definición de doble criterio. Amerita más desarrollo teórico.]
+
+---
+# Otros Comentarios
+
+> ...se señala que la evidencia muestra que las personas de derecha tienden a justificar más la violencia policial y las de izquierda la violencia por el cambio. No dudo de ese resultado en muchas sociedades, incluida la chilena, pero **me pregunto si esa relación mantiene el signo en otro tipo de sociedades, como por ejemplo las antiguas repúblicas comunistas de antes del fin de la guerra fría**. En otras palabras, creo que se debe reflexionar respecto de la generalizabilidad de un resultados
+
+.large[**R:** Hallazgo dependiente del contexto _¿cuáles son esas jerarquías de poder? ¿quiénes se sienten representados por estas?_]
+---
+# Otros Comentarios
+
+> ...se señala que la transición a la democracia se caracterizó por **“un alza abrupta en los niveles de desigualdad socioeconómica” del país… ¿qué evidencia se tiene de ello?** Puede que exista algo así tomando el 1% de los ingresos, pero las estadísticas más habituales, legitimadas y comparativas a nivel internacional (por ejemplo el índice Gini) no muestran ese abrupto aumento. Me gustaría mucho conocer esa evidencia.
+
+.large[**R:**]
+
+.large[
+
+- Imprecisión en la expresión. No es una alza abrupta, de hecho es una fluctuación/baja, pero que se caracteriza por la concentración de ingresos en el 1%.
+- De todos modos, percepción aumenta (PNUD, 2017)
+]
+---
+# Otros Comentarios
+
+> A veces **se recurre a fenómenos contextuales (situación chilena) para explicar algún resultado** (por ejemplo, segundo párrafo de la página 87), lo que puede ser correcto y fácil de argumentar, pero tiene el riesgo que le quita generalizabilidad de los resultados, pues tácitamente implica que lo encontrado se explica por la situación local y no tendría por qué esperarse algo así en otros contextos históricos o societales. 
+
+.large[**R:**]
+.large[
+- Pag 87: Limitantes en indicadores, no ajustados a conflictos particulares
+- Proyección del estudio _¿es un efecto del estallido social?_
 ]
 
 ---
