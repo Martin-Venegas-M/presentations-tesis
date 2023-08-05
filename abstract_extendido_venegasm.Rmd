@@ -69,4 +69,3 @@ Para el segundo par de hipótesis, se encontró que las evaluaciones de injustic
 
 ::: {#refs}
 :::
-to
