@@ -41,9 +41,9 @@ class: inverse
 
 
 ***
-.medium[[.orange[_Exámen para optar al título de Sociólogo  - **Segundo Semestre 2022**_]](https://github.com/formacionciudadana)]<br>
-.medium[Comisión: Dr. Juan Carlos Castillo, Dr. Rodrigo Asún y Dra. Emmanuelle Barozet]  
-.medium[Noviembre, 2022]
+.medium[[.orange[_X Conferencia Internacional COES_]](https://coes.cl/)]<br>
+.medium[**Mesa:** Percepciones de seguridad y justificaciones de la violencia]  
+.medium[Noviembre, 2023]
 
 ---
 class: slideInRight, middle, inverse
@@ -57,8 +57,6 @@ class: slideInRight, middle, inverse
 - **Método y Resultados**
 
 - **Discusión y Conclusiones**
-
-- **Respuesta a Comentarios**
 ---
 
 class: slideInRight, middle, inverse
@@ -69,7 +67,6 @@ class: slideInRight, middle, inverse
 
 ### .medium[Contexto y Antecedentes]
 ### .medium[Este estudio]
-
 ---
 class: slideInRight, middle, inverse
 
@@ -79,6 +76,65 @@ class: slideInRight, middle, inverse
 
 ### [**Contexto y Antecedentes**]()
 ### .medium[Este estudio]
+---
+class: middle, center
+
+background-image: url("estallido.jpg")
+
+background-size: cover
+
+# **<span style="color:white"> Contexto: estallido social </span>**
+
+---
+## <span style="color:red"> Aumento en en las justificaciones de violencia </span>
+.center[
+```{r justinto, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Justificación de la Violencia de Carabineros y Manifestantes por año"}
+pacman::p_load(tidyverse,sjPlot, sjmisc, sjlabelled, elsoc, ggplot2, ggrepel, ordinal) # librerias
+knitr::opts_chunk$set(warning = FALSE,  # mensaje de warning
+                      message = FALSE,  # mensajes/avisos de librerias  
+                      cache = FALSE,    # cache de los chunks,usar analisis pesados
+                      # out.width = '50%',# largo de imagen en %
+                      fig.pos= "H",     # posicion figuras H = HERE
+                      echo = FALSE      # incluir chunk en output
+)
+elsoc::load_elsoc('long')
+elsoc_long_2016_2021 <-elsoc_long_2016_2021[!(elsoc_long_2016_2021$ola == 5),]
+elsoc_long_2016_2021 %>% 
+  filter(tipo_atricion == 1 & muestra == 1 & 
+           !f05_03 %in% c(-888, -999) & !f05_04 %in% c(-888, -999) & !f05_07 %in% c(-888, -999)) %>% 
+  dplyr::select(f05_03, f05_04, f05_07, ola, ponderador02, segmento_disenno, estrato_disenno) %>% 
+  pivot_longer(cols = c(f05_03, f05_04, f05_07)) %>% 
+  prop(value %in% 4:5, by = c(ola, name), na.rm = TRUE) %>% 
+  mutate(name = factor(name,
+                       levels = c('f05_03', 'f05_04', 'f05_07'),
+                       labels = c('Carabineros use la fuerza para\n reprimir manifestación pacífica',
+                                  'Carabineros desaloje a la fuerza\na estudiantes de liceo en toma',
+                                  'Estudiantes tiren piedras a Carabi-\nneros en marcha por la educación'))) %>%
+  sjlabelled::as_label(ola) %>% 
+  ggplot(aes(y = prop, x = ola, color = name, group = name,
+             label = scales::percent(prop, accuracy = .1))) +
+  theme_bw() + 
+  geom_point(size = 1.75) + 
+  geom_line() +
+  scale_y_continuous(labels = scales::percent,
+                     limits = c(0, .5)) +
+  ylab(label = NULL) +
+  xlab(label = NULL) +
+  scale_color_viridis_d(begin = 0, end = .7, option = 'viridis') + 
+  ggrepel::geom_text_repel(size = 3, nudge_y = .02) +
+  theme(plot.caption = element_text(hjust = 0),
+        legend.position = 'top',
+        legend.title = element_blank()) +
+  
+    scale_x_continuous(breaks = c(1,2,3,4), labels=c("2016", 
+                            "2017", 
+                            "2018", 
+                            "2019")) +
+  ggtitle(NULL,
+        subtitle = 'Porcentaje que responde que Muchas veces o Siempre se justifica' ) +
+  labs(caption = 'Fuente: COES (2022) Radiografía del Cambio Social: Análisis de Resultados Longitudinales ELSOC 2016-2021. Presentación de Resultados COES. Enero, Santiago de Chile.\nNota: Se consideran observaciones de individuos sin atrición entre olas. N=7.507 (1.513 individuos)')
+```
+]
 
 ---
 # Justificación de la Violencia en Contexto de Protesta
@@ -109,7 +165,7 @@ class: slideInRight, middle, inverse
 
 .pull-left[### [**Justificación de la Violencia por el Cambio Social**]()
 
-Aquella que busca generar cambios en las estructuras jerárquicas de la sociedad (Blumenthal, 1973; Gerber et al. 2017)
+Aquella que busca generar cambios en las estructuras jerárquicas de la sociedad .small[(Blumenthal, 1973; Gerber et al. 2017)]
 ]
 --
 
@@ -151,6 +207,34 @@ class: slideInRight, middle, inverse
 .xlarge[[**Propuesta:**]() Integrar la justicia distributiva como una dimensión explicativa de las justificaciones de la violencia]
   
 ---
+
+# ¿Por qué la justicia distributiva?
+
+--
+
+- Las ideas de justicia distributiva son una fuerza social que motivan el comportamiento humano a nivel individual y agregado (Liebig & Sauer, 2016; Runciman 1966; Barrington Moore, 1988; Tausch et al., 2011)
+
+--
+
+#### .center[Injusticia Distributiva → Acción]
+
+--
+
+- Quienes justifican la violencia son más tendientes a ejercerla o a condonar la violencia de otros (Nunes et al., 2021)
+
+--
+
+#### .center[Justificación → Acción]
+
+--
+
+- Entonces, _alguien que ejerce violencia en función de su sentimiento de injusticia distributiva debería previamente justificarla_
+
+--
+
+#### .center[Injusticia Distributiva → Justificación → Acción]
+
+---
 class: roja, middle
  
 .xlarge[**¿Cuál es la <span style="color:black">relación</span> entre el <span style="color:black">sentido de injusticia distributiva</span> y las <span style="color:black">justificaciones de la violencia</span> en contexto de protesta , tanto por el cambio social, como por el control social, en Chile al año 2019?**]
@@ -186,7 +270,7 @@ class: slideInRight, middle, inverse
 
 .large[- Encuesta Longitudinal Social de Chile - Ola 4 (2019)
 ]
-.large[- 716 casos válidos para el análisis (sin NA en las variables relevantes)
+.large[- 711 casos válidos para el análisis (sin NA en las variables relevantes)
 ]
 
 # Técnicas de análisis
@@ -498,332 +582,6 @@ class: roja, middle
 **<font size="6"><span style="color:black">3. Proyecciones:</span>** datos longitudinales, otras mediciones/metodologías y OLES  </font>
 
 ---
-class: slideInRight, middle, inverse
-
-***
-# Respuesta a Comentarios
-***
----
-# [Comentario]()
-
-### Distribución asimétrica de respuesta
-
-# [Respuesta]()
-
-- **Limitante que debe reconocerse** → ligada al constructo que se busca medir
-
-- **Mejores propuestas de escalas** →  *Casi siempre* en vez de *Siempre* (Gerber et al., 2016) 
-
-- **Resultados se mantienen** → Replicación análisis con otras técnicas
-
-  - Ejemplo: Logit Binario donde 0 = "Nunca" y 1 = "Siempre", "Muchas veces", "Algunas veces", "Pocas veces")
-
----
-
-
-.pull-left[
-```{r}  
-
-# Cargar paquetes necesarios
-pacman::p_load(ordinal,
-               sjPlot,
-               ggplot2)
-
-# Cargar datos necesarios
-load(url("https://github.com/thesis-justification-of-violence/thesis-analysis/raw/main/input/data/procjv_analysis_nona.RData"))
-
-# Estudiantes tiren piedras
-
-jv_est_2019.modelmulpub5<- clm(jv_est_2019_factor ~ 
-                                 sj_ceo_rec + 
-                                 sj_obrero_rec + 
-                                 sj_entrevistado_rec + 
-                                 ingreso + 
-                                 sexo_factor + 
-                                 ingreso_satisfact_factor + 
-                                 educ_rec_factor + 
-                                 indigena_rec_factor + 
-                                 sdo_indice + 
-                                 rwa_indice + 
-                                 trato_salud_factor + 
-                                 trato_carab_factor + 
-                                 sexo_factor*sj_ceo_rec + 
-                                 ingreso_satisfact_factor*sj_ceo_rec, 
-                               data = procjv_analysis_nona)
-
-plot_model(jv_est_2019.modelmulpub5, 
-           transform = NULL,
-           title = "Ordinal: Justificación Estudiantes Tiren Piedras", 
-           vline.color = "gray", 
-           show.values = TRUE, 
-           value.offset = .3, 
-           terms = c(
-             "sj_ceo_rec", 
-             "sj_obrero_rec", 
-             "sj_entrevistado_rec",
-             "sexo_factorMujer",
-             "ingreso_satisfact_factorTotalmente insatisfecho", 
-             "sj_ceo_rec:sexo_factorMujer",
-             "sj_ceo_rec:ingreso_satisfact_factorTotalmente insatisfecho")
-           
-,axis.labels =
-c("J Gerente x Sat. Ing.: Tot. Insatis",
-  "J Gerente x Sexo: Mujer",
-  "Sat. Ing.: Tot. Insatis.",
-  "Sexo: Mujer",
-  "J Entrevistado",
-  "J Obrero",
-  "J Gerente")
-) + theme_bw()
-            
-```
-]
-
-
-.pull-right[
-```{r}  
-
-# Cargar paquetes necesarios
-pacman::p_load(ordinal,
-               sjPlot,
-               ggplot2)
-
-# Cargar datos necesarios
-load(url("https://github.com/thesis-justification-of-violence/thesis-analysis/raw/main/input/data/procjv_analysis_nona.RData"))
-
-# Recode
-procjv_analysis_nona$jv_est_2019_bin[procjv_analysis_nona$jv_est_2019_factor == "Nunca se justifica"] <- 0
-procjv_analysis_nona$jv_est_2019_bin[procjv_analysis_nona$jv_est_2019_factor == "Pocas veces se justifica"] <- 1
-procjv_analysis_nona$jv_est_2019_bin[procjv_analysis_nona$jv_est_2019_factor == "Algunas veces se justifica"] <- 1
-procjv_analysis_nona$jv_est_2019_bin[procjv_analysis_nona$jv_est_2019_factor == "Muchas veces se justifica"] <- 1
-procjv_analysis_nona$jv_est_2019_bin[procjv_analysis_nona$jv_est_2019_factor == "Siempre se justifica"] <- 1
-
-# Estudiantes tiren piedras
-
-jv_est_2019.modelmulpub5<- glm(jv_est_2019_bin ~ 
-                                 sj_ceo_rec + 
-                                 sj_obrero_rec + 
-                                 sj_entrevistado_rec + 
-                                 ingreso + 
-                                 sexo_factor + 
-                                 ingreso_satisfact_factor + 
-                                 educ_rec_factor + 
-                                 indigena_rec_factor + 
-                                 sdo_indice + 
-                                 rwa_indice + 
-                                 trato_salud_factor + 
-                                 trato_carab_factor + 
-                                 sexo_factor*sj_ceo_rec + 
-                                 ingreso_satisfact_factor*sj_ceo_rec, 
-                               family = "binomial",
-                               data = procjv_analysis_nona)
-
-plot_model(jv_est_2019.modelmulpub5, 
-           transform = NULL,
-           title = "Binario: Justificación Estudiantes Tiren Piedras", 
-           vline.color = "gray", 
-           show.values = TRUE, 
-           value.offset = .3, 
-           terms = c(
-             "sj_ceo_rec", 
-             "sj_obrero_rec", 
-             "sj_entrevistado_rec",
-             "sexo_factorMujer",
-             "ingreso_satisfact_factorTotalmente insatisfecho", 
-             "sj_ceo_rec:sexo_factorMujer",
-             "sj_ceo_rec:ingreso_satisfact_factorTotalmente insatisfecho")
-           
-,axis.labels =
-c("J Gerente x Sat. Ing.: Tot. Insatis",
-  "J Gerente x Sexo: Mujer",
-  "Sat. Ing.: Tot. Insatis.",
-  "Sexo: Mujer",
-  "J Entrevistado",
-  "J Obrero",
-  "J Gerente")
-) + theme_bw()
-            
-```
-]
-
-.center[<font size="2"> Modelo 5 (incluye controles e interacciones). 0.05 = \*; 0.01 = \*\*; 0.001 = \*\*\*</font>]
-
----
-
-.pull-left[
-```{r}  
-
-# Cargar paquetes necesarios
-pacman::p_load(ordinal,
-               sjPlot,
-               ggplot2)
-
-# Cargar datos necesarios
-load(url("https://github.com/thesis-justification-of-violence/thesis-analysis/raw/main/input/data/procjv_analysis_nona.RData"))
-
-# Estudiantes tiren piedras
-
-
-jv_carab2_2019.modelmulpub5<- clm(jv_carab2_2019_factor ~ 
-                                    sj_ceo_rec + 
-                                    sj_obrero_rec + 
-                                    sj_entrevistado_rec + 
-                                    ingreso +
-                                    sexo_factor + 
-                                    ingreso_satisfact_factor +
-                                    educ_rec_factor + 
-                                    indigena_rec_factor + 
-                                    sdo_indice + 
-                                    rwa_indice +
-                                    trato_salud_factor + 
-                                    trato_carab_factor + 
-                                    ingreso*sj_obrero_rec + 
-                                    ingreso_satisfact_factor*sj_obrero_rec,
-                                  data = procjv_analysis_nona)
-
-plot_model(jv_carab2_2019.modelmulpub5, 
-           transform = NULL,
-           title = "Ordinal: Justificación Carabineros Desalojen Tomas", 
-           vline.color = "gray", 
-           show.values = TRUE, 
-           value.offset = .3, 
-           terms = c(
-             "sj_ceo_rec", 
-             "sj_obrero_rec", 
-             "sj_entrevistado_rec",
-             "ingreso",
-             "sj_obrero_rec:ingreso"
-             )
-           
-,axis.labels =
-c(
-  "J Obrero x Ingresos",
-  "Ingresos",
-  "J Entrevistado",
-  "J Obrero",
-  "J Gerente"
-  )
-) + theme_bw()
-            
-```
-]
-
-
-.pull-right[
-```{r}  
-
-# Cargar paquetes necesarios
-pacman::p_load(ordinal,
-               sjPlot,
-               ggplot2)
-
-# Cargar datos necesarios
-load(url("https://github.com/thesis-justification-of-violence/thesis-analysis/raw/main/input/data/procjv_analysis_nona.RData"))
-
-# Recode
-procjv_analysis_nona$jv_carab2_2019_bin[procjv_analysis_nona$jv_carab2_2019_factor == "Nunca se justifica"] <- 0
-procjv_analysis_nona$jv_carab2_2019_bin[procjv_analysis_nona$jv_carab2_2019_factor == "Pocas veces se justifica"] <- 1
-procjv_analysis_nona$jv_carab2_2019_bin[procjv_analysis_nona$jv_carab2_2019_factor == "Algunas veces se justifica"] <- 1
-procjv_analysis_nona$jv_carab2_2019_bin[procjv_analysis_nona$jv_carab2_2019_factor == "Muchas veces se justifica"] <- 1
-procjv_analysis_nona$jv_carab2_2019_bin[procjv_analysis_nona$jv_carab2_2019_factor == "Siempre se justifica"] <- 1
-
-# Estudiantes tiren piedras
-
-jv_carab2_2019.modelmulpub5<- glm(jv_carab2_2019_bin ~ 
-                                    sj_ceo_rec + 
-                                    sj_obrero_rec + 
-                                    sj_entrevistado_rec + 
-                                    ingreso +
-                                    sexo_factor + 
-                                    ingreso_satisfact_factor +
-                                    educ_rec_factor + 
-                                    indigena_rec_factor + 
-                                    sdo_indice + 
-                                    rwa_indice +
-                                    trato_salud_factor + 
-                                    trato_carab_factor + 
-                                    ingreso*sj_obrero_rec + 
-                                    ingreso_satisfact_factor*sj_obrero_rec,
-                                  family = "binomial",
-                                  data = procjv_analysis_nona)
-
-plot_model(jv_carab2_2019.modelmulpub5, 
-           transform = NULL,
-           title = "Binario: Justificación Carabineros Desalojen Tomas", 
-           vline.color = "gray", 
-           show.values = TRUE, 
-           value.offset = .3, 
-           terms = c(
-             "sj_ceo_rec", 
-             "sj_obrero_rec", 
-             "sj_entrevistado_rec",
-             "ingreso",
-             "sj_obrero_rec:ingreso"
-             )
-           
-,axis.labels =
-c(
-  "J Obrero x Ingresos",
-  "Ingresos",
-  "J Entrevistado",
-  "J Obrero",
-  "J Gerente"
-  )
-) + theme_bw()
-            
-```
-]
-
-.center[<font size="2"> Modelo 5 (incluye controles e interacciones). 0.05 = \*; 0.01 = \*\*; 0.001 = \*\*\*</font>]
-
----
-# [Comentario]()
-### Ingresos con β = 0 y SE = 0
-
-# [Respuesta]()
-
-- **Unidad de medida pequeña** → por cada peso... 
-  
-- **Re-escalamiento de la variable** →  salarios mínimos al 2019 (300.000 pesos)
-
-- **Coeficientes más informativos** → Ej. JV Desalojo (Modelo 2): *β = 0,08; p < 0,05*
-
----
-# [Comentario]()
-### Parsimonia de los análisis
-
-# [Respuesta]()
-
-- **¿Con o sin interacciones?** → parsimonia o complejidad  
-
-- **Test de Verosimilitud** → M4 (sin interacciones) v/s M5 (con interacciones) (ordinal y binario)
-
-  - JV Piedras: M5 ofrece mejor ajuste que M4 (*p < 0.05*)
-  
-  - JV Desalojo: M5 no ofrece mejor ajuste que M4 (*p > 0.05*)  
-  
----
-class: roja, middle
-
-# <span style="color:white"> Conclusiones post-comentarios </span>
-
---
-
-**<font size="6"><span style="color:black"> 1. Datos complejos, difícil relación teoría-empiria </span></font>**
-
---
-
-**<font size="6"><span style="color:black"> 2. Evidencia para sostener efectos directos (replicación con logit binario) </span></font>**
-
---
-
-**<font size="6"><span style="color:black"> 3. Menos evidencia para sostener efectos de moderación </span></font>**
-
----
-class: slideInRight, middle, inverse, center
-
-# ¡Muchas Gracias!
----
 
 class: slideInRight, middle, inverse
 
@@ -858,6 +616,10 @@ class: slideInRight, middle, inverse
 - Törnblom, K. Y., & Vermunt, R. (2007). Distributive and Procedural Justice. Ashgate
 - Tyler, T. R., & Blader, S. L. (2003). The Group Engagement Model: Procedural Justice, Social Identity, and Cooperative Behavior.
 ---
+class: slideInRight, middle, inverse, center
+
+# ¡Muchas Gracias!
+---
 class: slideInRight, middle, inverse
 
 ***
@@ -866,7 +628,6 @@ class: slideInRight, middle, inverse
 
 ### .medium[Planteamiento]
 ### .medium[Gráficos y Análisis]
-### .medium[Otros Comentarios]
 
 ---
 class: slideInRight, middle, inverse
@@ -877,59 +638,6 @@ class: slideInRight, middle, inverse
 
 ### [**Planteamiento**]()
 ### .medium[Gráficos y Análisis]
-### .medium[Otros Comentarios]
-
----
-# Evolución Justificación de la Violencia
-
-.center[
-```{r justintro, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Justificación de la Violencia de Carabineros y Manifestantes por año"}
-pacman::p_load(tidyverse,sjPlot, sjmisc, sjlabelled, elsoc, ggplot2, ggrepel, ordinal) # librerias
-knitr::opts_chunk$set(warning = FALSE,  # mensaje de warning
-                      message = FALSE,  # mensajes/avisos de librerias  
-                      cache = FALSE,    # cache de los chunks,usar analisis pesados
-                      # out.width = '50%',# largo de imagen en %
-                      fig.pos= "H",     # posicion figuras H = HERE
-                      echo = FALSE      # incluir chunk en output
-)
-elsoc::load_elsoc('long')
-elsoc_long_2016_2021 <-elsoc_long_2016_2021[!(elsoc_long_2016_2021$ola == 5),]
-elsoc_long_2016_2021 %>% 
-  filter(tipo_atricion == 1 & muestra == 1 & 
-           !f05_03 %in% c(-888, -999) & !f05_04 %in% c(-888, -999) & !f05_07 %in% c(-888, -999)) %>% 
-  dplyr::select(f05_03, f05_04, f05_07, ola, ponderador02, segmento_disenno, estrato_disenno) %>% 
-  pivot_longer(cols = c(f05_03, f05_04, f05_07)) %>% 
-  prop(value %in% 4:5, by = c(ola, name), na.rm = TRUE) %>% 
-  mutate(name = factor(name,
-                       levels = c('f05_03', 'f05_04', 'f05_07'),
-                       labels = c('Carabineros use la fuerza para\n reprimir manifestación pacífica',
-                                  'Carabineros desaloje a la fuerza\na estudiantes de liceo en toma',
-                                  'Estudiantes tiren piedras a Carabi-\nneros en marcha por la educación'))) %>%
-  sjlabelled::as_label(ola) %>% 
-  ggplot(aes(y = prop, x = ola, color = name, group = name,
-             label = scales::percent(prop, accuracy = .1))) +
-  theme_bw() + 
-  geom_point(size = 1.75) + 
-  geom_line() +
-  scale_y_continuous(labels = scales::percent,
-                     limits = c(0, .5)) +
-  ylab(label = NULL) +
-  xlab(label = NULL) +
-  scale_color_viridis_d(begin = 0, end = .7, option = 'viridis') + 
-  ggrepel::geom_text_repel(size = 3, nudge_y = .02) +
-  theme(plot.caption = element_text(hjust = 0),
-        legend.position = 'top',
-        legend.title = element_blank()) +
-  
-    scale_x_continuous(breaks = c(1,2,3,4), labels=c("2016", 
-                            "2017", 
-                            "2018", 
-                            "2019")) +
-  ggtitle(NULL,
-        subtitle = 'Porcentaje que responde que Muchas veces o Siempre se justifica' ) +
-  labs(caption = 'Fuente: COES (2022) Radiografía del Cambio Social: Análisis de Resultados Longitudinales ELSOC 2016-2021. Presentación de Resultados COES. Enero, Santiago de Chile.\nNota: Se consideran observaciones de individuos sin atrición entre olas. N=7.507 (1.513 individuos)')
-```
-]
 
 ---
 
@@ -1008,7 +716,6 @@ class: slideInRight, middle, inverse
 
 ### .medium[Planteamiento]
 ### [**Gráficos y Análisis**]()
-### .medium[Otros Comentarios]
 
 ---
 
@@ -2283,45 +1990,6 @@ class: slideInRight, middle, inverse
 
 ### .medium[Planteamiento]
 ### .medium[Gráficos y Análisis]
-### [**Otros Comentarios**]()
-
-
----
-# Otros Comentarios
-
-> ..se define la violencia para el control social en función de mantener las jerarquías de poder en la sociedad o mantener la dominancia de un grupo sobre otro, **pero me queda la duda de si eso incluye otra forma de violencia para el control social que no tiene por finalidad directa mantener el orden social (de hecho, a veces lo modifica), sino que tiene por función controlar o generar monopolio sobre el ejercicio de la violencia**. Eso podría verse como ejercicio de dominancia de un grupo sobre otro, pero no para mantener esa dominancia, sino para establecerla o aumentarla ¿Sería esa violencia para el cambio social o para el orden social? 
-
-
-.large[**R:** Definición de doble criterio. Amerita más desarrollo teórico.]
-
----
-# Otros Comentarios
-
-> ...se señala que la evidencia muestra que las personas de derecha tienden a justificar más la violencia policial y las de izquierda la violencia por el cambio. No dudo de ese resultado en muchas sociedades, incluida la chilena, pero **me pregunto si esa relación mantiene el signo en otro tipo de sociedades, como por ejemplo las antiguas repúblicas comunistas de antes del fin de la guerra fría**. En otras palabras, creo que se debe reflexionar respecto de la generalizabilidad de un resultados
-
-.large[**R:** Hallazgo dependiente del contexto _¿cuáles son esas jerarquías de poder? ¿quiénes se sienten representados por estas?_]
----
-# Otros Comentarios
-
-> ...se señala que la transición a la democracia se caracterizó por **“un alza abrupta en los niveles de desigualdad socioeconómica” del país… ¿qué evidencia se tiene de ello?** Puede que exista algo así tomando el 1% de los ingresos, pero las estadísticas más habituales, legitimadas y comparativas a nivel internacional (por ejemplo el índice Gini) no muestran ese abrupto aumento. Me gustaría mucho conocer esa evidencia.
-
-.large[**R:**]
-
-.large[
-
-- Imprecisión en la expresión. No es una alza abrupta, de hecho es una fluctuación/baja, pero que se caracteriza por la concentración de ingresos en el 1%.
-- De todos modos, percepción aumenta (PNUD, 2017)
-]
----
-# Otros Comentarios
-
-> A veces **se recurre a fenómenos contextuales (situación chilena) para explicar algún resultado** (por ejemplo, segundo párrafo de la página 87), lo que puede ser correcto y fácil de argumentar, pero tiene el riesgo que le quita generalizabilidad de los resultados, pues tácitamente implica que lo encontrado se explica por la situación local y no tendría por qué esperarse algo así en otros contextos históricos o societales. 
-
-.large[**R:**]
-.large[
-- Pag 87: Limitantes en indicadores, no ajustados a conflictos particulares
-- Proyección del estudio _¿es un efecto del estallido social?_
-]
 
 ---
 # Links
