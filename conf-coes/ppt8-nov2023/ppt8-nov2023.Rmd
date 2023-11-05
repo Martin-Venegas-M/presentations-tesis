@@ -86,7 +86,9 @@ background-size: cover
 # **<span style="color:white"> Contexto: estallido social </span>**
 
 ---
-.pull-left[.large[<span style="color:red"> **Aumento en en las justificaciones de violencia** </span>]]
+class: middle, center
+
+.center[.pull-left[.large[<span style="color:red"> **Aumento en en las justificaciones de violencia como protesta y disminución de las justificaciones de violencia como represión** </span>]]]
 
 .pull-right[
 ```{r justinto, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Justificación de la Violencia de Carabineros y Manifestantes por año"}
