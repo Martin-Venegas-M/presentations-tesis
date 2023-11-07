@@ -17,5 +17,7 @@ navbar:
     href: seminario-titulo2/ppt6-sept2022/ppt6-sept2022.html
   - text: "Examen Titulo (Nov. 2022)"
     href: examen-titulo/ppt7-nov2022/ppt7-nov2022.html
+  - text: "Conferencia COES (Nov. 2023)"
+    href: conf-coes/ppt8-nov2023/ppt8-nov2023.html
   html_document:
     theme: yeti # yeti  spacelab simplex sandstone cosmo cerulean paper darkly flatly lumen readable
