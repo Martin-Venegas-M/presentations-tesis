@@ -46,18 +46,6 @@ class: inverse
 .medium[Noviembre, 2023]
 
 ---
-class: slideInRight, middle, inverse
-
-***
-# Contenidos
-***
-
-- **Problematización**
-
-- **Método y Resultados**
-
-- **Discusión y Conclusiones**
----
 
 class: slideInRight, middle, inverse
 
@@ -295,118 +283,11 @@ Siendo $J_{i}$ la evaluación de justicia $J$ para un individuo ${i}$ → A mayo
 - $J_{gerente}$  
 
 ---
-
-# Controles
-
-.pull-left[**Pertenencia a grupos desaventajados**  
-Sexo (Mujer)  
-Ingresos (Bajos Ingresos)  
-Nivel educacional (Bajo Nivel)
-Pertenencia a Pueblo Originario (Mapuche)  
-]
-
-.pull-right[
-**Ideología**  
-
-Indice RWA (Autoritarismo)  
-Indice SDO (Dominancia Social)  
-
-]
-
-.pull-right[**Percepción de Trato Justo**
-
-¿Con cuánta frecuencia cree usted que personas [grupo o clase del entrevistado] son tratadas con respeto?...
-
-_En los servicios de salud._   
-_Por carabineros._   
-
-]
---
-
----
 class: slideInRight, middle, inverse
 
 ***
 # Resultados
 ***
----
-# Frecuencias Justificación de la Violencia
-
-.center[
-
-```{r pjv, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Frecuencias de Justificación de la Violencia", fig.width=10}
-
-load(url("https://github.com/thesis-justification-of-violence/thesis-analysis/raw/main/input/data/procjv_analysis_nona.RData"))
-
-load(url("https://github.com/thesis-justification-of-violence/thesis-analysis/raw/main/input/data/procjv_nums_nona.RData"))
-
-if (!require("pacman")) install.packages("pacman")  #si falta pacman, instalar
-if (!require("tinytex")) install.packages("tinytex")#si falta tinytex, instalar
-pacman::p_load(knitr, kableExtra, dplyr, lavaan, sjPlot, ordinal, sjmisc, sjlabelled, ggrepel, readxl, MASS, brant) # librerias
-knitr::opts_chunk$set(warning = FALSE,  # mensaje de warning
-                      message = FALSE,  # mensajes/avisos de librerias  
-                      cache = FALSE,    # cache de los chunks,usar analisis pesados
-                      # out.width = '50%',# largo de imagen en %
-                      fig.pos= "H",     # posicion figuras H = HERE
-                      echo = FALSE      # incluir chunk en output
-)
-
-# Otras configuraciones
-options(scipen=999) # notacion cientifica
-options(knitr.kable.NA = '') # NA en kable = ''
-
-  # update.packages("sjPlot") # please install version 2.8.9 or above
-  ggplot2::theme_set(ggplot2::theme(panel.background = ggplot2::element_rect(fill = "gray85",
-                                                                             colour = "gray85"),
-                                    panel.border = ggplot2::element_blank(),
-                                    axis.text.y = ggplot2::element_text(size = 11,
-                                                                        hjust = 1),
-                                    title = ggplot2::element_text(size = 11,
-                                                                  face = "bold"),
-                                    legend.text = ggplot2::element_text(size = 10),
-                                    plot.caption = ggplot2::element_text(size = 9,
-                                                                         face = "plain",
-                                                                         hjust = 1)))
-  #Plot : Perception of meritocracy student and family
-  
-  data_plot <- dplyr::select(procjv_nums_nona, 
-                      jv_est_2019,
-                      jv_carab1_2019,
-                      jv_carab2_2019)
-  
-  data_plot$jv_est_2019 <- factor(data_plot$jv_est_2019, levels = c(5,4,3,2,1), labels = c("Siempre", "Muchas veces", "Algunas veces", "Pocas veces", "Nunca"))
-  data_plot$jv_est_2019 <- set_label(data_plot$jv_est_2019, label = "JV: Piedras")
-
-  data_plot$jv_carab1_2019 <- factor(data_plot$jv_carab1_2019, levels = c(5,4,3,2,1), labels = c("Siempre", "Muchas veces", "Algunas veces", "Pocas veces", "Nunca"))
-  data_plot$jv_carab1_2019 <- set_label(data_plot$jv_carab1_2019, label = "JV: Represion")
-  
-  data_plot$jv_carab2_2019 <- factor(data_plot$jv_carab2_2019, levels = c(5,4,3,2,1), labels = c("Siempre", "Muchas veces", "Algunas veces", "Pocas veces", "Nunca"))
-  data_plot$jv_carab2_2019 <- set_label(data_plot$jv_carab2_2019, label = "JV: Desalojo")
-  
-  pjv<-
-    data_plot%>%
-    dplyr::select(jv_est_2019,
-           jv_carab1_2019,
-           jv_carab2_2019) %>%
-    sjPlot::plot_likert(geom.colors = "PuBu",
-                        geom.size = 0.8,
-                        catcount = 5,
-                        # axis.labels = c("JV: Estudiantes lancen piedras","JV: Carabineros repriman marchas ","JV: Carabineros desalojen tomas"),
-                        # legend.labels = c("Nunca","Pocas veces","Algunas veces","Muchas veces","Siempre"),
-                        # grid.range  =  c(1.2 , 1.2),
-                        values  =  "sum.outside",
-                        reverse.colors = F,
-                        reverse.scale = F,
-                        show.n = FALSE) +
-    # guides(colour = guide_legend(reverse = TRUE))
-    theme(legend.position="bottom") +
-    labs(caption =
-           paste0("Fuente: Elaboración propia  a partir de ELSOC 2019"," (n=",dim(na.omit(procjv_analysis_nona))[1],")")) + guides(colour = guide_legend(reverse = TRUE)) + theme_bw()
-  
-  sjPlot::plot_grid(list(pjv),tags = c("",""))
-```
-
-]
 
 ---
 # Resultados: Efectos Directos
@@ -516,11 +397,8 @@ class: slideInRight, middle, inverse
 - ¿Elección de indicadores o efecto real? 
 
 --
-  - _Satisfacción con los ingresos_ → Variable subjetiva que puede no representar el concepto
-  
-  - _Sexo_ → Según literatura, mujeres justifican menos la violencia independiente del fin
-  
-  - _Ingresos_ → Complejidades que escapan a la hipótesis (e.g. relación actores-contexto)
+
+- _**Ejemplo:**_ _Satisfacción con los ingresos_ → Variable subjetiva que puede no representar el concepto
   
 
 ---
@@ -687,6 +565,114 @@ class: slideInRight, middle, inverse
 
 ---
 
+# Controles
+
+.pull-left[**Pertenencia a grupos desaventajados**  
+Sexo (Mujer)  
+Ingresos (Bajos Ingresos)  
+Nivel educacional (Bajo Nivel)
+Pertenencia a Pueblo Originario (Mapuche)  
+]
+
+.pull-right[
+**Ideología**  
+
+Indice RWA (Autoritarismo)  
+Indice SDO (Dominancia Social)  
+
+]
+
+.pull-right[**Percepción de Trato Justo**
+
+¿Con cuánta frecuencia cree usted que personas [grupo o clase del entrevistado] son tratadas con respeto?...
+
+_En los servicios de salud._   
+_Por carabineros._   
+
+]
+--
+
+---
+
+# Frecuencias Justificación de la Violencia
+
+.center[
+
+```{r pjv, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Frecuencias de Justificación de la Violencia", fig.width=10}
+
+load(url("https://github.com/thesis-justification-of-violence/thesis-analysis/raw/main/input/data/procjv_analysis_nona.RData"))
+
+load(url("https://github.com/thesis-justification-of-violence/thesis-analysis/raw/main/input/data/procjv_nums_nona.RData"))
+
+if (!require("pacman")) install.packages("pacman")  #si falta pacman, instalar
+if (!require("tinytex")) install.packages("tinytex")#si falta tinytex, instalar
+pacman::p_load(knitr, kableExtra, dplyr, lavaan, sjPlot, ordinal, sjmisc, sjlabelled, ggrepel, readxl, MASS, brant) # librerias
+knitr::opts_chunk$set(warning = FALSE,  # mensaje de warning
+                      message = FALSE,  # mensajes/avisos de librerias  
+                      cache = FALSE,    # cache de los chunks,usar analisis pesados
+                      # out.width = '50%',# largo de imagen en %
+                      fig.pos= "H",     # posicion figuras H = HERE
+                      echo = FALSE      # incluir chunk en output
+)
+
+# Otras configuraciones
+options(scipen=999) # notacion cientifica
+options(knitr.kable.NA = '') # NA en kable = ''
+
+  # update.packages("sjPlot") # please install version 2.8.9 or above
+  ggplot2::theme_set(ggplot2::theme(panel.background = ggplot2::element_rect(fill = "gray85",
+                                                                             colour = "gray85"),
+                                    panel.border = ggplot2::element_blank(),
+                                    axis.text.y = ggplot2::element_text(size = 11,
+                                                                        hjust = 1),
+                                    title = ggplot2::element_text(size = 11,
+                                                                  face = "bold"),
+                                    legend.text = ggplot2::element_text(size = 10),
+                                    plot.caption = ggplot2::element_text(size = 9,
+                                                                         face = "plain",
+                                                                         hjust = 1)))
+  #Plot : Perception of meritocracy student and family
+  
+  data_plot <- dplyr::select(procjv_nums_nona, 
+                      jv_est_2019,
+                      jv_carab1_2019,
+                      jv_carab2_2019)
+  
+  data_plot$jv_est_2019 <- factor(data_plot$jv_est_2019, levels = c(5,4,3,2,1), labels = c("Siempre", "Muchas veces", "Algunas veces", "Pocas veces", "Nunca"))
+  data_plot$jv_est_2019 <- set_label(data_plot$jv_est_2019, label = "JV: Piedras")
+
+  data_plot$jv_carab1_2019 <- factor(data_plot$jv_carab1_2019, levels = c(5,4,3,2,1), labels = c("Siempre", "Muchas veces", "Algunas veces", "Pocas veces", "Nunca"))
+  data_plot$jv_carab1_2019 <- set_label(data_plot$jv_carab1_2019, label = "JV: Represion")
+  
+  data_plot$jv_carab2_2019 <- factor(data_plot$jv_carab2_2019, levels = c(5,4,3,2,1), labels = c("Siempre", "Muchas veces", "Algunas veces", "Pocas veces", "Nunca"))
+  data_plot$jv_carab2_2019 <- set_label(data_plot$jv_carab2_2019, label = "JV: Desalojo")
+  
+  pjv<-
+    data_plot%>%
+    dplyr::select(jv_est_2019,
+           jv_carab1_2019,
+           jv_carab2_2019) %>%
+    sjPlot::plot_likert(geom.colors = "PuBu",
+                        geom.size = 0.8,
+                        catcount = 5,
+                        # axis.labels = c("JV: Estudiantes lancen piedras","JV: Carabineros repriman marchas ","JV: Carabineros desalojen tomas"),
+                        # legend.labels = c("Nunca","Pocas veces","Algunas veces","Muchas veces","Siempre"),
+                        # grid.range  =  c(1.2 , 1.2),
+                        values  =  "sum.outside",
+                        reverse.colors = F,
+                        reverse.scale = F,
+                        show.n = FALSE) +
+    # guides(colour = guide_legend(reverse = TRUE))
+    theme(legend.position="bottom") +
+    labs(caption =
+           paste0("Fuente: Elaboración propia  a partir de ELSOC 2019"," (n=",dim(na.omit(procjv_analysis_nona))[1],")")) + guides(colour = guide_legend(reverse = TRUE)) + theme_bw()
+  
+  sjPlot::plot_grid(list(pjv),tags = c("",""))
+```
+
+]
+
+---
 # Descriptivos: Sentido Injusticia
 
 ```{r den-sj, echo=FALSE, fig.cap="Distribución del sentido de injusticia", fig.width=10}
